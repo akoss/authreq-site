@@ -217,3 +217,294 @@ Stack trace:
 #9 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
 #10 /Users/harfox/uni/l5project/yiiplayground/index.php(11): CWebApplication->run()
 REQUEST_URI=/yiiplayground/index.php
+2018/02/05 02:37:52 [error] [php] include(Db.php): failed to open stream: No such file or directory (/Users/harfox/uni/l5project/yii/framework/YiiBase.php:432)
+Stack trace:
+#0 /Users/harfox/uni/l5project/authreq-site/protected/components/UserIdentity.php(16): spl_autoload_call()
+#1 /Users/harfox/uni/l5project/authreq-site/protected/components/UserIdentity.php(48): UserIdentity->sendPush()
+#2 /Users/harfox/uni/l5project/authreq-site/protected/models/LoginForm.php(52): UserIdentity->authenticate()
+#3 /Users/harfox/uni/l5project/yii/framework/validators/CInlineValidator.php(42): LoginForm->authenticate()
+#4 /Users/harfox/uni/l5project/yii/framework/validators/CValidator.php(201): CInlineValidator->validateAttribute()
+#5 /Users/harfox/uni/l5project/yii/framework/base/CModel.php(159): CInlineValidator->validate()
+#6 /Users/harfox/uni/l5project/authreq-site/protected/controllers/SiteController.php(82): LoginForm->validate()
+#7 /Users/harfox/uni/l5project/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionLogin()
+#8 /Users/harfox/uni/l5project/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#9 /Users/harfox/uni/l5project/yii/framework/web/CController.php(286): SiteController->runAction()
+#10 /Users/harfox/uni/l5project/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#11 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#12 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#13 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#14 /Users/harfox/uni/l5project/authreq-site/index.php(13): CWebApplication->run()
+REQUEST_URI=/authreq-site/index.php
+2018/02/05 02:38:17 [error] [php] parse_ini_file(./config.ini): failed to open stream: No such file or directory (/Users/harfox/uni/l5project/authreq-site/vendors/authreq-sdk/Db.php:15)
+Stack trace:
+#0 /Users/harfox/uni/l5project/authreq-site/vendors/authreq-sdk/SignatureRequest.php(145): Db->quote()
+#1 /Users/harfox/uni/l5project/authreq-site/vendors/authreq-sdk/SignatureRequest.php(201): DatabaseSignatureRequest->save()
+#2 /Users/harfox/uni/l5project/authreq-site/protected/components/UserIdentity.php(28): DatabaseSignatureRequest->setupWith()
+#3 /Users/harfox/uni/l5project/authreq-site/protected/components/UserIdentity.php(48): UserIdentity->sendPush()
+#4 /Users/harfox/uni/l5project/authreq-site/protected/models/LoginForm.php(52): UserIdentity->authenticate()
+#5 /Users/harfox/uni/l5project/yii/framework/validators/CInlineValidator.php(42): LoginForm->authenticate()
+#6 /Users/harfox/uni/l5project/yii/framework/validators/CValidator.php(201): CInlineValidator->validateAttribute()
+#7 /Users/harfox/uni/l5project/yii/framework/base/CModel.php(159): CInlineValidator->validate()
+#8 /Users/harfox/uni/l5project/authreq-site/protected/controllers/SiteController.php(82): LoginForm->validate()
+#9 /Users/harfox/uni/l5project/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionLogin()
+#10 /Users/harfox/uni/l5project/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#11 /Users/harfox/uni/l5project/yii/framework/web/CController.php(286): SiteController->runAction()
+#12 /Users/harfox/uni/l5project/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#13 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#14 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#15 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#16 /Users/harfox/uni/l5project/authreq-site/index.php(13): CWebApplication->run()
+REQUEST_URI=/authreq-site/index.php
+2018/02/05 02:41:40 [error] [php] parse_ini_file(./config.ini): failed to open stream: No such file or directory (/Users/harfox/uni/l5project/authreq-site/vendors/authreq-sdk/Db.php:26)
+Stack trace:
+#0 /Users/harfox/uni/l5project/authreq-site/vendors/authreq-sdk/SignatureRequest.php(145): Db->quote()
+#1 /Users/harfox/uni/l5project/authreq-site/vendors/authreq-sdk/SignatureRequest.php(201): DatabaseSignatureRequest->save()
+#2 /Users/harfox/uni/l5project/authreq-site/protected/components/UserIdentity.php(28): DatabaseSignatureRequest->setupWith()
+#3 /Users/harfox/uni/l5project/authreq-site/protected/components/UserIdentity.php(48): UserIdentity->sendPush()
+#4 /Users/harfox/uni/l5project/authreq-site/protected/models/LoginForm.php(52): UserIdentity->authenticate()
+#5 /Users/harfox/uni/l5project/yii/framework/validators/CInlineValidator.php(42): LoginForm->authenticate()
+#6 /Users/harfox/uni/l5project/yii/framework/validators/CValidator.php(201): CInlineValidator->validateAttribute()
+#7 /Users/harfox/uni/l5project/yii/framework/base/CModel.php(159): CInlineValidator->validate()
+#8 /Users/harfox/uni/l5project/authreq-site/protected/controllers/SiteController.php(82): LoginForm->validate()
+#9 /Users/harfox/uni/l5project/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionLogin()
+#10 /Users/harfox/uni/l5project/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#11 /Users/harfox/uni/l5project/yii/framework/web/CController.php(286): SiteController->runAction()
+#12 /Users/harfox/uni/l5project/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#13 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#14 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#15 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#16 /Users/harfox/uni/l5project/authreq-site/index.php(13): CWebApplication->run()
+REQUEST_URI=/authreq-site/index.php
+2018/02/05 02:42:48 [error] [exception.Exception] exception 'Exception' with message 'asdf' in /Users/harfox/uni/l5project/authreq-site/protected/components/UserIdentity.php:49
+Stack trace:
+#0 /Users/harfox/uni/l5project/authreq-site/protected/models/LoginForm.php(52): UserIdentity->authenticate()
+#1 /Users/harfox/uni/l5project/yii/framework/validators/CInlineValidator.php(42): LoginForm->authenticate('password', Array)
+#2 /Users/harfox/uni/l5project/yii/framework/validators/CValidator.php(201): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#3 /Users/harfox/uni/l5project/yii/framework/base/CModel.php(159): CValidator->validate(Object(LoginForm), NULL)
+#4 /Users/harfox/uni/l5project/authreq-site/protected/controllers/SiteController.php(82): CModel->validate()
+#5 /Users/harfox/uni/l5project/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionLogin()
+#6 /Users/harfox/uni/l5project/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#7 /Users/harfox/uni/l5project/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#8 /Users/harfox/uni/l5project/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): CController->run('login')
+#10 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#11 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#12 /Users/harfox/uni/l5project/authreq-site/index.php(13): CApplication->run()
+#13 {main}
+REQUEST_URI=/authreq-site/index.php
+HTTP_REFERER=http://localhost:8080/authreq-site/index.php
+---
+2018/02/05 02:43:34 [error] [exception.Exception] exception 'Exception' with message 'Not saved' in /Users/harfox/uni/l5project/authreq-site/protected/components/UserIdentity.php:31
+Stack trace:
+#0 /Users/harfox/uni/l5project/authreq-site/protected/components/UserIdentity.php(56): UserIdentity->sendPush(Object(User))
+#1 /Users/harfox/uni/l5project/authreq-site/protected/models/LoginForm.php(52): UserIdentity->authenticate()
+#2 /Users/harfox/uni/l5project/yii/framework/validators/CInlineValidator.php(42): LoginForm->authenticate('password', Array)
+#3 /Users/harfox/uni/l5project/yii/framework/validators/CValidator.php(201): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#4 /Users/harfox/uni/l5project/yii/framework/base/CModel.php(159): CValidator->validate(Object(LoginForm), NULL)
+#5 /Users/harfox/uni/l5project/authreq-site/protected/controllers/SiteController.php(82): CModel->validate()
+#6 /Users/harfox/uni/l5project/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionLogin()
+#7 /Users/harfox/uni/l5project/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#8 /Users/harfox/uni/l5project/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#9 /Users/harfox/uni/l5project/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): CController->run('login')
+#11 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#12 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#13 /Users/harfox/uni/l5project/authreq-site/index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/authreq-site/index.php
+HTTP_REFERER=http://localhost:8080/authreq-site/index.php
+---
+2018/02/05 02:43:45 [error] [exception.Exception] exception 'Exception' with message 'Not saved' in /Users/harfox/uni/l5project/authreq-site/protected/components/UserIdentity.php:31
+Stack trace:
+#0 /Users/harfox/uni/l5project/authreq-site/protected/components/UserIdentity.php(56): UserIdentity->sendPush(Object(User))
+#1 /Users/harfox/uni/l5project/authreq-site/protected/models/LoginForm.php(52): UserIdentity->authenticate()
+#2 /Users/harfox/uni/l5project/yii/framework/validators/CInlineValidator.php(42): LoginForm->authenticate('password', Array)
+#3 /Users/harfox/uni/l5project/yii/framework/validators/CValidator.php(201): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#4 /Users/harfox/uni/l5project/yii/framework/base/CModel.php(159): CValidator->validate(Object(LoginForm), NULL)
+#5 /Users/harfox/uni/l5project/authreq-site/protected/controllers/SiteController.php(82): CModel->validate()
+#6 /Users/harfox/uni/l5project/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionLogin()
+#7 /Users/harfox/uni/l5project/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#8 /Users/harfox/uni/l5project/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#9 /Users/harfox/uni/l5project/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): CController->run('login')
+#11 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#12 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#13 /Users/harfox/uni/l5project/authreq-site/index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/authreq-site/index.php
+HTTP_REFERER=http://localhost:8080/authreq-site/index.php
+---
+2018/02/05 02:44:05 [error] [exception.ApnsPHP_Exception] exception 'ApnsPHP_Exception' with message 'Unable to read certificate file 'both.pem'' in /Users/harfox/uni/l5project/authreq-site/vendors/authreq-sdk/ApnsPHP/Abstract.php:89
+Stack trace:
+#0 /Users/harfox/uni/l5project/authreq-site/vendors/authreq-sdk/SignatureRequest.php(100): ApnsPHP_Abstract->__construct(1, 'both.pem')
+#1 /Users/harfox/uni/l5project/authreq-site/vendors/authreq-sdk/SignatureRequest.php(223): SignatureRequest->sendPush('5fdc6c24980b489...')
+#2 /Users/harfox/uni/l5project/authreq-site/protected/components/UserIdentity.php(35): DatabaseSignatureRequest->sendPush()
+#3 /Users/harfox/uni/l5project/authreq-site/protected/components/UserIdentity.php(56): UserIdentity->sendPush(Object(User))
+#4 /Users/harfox/uni/l5project/authreq-site/protected/models/LoginForm.php(52): UserIdentity->authenticate()
+#5 /Users/harfox/uni/l5project/yii/framework/validators/CInlineValidator.php(42): LoginForm->authenticate('password', Array)
+#6 /Users/harfox/uni/l5project/yii/framework/validators/CValidator.php(201): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#7 /Users/harfox/uni/l5project/yii/framework/base/CModel.php(159): CValidator->validate(Object(LoginForm), NULL)
+#8 /Users/harfox/uni/l5project/authreq-site/protected/controllers/SiteController.php(82): CModel->validate()
+#9 /Users/harfox/uni/l5project/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionLogin()
+#10 /Users/harfox/uni/l5project/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#11 /Users/harfox/uni/l5project/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#12 /Users/harfox/uni/l5project/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): CController->run('login')
+#14 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#15 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#16 /Users/harfox/uni/l5project/authreq-site/index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/authreq-site/index.php
+HTTP_REFERER=http://localhost:8080/authreq-site/index.php
+---
+2018/02/05 02:45:34 [error] [php] Missing argument 1 for DatabaseSignatureRequest::sendPush(), called in /Users/harfox/uni/l5project/authreq-site/protected/components/UserIdentity.php on line 35 and defined (/Users/harfox/uni/l5project/authreq-site/vendors/authreq-sdk/SignatureRequest.php:213)
+Stack trace:
+#0 /Users/harfox/uni/l5project/authreq-site/protected/models/LoginForm.php(52): UserIdentity->authenticate()
+#1 /Users/harfox/uni/l5project/yii/framework/validators/CInlineValidator.php(42): LoginForm->authenticate()
+#2 /Users/harfox/uni/l5project/yii/framework/validators/CValidator.php(201): CInlineValidator->validateAttribute()
+#3 /Users/harfox/uni/l5project/yii/framework/base/CModel.php(159): CInlineValidator->validate()
+#4 /Users/harfox/uni/l5project/authreq-site/protected/controllers/SiteController.php(82): LoginForm->validate()
+#5 /Users/harfox/uni/l5project/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionLogin()
+#6 /Users/harfox/uni/l5project/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#7 /Users/harfox/uni/l5project/yii/framework/web/CController.php(286): SiteController->runAction()
+#8 /Users/harfox/uni/l5project/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#9 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#10 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#11 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#12 /Users/harfox/uni/l5project/authreq-site/index.php(13): CWebApplication->run()
+REQUEST_URI=/authreq-site/index.php
+2018/02/05 02:46:01 [error] [exception.ApnsPHP_Exception] exception 'ApnsPHP_Exception' with message 'Unable to read Certificate Authority file 'entrust_root_certification_authority.pem'' in /Users/harfox/uni/l5project/authreq-site/vendors/authreq-sdk/ApnsPHP/Abstract.php:173
+Stack trace:
+#0 /Users/harfox/uni/l5project/authreq-site/vendors/authreq-sdk/SignatureRequest.php(102): ApnsPHP_Abstract->setRootCertificationAuthority('entrust_root_ce...')
+#1 /Users/harfox/uni/l5project/authreq-site/vendors/authreq-sdk/SignatureRequest.php(222): SignatureRequest->sendPush('5fdc6c24980b489...', '/Users/harfox/u...')
+#2 /Users/harfox/uni/l5project/authreq-site/protected/components/UserIdentity.php(35): DatabaseSignatureRequest->sendPush('/Users/harfox/u...')
+#3 /Users/harfox/uni/l5project/authreq-site/protected/components/UserIdentity.php(56): UserIdentity->sendPush(Object(User))
+#4 /Users/harfox/uni/l5project/authreq-site/protected/models/LoginForm.php(52): UserIdentity->authenticate()
+#5 /Users/harfox/uni/l5project/yii/framework/validators/CInlineValidator.php(42): LoginForm->authenticate('password', Array)
+#6 /Users/harfox/uni/l5project/yii/framework/validators/CValidator.php(201): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#7 /Users/harfox/uni/l5project/yii/framework/base/CModel.php(159): CValidator->validate(Object(LoginForm), NULL)
+#8 /Users/harfox/uni/l5project/authreq-site/protected/controllers/SiteController.php(82): CModel->validate()
+#9 /Users/harfox/uni/l5project/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionLogin()
+#10 /Users/harfox/uni/l5project/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#11 /Users/harfox/uni/l5project/yii/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#12 /Users/harfox/uni/l5project/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): CController->run('login')
+#14 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#15 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#16 /Users/harfox/uni/l5project/authreq-site/index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/authreq-site/index.php
+HTTP_REFERER=http://localhost:8080/authreq-site/index.php
+---
+2018/02/05 03:10:04 [error] [php] Undefined variable: isPushPending (/Users/harfox/uni/l5project/authreq-site/protected/views/site/login.php:60)
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/CController.php(872): SiteController->renderFile()
+#1 /Users/harfox/uni/l5project/authreq-site/protected/controllers/SiteController.php(95): SiteController->renderPartial()
+#2 /Users/harfox/uni/l5project/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionLogin()
+#3 /Users/harfox/uni/l5project/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#4 /Users/harfox/uni/l5project/yii/framework/web/CController.php(286): SiteController->runAction()
+#5 /Users/harfox/uni/l5project/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#6 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#7 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#8 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#9 /Users/harfox/uni/l5project/authreq-site/index.php(13): CWebApplication->run()
+REQUEST_URI=/authreq-site/index.php
+2018/02/05 03:15:35 [error] [php] Undefined variable: isPushPending (/Users/harfox/uni/l5project/authreq-site/protected/controllers/SiteController.php:95)
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/CController.php(286): SiteController->runAction()
+#1 /Users/harfox/uni/l5project/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#2 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#3 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#4 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#5 /Users/harfox/uni/l5project/authreq-site/index.php(13): CWebApplication->run()
+REQUEST_URI=/authreq-site/index.php
+2018/02/05 04:15:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "authreqpoll".' in /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('authreqpoll')
+#1 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#2 /Users/harfox/uni/l5project/authreq-site/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/authreq-site/index.php/authreqpoll
+HTTP_REFERER=http://localhost:8080/authreq-site/index.php
+---
+2018/02/05 04:27:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "node_modules".' in /Users/harfox/uni/l5project/yii/framework/web/CController.php:486
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/CController.php(270): CController->missingAction('node_modules')
+#1 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): CController->run('node_modules')
+#2 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/node_modul...')
+#3 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /Users/harfox/uni/l5project/authreq-site/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/authreq-site/index.php/site/node_modules/mdi/css/materialdesignicons.min.css
+HTTP_REFERER=http://localhost:8080/authreq-site/index.php/site/dashboard
+---
+2018/02/05 04:27:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "css".' in /Users/harfox/uni/l5project/yii/framework/web/CController.php:486
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/CController.php(270): CController->missingAction('css')
+#1 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): CController->run('css')
+#2 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/css/style....')
+#3 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /Users/harfox/uni/l5project/authreq-site/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/authreq-site/index.php/site/css/style.css
+HTTP_REFERER=http://localhost:8080/authreq-site/index.php/site/dashboard
+---
+2018/02/05 04:27:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "node_modules".' in /Users/harfox/uni/l5project/yii/framework/web/CController.php:486
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/CController.php(270): CController->missingAction('node_modules')
+#1 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): CController->run('node_modules')
+#2 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/node_modul...')
+#3 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /Users/harfox/uni/l5project/authreq-site/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/authreq-site/index.php/site/node_modules/jquery-bar-rating/dist/themes/css-stars.css
+HTTP_REFERER=http://localhost:8080/authreq-site/index.php/site/dashboard
+---
+2018/02/05 04:27:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "node_modules".' in /Users/harfox/uni/l5project/yii/framework/web/CController.php:486
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/CController.php(270): CController->missingAction('node_modules')
+#1 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): CController->run('node_modules')
+#2 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/node_modul...')
+#3 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /Users/harfox/uni/l5project/authreq-site/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/authreq-site/index.php/site/node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css
+HTTP_REFERER=http://localhost:8080/authreq-site/index.php/site/dashboard
+---
+2018/02/05 04:27:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "node_modules".' in /Users/harfox/uni/l5project/yii/framework/web/CController.php:486
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/CController.php(270): CController->missingAction('node_modules')
+#1 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): CController->run('node_modules')
+#2 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/node_modul...')
+#3 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /Users/harfox/uni/l5project/authreq-site/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/authreq-site/index.php/site/node_modules/perfect-scrollbar/dist/css/perfect-scrollbar.min.css
+HTTP_REFERER=http://localhost:8080/authreq-site/index.php/site/dashboard
+---
+2018/02/05 04:40:59 [error] [php] Undefined variable: resendurl (/Users/harfox/uni/l5project/authreq-site/protected/views/site/login.php:130)
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/CController.php(872): SiteController->renderFile()
+#1 /Users/harfox/uni/l5project/authreq-site/protected/controllers/SiteController.php(95): SiteController->renderPartial()
+#2 /Users/harfox/uni/l5project/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionLogin()
+#3 /Users/harfox/uni/l5project/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#4 /Users/harfox/uni/l5project/yii/framework/web/CController.php(286): SiteController->runAction()
+#5 /Users/harfox/uni/l5project/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#6 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#7 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#8 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#9 /Users/harfox/uni/l5project/authreq-site/index.php(13): CWebApplication->run()
+REQUEST_URI=/authreq-site/index.php
+2018/02/05 04:41:22 [error] [php] Undefined variable: resendurl (/Users/harfox/uni/l5project/authreq-site/protected/views/site/login.php:130)
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/CController.php(872): SiteController->renderFile()
+#1 /Users/harfox/uni/l5project/authreq-site/protected/controllers/SiteController.php(95): SiteController->renderPartial()
+#2 /Users/harfox/uni/l5project/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionLogin()
+#3 /Users/harfox/uni/l5project/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#4 /Users/harfox/uni/l5project/yii/framework/web/CController.php(286): SiteController->runAction()
+#5 /Users/harfox/uni/l5project/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#6 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#7 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#8 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#9 /Users/harfox/uni/l5project/authreq-site/index.php(13): CWebApplication->run()
+REQUEST_URI=/authreq-site/index.php

@@ -28,13 +28,13 @@ class SiteController extends Controller
 	 */
 	public function actionError()
 	{
-	    if($error=Yii::app()->errorHandler->error)
-	    {
-	    	if(Yii::app()->request->isAjaxRequest)
-	    		echo $error['message'];
-	    	else
-	        	$this->render('error', $error);
-	    }
+		if($error=Yii::app()->errorHandler->error)
+		{
+			if(Yii::app()->request->isAjaxRequest)
+				echo $error['message'];
+			else
+				$this->render('error', $error);
+		}
 	}
 
 	/**
@@ -74,16 +74,47 @@ class SiteController extends Controller
 			Yii::app()->end();
 		}
 
+		$isPushPending = false;
+
 		// collect user input data
 		if(isset($_POST['LoginForm']))
 		{
 			$model->attributes=$_POST['LoginForm'];
 			// validate user input and redirect to the previous page if valid
-			if($model->validate() && $model->login() == UserIdentity::ERROR_NONE)
-				$this->redirect(Yii::app()->user->returnUrl);
+
+			if($model->validate()) {
+				$login = $model->login();
+				if($login == UserIdentity::ERROR_NONE) {
+					$this->redirect(Yii::app()->createUrl('site/dashboard'));
+				} else if($login == UserIdentity::ERROR_PUSH_SENT || $login == UserIdentity::ERROR_PUSH_PENDING) {
+					$isPushPending = true;
+				}
+			}
 		}
 		// display the login form
-		$this->renderPartial('login',array('model'=>$model));
+		$this->renderPartial('login',array('model'=>$model, 'isPushPending' => $isPushPending, 'pollUrl' => Yii::app()->createUrl('site/authreqpoll'), 'resendUrl' => Yii::app()->createUrl('site/resend'), "logoutUrl" => Yii::app()->createUrl('site/logout')));
+	}
+
+	public function actionAuthreqpoll()
+	{
+		$result = true;
+		if(isset(Yii::app()->session['authreq_login_message_id'])) {
+			$db = new Db('localhost','root','almakorte','authreq-srv');
+			$message_id = Yii::app()->session['authreq_login_message_id'];
+			$result = DatabaseSignatureRequest::isSigned($db, $message_id);
+		}
+		$this->_sendResponse(200, array("success" => $result));
+	}
+
+	public function actionDashboard() 
+	{
+		$this->renderPartial('dashboard', array("logoutUrl" => Yii::app()->createUrl('site/logout')));
+	}
+
+	public function actionResend()
+	{
+		Yii::app()->session['authreq_login_message_id'] = null;
+		return $this->actionLogin();
 	}
 
 	/**
@@ -93,5 +124,14 @@ class SiteController extends Controller
 	{
 		Yii::app()->user->logout();
 		$this->redirect(Yii::app()->homeUrl);
+	}
+
+	private function _sendResponse($status = 200, $body = '', $content_type = 'application/json')
+	{
+		$status_header = 'HTTP/1.1 ' . $status;
+		header($status_header);
+		header('Content-type: ' . $content_type);
+		echo CJSON::encode($body);
+		Yii::app()->end();
 	}
 }
