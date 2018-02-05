@@ -508,3 +508,14 @@ Stack trace:
 #8 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
 #9 /Users/harfox/uni/l5project/authreq-site/index.php(13): CWebApplication->run()
 REQUEST_URI=/authreq-site/index.php
+2018/02/05 05:04:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "resend".' in /Users/harfox/uni/l5project/yii/framework/web/CController.php:486
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/CController.php(270): CController->missingAction('resend')
+#1 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): CController->run('resend')
+#2 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/resend')
+#3 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /Users/harfox/uni/l5project/authreq-site/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/authreq-site/index.php/site/resend
+HTTP_REFERER=http://localhost:8080/authreq-site/index.php/site/resend
+---

@@ -127,7 +127,9 @@ $this->breadcrumbs=array(
     });
 
     $("#resendauthreq").click(function() {
-      $("#login-form").attr('action', "<?=$resendUrl?>").submit();
+      $.post("<?=$resendUrl?>", function( data ) {
+        $("#login-form").submit();
+      });
     });
 
     $("#cancelauthreq").click(function() {

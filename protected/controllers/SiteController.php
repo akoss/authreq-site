@@ -122,7 +122,7 @@ class SiteController extends Controller
 			}
 		}
 		// display the login form
-		$this->renderPartial('login',array('model'=>$model, 'isPushPending' => $isPushPending, 'pollUrl' => Yii::app()->createUrl('site/authreqpoll'), 'resendUrl' => Yii::app()->createUrl('site/resend'), "logoutUrl" => Yii::app()->createUrl('site/logout')));
+		$this->renderPartial('login',array('model'=>$model, 'isPushPending' => $isPushPending, 'pollUrl' => Yii::app()->createUrl('site/authreqpoll'), 'resendUrl' => Yii::app()->createUrl('site/resetauthreq'), "logoutUrl" => Yii::app()->createUrl('site/logout')));
 	}
 
 	public function actionAuthreqpoll()
@@ -141,10 +141,10 @@ class SiteController extends Controller
 		$this->renderPartial('dashboard', array("logoutUrl" => Yii::app()->createUrl('site/logout')));
 	}
 
-	public function actionResend()
+	public function actionResetauthreq()
 	{
+		if(!Yii::app()->request->isPostRequest || !Yii::app()->request->isAjaxRequest) Yii::app()->end();
 		Yii::app()->session['authreq_login_message_id'] = null;
-		return $this->actionLogin();
 	}
 
 	/**
