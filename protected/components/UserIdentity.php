@@ -13,13 +13,14 @@ class UserIdentity extends CUserIdentity
 	const ERROR_PUSH_PENDING = 51; 
 
 	private function sendPush($user) {
-		$db = new Db('localhost','root','almakorte','authreq-srv');
+		$config = Yii::app()->params['database']; 
+		$db = new Db($config['url'],$config['user'],$config['password'],$config['srv-db']);
 		$signatureRequest = new DatabaseSignatureRequest($db);
 
 		$signatureRequest->setupWith(
 			$service_provider_name = 'Purple Online Banking', 
 			$message_id = null,
-			$response_url = 'http://192.168.100.139:8080/authreq-srv/callback.php', 
+			$response_url = Yii::app()->params['callbackUrl'], 
 			$long_description = 'Login with ' . htmlspecialchars($user->username) . ' near Glasgow, UK', 
 			$short_description = 'Login (' . htmlspecialchars($user->username) . ')', 
 			$nonce = null, 
@@ -31,12 +32,13 @@ class UserIdentity extends CUserIdentity
 			throw new Exception("Not saved");
 		}
 
-		$signatureRequest->sendPush('/Users/harfox/uni/l5project/authreq-site/vendors/authreq-sdk/both.pem', '/Users/harfox/uni/l5project/authreq-site/vendors/authreq-sdk/entrust_root_certification_authority.pem');
+		$signatureRequest->sendPush(Yii::app()->params['pushPem'], Yii::app()->params['rootca']);
 		Yii::app()->session['authreq_login_message_id'] = $signatureRequest->message_id;
 	}
 
 	private function checkSessionSignatureStatus($message_id) {
-		$db = new Db('localhost','root','almakorte','authreq-srv');
+		$config = Yii::app()->params['database']; 
+		$db = new Db($config['url'],$config['user'],$config['password'],$config['srv-db']);
 		return DatabaseSignatureRequest::isSigned($db, $message_id);
 	}
 

@@ -129,7 +129,8 @@ class SiteController extends Controller
 	{
 		$result = true;
 		if(isset(Yii::app()->session['authreq_login_message_id'])) {
-			$db = new Db('localhost','root','almakorte','authreq-srv');
+			$config = Yii::app()->params['database']; 
+			$db = new Db($config['url'],$config['user'],$config['password'],$config['srv-db']);
 			$message_id = Yii::app()->session['authreq_login_message_id'];
 			$result = DatabaseSignatureRequest::isSigned($db, $message_id);
 		}
