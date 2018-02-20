@@ -49,14 +49,18 @@ $this->breadcrumbs=array(
               <form>
                 <div class="form-group">
         				<?php echo $form->labelEx($model,'username'); ?>
-        				<?php echo $form->textField($model,'username', array('class' => 'form-control p_input' . ($isSmsPending || $isPushPending ? " pushpendingdisabled" : ""))); ?>
+        				<?php echo $form->textField($model,'username', array('readonly'=>($isCardreaderPending || $isCardreaderInvalid || $isSmsPending || $isPushPending), 'class' => 'form-control p_input' . ($isCardreaderPending || $isCardreaderInvalid || $isSmsPending || $isPushPending ? " pushpendingdisabled" : ""))); ?>
         				<?php echo $form->error($model,'username'); ?>
                 </div>
                 <div class="form-group">
         				<?php echo $form->labelEx($model,'password'); ?>
-        				<?php echo $form->passwordField($model,'password', array('class' => 'form-control p_input' . ($isSmsPending || $isPushPending ? " pushpendingdisabled" : ""))); ?>
+        				<?php echo $form->passwordField($model,'password', array('readonly'=>($isCardreaderPending || $isCardreaderInvalid || $isSmsPending || $isPushPending), 'class' => 'form-control p_input' . ($isCardreaderPending || $isCardreaderInvalid || $isSmsPending || $isPushPending ? " pushpendingdisabled" : ""))); ?>
         				<?php echo $form->error($model,'password'); ?>
 				        </div>
+
+                <?php
+                // Fields for push-based TOTP
+                ?>
 
                 <?php if($isPushPending): ?>
                 <div class="form-group">
@@ -89,21 +93,48 @@ $this->breadcrumbs=array(
                 </div>
                 <?php endif; ?>
 
+                <?php
+                // Fields for SMS-based TOTP
+                ?>
                 <?php if($isSmsPending):?>
                 <div class="form-group">
                 <?php echo $form->textField($model,'totp', array('class' => 'form-control p_input', 'placeholder' => '123456')); ?>
                 </div>
                 <?php endif;?>
 
-                <?php if($smsInvalid):?>
+                <?php if($isSmsInvalid):?>
                 <div class="form-group">
                 Incorrect one-time key (exp. <?=Yii::app()->session['sms_totp']?>)
                 </div>
                 <?php endif;?>
 
+                <?php
+                // Fields for card reader based TOTP
+                ?>
+                <?php if($isCardreaderPending):?>
+                <strong>1. Enter the last 4 digits of your long Nationwide Debit Card number<br></strong>
+                <div class="form-group">
+                <?php echo $form->textField($model,'cardno', array('class' => 'form-control p_input', 'placeholder' => '0000')); ?>
+                </div>
+                <strong>2. Insert your Nationwide Debit Card into the card reader.<br>
+                3. Press the Identify button when asked to 'Select Function'.<br>
+                4. Enter your Nationwide Debit Card PIN number and press the 'OK' button.<br>
+                5. Enter the passcode that is now displayed on your card reader into the box below and select 'Log In'.<br>
+                </strong>
+                <div class="form-group">
+                <?php echo $form->textField($model,'totp', array('class' => 'form-control p_input', 'placeholder' => '1234 5678')); ?>
+                </div>
+                <?php endif;?>
+
+                <?php if($isCardreaderInvalid):?>
+                <div class="form-group">
+                Incorrect card number or one-time key
+                </div>
+                <?php endif;?>
+
 
                 <div class="text-center">
-                  <?php echo CHtml::submitButton('Login', array('class' => 'btn btn-primary btn-block enter-btn')); ?>
+                  <?php echo CHtml::submitButton('Log In', array('class' => 'btn btn-primary btn-block enter-btn')); ?>
                 </div>
                 <?php endif;?>
               </form>

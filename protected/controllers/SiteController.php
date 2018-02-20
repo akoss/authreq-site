@@ -106,7 +106,9 @@ class SiteController extends Controller
 
 		$isPushPending = false;
 		$isSmsPending = false;
-		$smsInvalid = false;
+		$isSmsInvalid = false;
+		$isCardreaderPending = false;
+		$isCardreaderInvalid = false;
 
 		// collect user input data
 		if(isset($_POST['LoginForm']))
@@ -122,14 +124,20 @@ class SiteController extends Controller
 					$isPushPending = true;
 				} else if($login == UserIdentity::ERROR_SMS_SENT || $login == UserIdentity::ERROR_SMS_INVALID) {
 					$isSmsPending = true;
+				} else if($login == UserIdentity::ERROR_CARDREADER_SENT || $login == UserIdentity::ERROR_CARDREADER_INVALID) {
+					$isCardreaderPending = true;
 				}
+
 				if($login == UserIdentity::ERROR_SMS_INVALID) {
-					$smsInvalid = true;
+					$isSmsInvalid = true;
+				}
+				if($login == UserIdentity::ERROR_CARDREADER_INVALID) {
+					$isCardreaderInvalid = true;
 				}
 			}
 		}
 		// display the login form
-		$this->renderPartial('login',array('model'=>$model, 'smsInvalid' => $smsInvalid, 'isPushPending' => $isPushPending, 'isSmsPending' => $isSmsPending, 'pollUrl' => Yii::app()->createUrl('site/authreqpoll'), 'resendUrl' => Yii::app()->createUrl('site/resetauthreq'), "logoutUrl" => Yii::app()->createUrl('site/logout')));
+		$this->renderPartial('login',array('model'=>$model, 'isCardreaderInvalid' => $isCardreaderInvalid, 'isSmsInvalid' => $isSmsInvalid, 'isPushPending' => $isPushPending, 'isCardreaderPending' => $isCardreaderPending, 'isSmsPending' => $isSmsPending, 'pollUrl' => Yii::app()->createUrl('site/authreqpoll'), 'resendUrl' => Yii::app()->createUrl('site/resetauthreq'), "logoutUrl" => Yii::app()->createUrl('site/logout')));
 	}
 
 	public function actionAuthreqpoll()

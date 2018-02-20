@@ -10,6 +10,7 @@ class LoginForm extends CFormModel
 	public $username;
 	public $password;
 	public $totp;
+	public $cardno;
 	public $rememberMe;
 
 	private $_identity;
@@ -28,7 +29,7 @@ class LoginForm extends CFormModel
 			array('rememberMe', 'boolean'),
 			// password needs to be authenticated
 			array('password', 'authenticate'),
-			array('totp', 'safe'),
+			array('totp, cardno', 'safe'),
 		);
 	}
 
@@ -39,7 +40,8 @@ class LoginForm extends CFormModel
 	{
 		return array(
 			'rememberMe'=>'Remember me next time',
-			'totp' => "One-time key"
+			'totp' => "One-time key",
+			'cardno' => "Last 4 digits of card number",
 		);
 	}
 
@@ -51,9 +53,9 @@ class LoginForm extends CFormModel
 	 */
 	public function authenticate($attribute,$params)
 	{
-		$this->_identity=new UserIdentity($this->username,$this->password,$this->totp);
+		$this->_identity=new UserIdentity($this->username,$this->password,str_replace(" ", "", $this->totp), $this->cardno);
 		if(!$this->_identity->authenticate()) {
-			if($this->_identity->errorCode != UserIdentity::ERROR_SMS_INVALID && $this->_identity->errorCode != UserIdentity::ERROR_SMS_SENT && $this->_identity->errorCode != UserIdentity::ERROR_PUSH_SENT && $this->_identity->errorCode != UserIdentity::ERROR_PUSH_PENDING) {
+			if($this->_identity->errorCode != UserIdentity::ERROR_SMS_INVALID && $this->_identity->errorCode != UserIdentity::ERROR_SMS_SENT && $this->_identity->errorCode != UserIdentity::ERROR_PUSH_SENT && $this->_identity->errorCode != UserIdentity::ERROR_PUSH_PENDING && $this->_identity->errorCode != UserIdentity::ERROR_CARDREADER_SENT && $this->_identity->errorCode != UserIdentity::ERROR_CARDREADER_INVALID) {
 				$this->addError('password','Incorrect username or password.');
 			}
 		}

@@ -9,16 +9,20 @@ class UserIdentity extends CUserIdentity
 {
 	private $_id;
 	private $totp; 
+	private $cardno; 
 
 	const ERROR_PUSH_SENT = 50; 
 	const ERROR_PUSH_PENDING = 51; 
 	const ERROR_SMS_SENT = 52; 
 	const ERROR_SMS_INVALID = 53; 
+	const ERROR_CARDREADER_SENT = 54; 
+	const ERROR_CARDREADER_INVALID = 55; 
 
-	function __construct($username, $password, $totp) {		
+	function __construct($username, $password, $totp, $cardno) {		
 		$this->username = $username; 
 		$this->password = $password; 
 		$this->totp = $totp; 
+		$this->cardno = $cardno;
 	}
 
 	private function sendSms($user) {
@@ -95,6 +99,11 @@ class UserIdentity extends CUserIdentity
 			$this->errorCode = self::ERROR_SMS_SENT;
 		} else if(!empty($user->sms_phone_no) && !empty(Yii::app()->session['sms_totp']) && $this->totp != Yii::app()->session['sms_totp']) {
 			$this->errorCode = self::ERROR_SMS_INVALID;
+		} else if($user->is_cardreader && empty(Yii::app()->session['sms_totp'])) {
+			Yii::app()->session['sms_totp'] = "dummy";
+			$this->errorCode = self::ERROR_CARDREADER_SENT;
+		} else if($user->is_cardreader && !empty(Yii::app()->session['sms_totp']) && ($this->cardno != 2103 || $this->totp < 10000000 || $this->totp > 99999999)) {
+			$this->errorCode = self::ERROR_CARDREADER_INVALID;
 		} else {
 			$this->_id=$user->id;
 			$this->username=$user->username;
