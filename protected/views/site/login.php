@@ -79,7 +79,7 @@ $this->breadcrumbs=array(
                 <?php else:?>
                 <?php if($isSmsPending): ?>
                 <div class="form-group d-flex align-items-center justify-content-between">
-                  <strong>We have sent you a one-time key via SMS.</strong>
+                  <strong>We have sent you a one-time key via SMS.</strong> <?php echo CHtml::button('Resend', array('id' => 'resendauthreq', 'class' => 'btn')); ?>
                 </div>
                 <?php else: ?>
                 <div class="form-group d-flex align-items-center justify-content-between">
