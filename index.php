@@ -8,6 +8,9 @@ $config=dirname(__FILE__).'/protected/config/main.php';
 // defined('YII_DEBUG') or define('YII_DEBUG',true);
 
 include("vendors/authreq-sdk/Autoload.php");
+include("vendors/Twilio/Autoload.php");
+
+use Twilio\Rest\Client;
 
 require_once($yii);
 Yii::createWebApplication($config)->run();

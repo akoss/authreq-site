@@ -43,20 +43,21 @@ $this->breadcrumbs=array(
               </div>
 				<?php $form=$this->beginWidget('CActiveForm', array(
 					'id'=>'login-form',
-					'enableAjaxValidation'=>true,
+					'enableAjaxValidation'=>false,
 				)); ?>
 
               <form>
                 <div class="form-group">
         				<?php echo $form->labelEx($model,'username'); ?>
-        				<?php echo $form->textField($model,'username', array('class' => 'form-control p_input' . ($isPushPending ? " pushpendingdisabled" : ""))); ?>
+        				<?php echo $form->textField($model,'username', array('class' => 'form-control p_input' . ($isSmsPending || $isPushPending ? " pushpendingdisabled" : ""))); ?>
         				<?php echo $form->error($model,'username'); ?>
                 </div>
                 <div class="form-group">
         				<?php echo $form->labelEx($model,'password'); ?>
-        				<?php echo $form->passwordField($model,'password', array('class' => 'form-control p_input' . ($isPushPending ? " pushpendingdisabled" : ""))); ?>
+        				<?php echo $form->passwordField($model,'password', array('class' => 'form-control p_input' . ($isSmsPending || $isPushPending ? " pushpendingdisabled" : ""))); ?>
         				<?php echo $form->error($model,'password'); ?>
 				        </div>
+
                 <?php if($isPushPending): ?>
                 <div class="form-group">
                   <table width="100%"><tr><td>
@@ -72,6 +73,11 @@ $this->breadcrumbs=array(
                   </td></tr></table>
                 </div>
                 <?php else:?>
+                <?php if($isSmsPending): ?>
+                <div class="form-group d-flex align-items-center justify-content-between">
+                  <strong>We have sent you a one-time key via SMS.</strong>
+                </div>
+                <?php else: ?>
                 <div class="form-group d-flex align-items-center justify-content-between">
                   <div class="form-check">
                       <label class="form-check-label">
@@ -81,6 +87,21 @@ $this->breadcrumbs=array(
                   </div>
                   <a href="#" class="forgot-pass">Forgot password</a>
                 </div>
+                <?php endif; ?>
+
+                <?php if($isSmsPending):?>
+                <div class="form-group">
+                <?php echo $form->textField($model,'totp', array('class' => 'form-control p_input', 'placeholder' => '123456')); ?>
+                </div>
+                <?php endif;?>
+
+                <?php if($smsInvalid):?>
+                <div class="form-group">
+                Incorrect one-time key (exp. <?=Yii::app()->session['sms_totp']?>)
+                </div>
+                <?php endif;?>
+
+
                 <div class="text-center">
                   <?php echo CHtml::submitButton('Login', array('class' => 'btn btn-primary btn-block enter-btn')); ?>
                 </div>
@@ -107,7 +128,6 @@ $this->breadcrumbs=array(
   <script src="<?=Yii::app()->request->baseUrl . '/template/';?>js/off-canvas.js"></script>
   <script src="<?=Yii::app()->request->baseUrl . '/template/';?>js/misc.js"></script>
   <!-- endinject -->
-  <?php if($isPushPending): ?>
     <script>
     function doPoll(){
       $.getJSON('<?=$pollUrl?>', function(data) {
@@ -122,9 +142,6 @@ $this->breadcrumbs=array(
           }  , 2000 );
         });
     }
-    $(function() {
-      doPoll();
-    });
 
     $("#resendauthreq").click(function() {
       $.post("<?=$resendUrl?>", function( data ) {
@@ -135,8 +152,13 @@ $this->breadcrumbs=array(
     $("#cancelauthreq").click(function() {
       window.location.href="<?=$logoutUrl?>";
     });
+
+    <?php if($isPushPending): ?>
+    $(function() {
+      doPoll();
+    });
+    <?php endif;?>
   </script>
-  <?php endif;?>
 </body>
 
 </html>

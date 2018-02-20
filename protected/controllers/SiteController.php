@@ -105,6 +105,8 @@ class SiteController extends Controller
 		}
 
 		$isPushPending = false;
+		$isSmsPending = false;
+		$smsInvalid = false;
 
 		// collect user input data
 		if(isset($_POST['LoginForm']))
@@ -118,11 +120,16 @@ class SiteController extends Controller
 					$this->redirect(Yii::app()->createUrl('site/dashboard'));
 				} else if($login == UserIdentity::ERROR_PUSH_SENT || $login == UserIdentity::ERROR_PUSH_PENDING) {
 					$isPushPending = true;
+				} else if($login == UserIdentity::ERROR_SMS_SENT || $login == UserIdentity::ERROR_SMS_INVALID) {
+					$isSmsPending = true;
+				}
+				if($login == UserIdentity::ERROR_SMS_INVALID) {
+					$smsInvalid = true;
 				}
 			}
 		}
 		// display the login form
-		$this->renderPartial('login',array('model'=>$model, 'isPushPending' => $isPushPending, 'pollUrl' => Yii::app()->createUrl('site/authreqpoll'), 'resendUrl' => Yii::app()->createUrl('site/resetauthreq'), "logoutUrl" => Yii::app()->createUrl('site/logout')));
+		$this->renderPartial('login',array('model'=>$model, 'smsInvalid' => $smsInvalid, 'isPushPending' => $isPushPending, 'isSmsPending' => $isSmsPending, 'pollUrl' => Yii::app()->createUrl('site/authreqpoll'), 'resendUrl' => Yii::app()->createUrl('site/resetauthreq'), "logoutUrl" => Yii::app()->createUrl('site/logout')));
 	}
 
 	public function actionAuthreqpoll()
@@ -146,6 +153,7 @@ class SiteController extends Controller
 	{
 		if(!Yii::app()->request->isPostRequest || !Yii::app()->request->isAjaxRequest) Yii::app()->end();
 		Yii::app()->session['authreq_login_message_id'] = null;
+		Yii::app()->session['sms_totp'] = null;
 	}
 
 	/**

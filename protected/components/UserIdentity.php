@@ -8,9 +8,37 @@
 class UserIdentity extends CUserIdentity
 {
 	private $_id;
+	private $totp; 
 
 	const ERROR_PUSH_SENT = 50; 
 	const ERROR_PUSH_PENDING = 51; 
+	const ERROR_SMS_SENT = 52; 
+	const ERROR_SMS_INVALID = 53; 
+
+	function __construct($username, $password, $totp) {		
+		$this->username = $username; 
+		$this->password = $password; 
+		$this->totp = $totp; 
+	}
+
+	private function sendSms($user) {
+
+		$authcode = mt_rand(100000,999999);
+		Yii::app()->session['sms_totp'] = $authcode;
+
+		$sid = "AC7856eb312100f145cba79df0268e4db6";
+		$token = "ffe8f783bf033ffc746dcca8ed0244cf";
+		$client = new Twilio\Rest\Client($sid, $token);
+
+		$client->messages->create(
+		    $user->sms_phone_no,
+		    array(
+		        'from' => '+441412802071',
+		        'body' => "Your Purple Bank authentication code is " . $authcode
+		    )
+		);
+
+	}
 
 	private function sendPush($user) {
 		$config = Yii::app()->params['database']; 
@@ -21,8 +49,8 @@ class UserIdentity extends CUserIdentity
 			$service_provider_name = 'Purple Online Banking', 
 			$message_id = null,
 			$response_url = Yii::app()->params['callbackUrl'], 
-			$long_description = 'Login with ' . htmlspecialchars($user->username) . ' near Glasgow, UK', 
-			$short_description = 'Login (' . htmlspecialchars($user->username) . ')', 
+			$long_description = 'Someone is trying to log in to your Purple Online Banking account \'' . htmlspecialchars($user->username) . "' from Glasgow, United Kingdom at " . date("d/m/Y H:m:s") . ". Is this you?", 
+			$short_description = 'Login with \'' . htmlspecialchars($user->username) . "'", 
 			$nonce = null, 
 			$expiry_in_seconds = 5000, 
 			$device_id = $user->authreq_device_id
@@ -57,13 +85,17 @@ class UserIdentity extends CUserIdentity
 			// check whether login succeeded 
 			$this->errorCode = self::ERROR_PUSH_PENDING;
 		} else if(!empty($user->authreq_device_id) && !isset(Yii::app()->session['authreq_login_message_id'])) {
-			// login enabled -- need push
-			// send push
+			// authreq enabled -- need push
 			$this->sendPush($user);
 			$this->errorCode = self::ERROR_PUSH_SENT;
 		}
-		else
-		{
+		else if(!empty($user->sms_phone_no) && empty(Yii::app()->session['sms_totp'])) {
+			// sms enabled -- need push
+			$this->sendSms($user);
+			$this->errorCode = self::ERROR_SMS_SENT;
+		} else if(!empty($user->sms_phone_no) && !empty(Yii::app()->session['sms_totp']) && $this->totp != Yii::app()->session['sms_totp']) {
+			$this->errorCode = self::ERROR_SMS_INVALID;
+		} else {
 			$this->_id=$user->id;
 			$this->username=$user->username;
 			$this->errorCode=self::ERROR_NONE;

@@ -9,6 +9,7 @@ class LoginForm extends CFormModel
 {
 	public $username;
 	public $password;
+	public $totp;
 	public $rememberMe;
 
 	private $_identity;
@@ -27,6 +28,7 @@ class LoginForm extends CFormModel
 			array('rememberMe', 'boolean'),
 			// password needs to be authenticated
 			array('password', 'authenticate'),
+			array('totp', 'safe'),
 		);
 	}
 
@@ -37,6 +39,7 @@ class LoginForm extends CFormModel
 	{
 		return array(
 			'rememberMe'=>'Remember me next time',
+			'totp' => "One-time key"
 		);
 	}
 
@@ -48,9 +51,9 @@ class LoginForm extends CFormModel
 	 */
 	public function authenticate($attribute,$params)
 	{
-		$this->_identity=new UserIdentity($this->username,$this->password);
+		$this->_identity=new UserIdentity($this->username,$this->password,$this->totp);
 		if(!$this->_identity->authenticate()) {
-			if($this->_identity->errorCode != UserIdentity::ERROR_PUSH_SENT && $this->_identity->errorCode != UserIdentity::ERROR_PUSH_PENDING) {
+			if($this->_identity->errorCode != UserIdentity::ERROR_SMS_INVALID && $this->_identity->errorCode != UserIdentity::ERROR_SMS_SENT && $this->_identity->errorCode != UserIdentity::ERROR_PUSH_SENT && $this->_identity->errorCode != UserIdentity::ERROR_PUSH_PENDING) {
 				$this->addError('password','Incorrect username or password.');
 			}
 		}
@@ -71,6 +74,9 @@ class LoginForm extends CFormModel
 		{
 			$duration=$this->rememberMe ? 3600*24*30 : 0; // 30 days
 			Yii::app()->user->login($this->_identity,$duration);
+		}
+		if($this->_identity->errorCode===UserIdentity::ERROR_SMS_INVALID) {
+			$this->totp = null;
 		}
 		return $this->_identity->errorCode;
 	}
