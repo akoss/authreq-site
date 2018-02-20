@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Purple Admin</title>
+  <title>Purple Bank - Home</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="<?=Yii::app()->request->baseUrl . '/template/';?>node_modules/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="<?=Yii::app()->request->baseUrl . '/template/';?>node_modules/perfect-scrollbar/dist/css/perfect-scrollbar.min.css">
@@ -24,8 +24,8 @@
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo" href="index.html"><img src="<?=Yii::app()->request->baseUrl . '/template/';?>images/logo.svg" alt="logo"/></a>
-        <a class="navbar-brand brand-logo-mini" href="index.html"><img src="<?=Yii::app()->request->baseUrl . '/template/';?>images/logo-mini.svg" alt="logo"/></a>
+        <a class="navbar-brand brand-logo" href="<?=Yii::app()->createUrl('site/dashboard')?>"><img src="<?=Yii::app()->request->baseUrl . '/template/';?>images/logo.svg" alt="logo"/></a>
+        <a class="navbar-brand brand-logo-mini" href="<?=Yii::app()->createUrl('site/dashboard')?>"><img src="<?=Yii::app()->request->baseUrl . '/template/';?>images/logo-mini.svg" alt="logo"/></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-stretch">
         <div class="search-field ml-4 d-none d-md-block">
@@ -193,80 +193,45 @@
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
           <ul class="nav">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">
+              <a class="nav-link" href="<?=Yii::app()->createUrl('site/dashboard')?>">
                 <span class="menu-title">Dashboard</span>
-                <span class="menu-sub-title">( 2 new updates )</span>
+                <span class="menu-sub-title">( 2 new )</span>
                 <i class="mdi mdi-home menu-icon"></i>
               </a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span class="menu-title">Accounts</span>
+                <i class="mdi mdi-account-card-details menu-icon"></i>
+              </a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                <span class="menu-title">Basic UI Elements</span>
-                <i class="menu-arrow"></i>
-                <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                <span class="menu-title">Payments</span>
+                <i class="mdi mdi-transfer menu-icon"></i>
               </a>
               <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Payment History</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Make Single Payment</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Recurring Payments</a></li>
                 </ul>
                 </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="pages/icons/font-awesome.html">
-                <span class="menu-title">Icons</span>
-                <i class="mdi mdi-contacts menu-icon"></i>
+              <a class="nav-link" href="#">
+                <span class="menu-title">Loans</span>
+                <i class="mdi mdi-bank menu-icon"></i>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="pages/forms/basic_elements.html">
-                <span class="menu-title">Form Elements</span>
-                <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+              <a class="nav-link" href="#">
+                <span class="menu-title">Settings</span>
+                <i class="mdi mdi-settings menu-icon"></i>
               </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="pages/charts/chartjs.html">
-                <span class="menu-title">Chart</span>
-                <i class="mdi mdi-chart-bar menu-icon"></i>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="pages/tables/bootstrap-table.html">
-                <span class="menu-title">Table</span>
-                <i class="mdi mdi-table-large menu-icon"></i>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
-                <span class="menu-title">Sample Pages</span>
-                <i class="menu-arrow"></i>
-                <i class="mdi mdi-lock menu-icon"></i>
-              </a>
-              <div class="collapse" id="auth">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/samples/blank-page.html"> Blank Page </a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.html"> 404 </a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.html"> 500 </a></li>
-                </ul>
-              </div>
             </li>
           </ul>
-          <div class="sidebar-progress">
-            <p>Total Sales</p>
-            <div class="progress progress-sm">
-              <div class="progress-bar bg-gradient-success" role="progressbar" style="width: 72%" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-            <p>50 Items sold</p>
-          </div>
-          <div class="sidebar-progress">
-            <p>Customer Target</p>
-            <div class="progress progress-sm">
-              <div class="progress-bar bg-gradient-primary" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-            <p>200 Items sold</p>
-          </div>
+
         </nav>
         <!-- partial -->
         <div class="content-wrapper">
@@ -274,88 +239,27 @@
             <div class="col-md-4 stretch-card grid-margin">
               <div class="card bg-gradient-warning text-white">
                 <div class="card-body">
-                  <h4 class="font-weight-normal mb-3">Weekly Sales</h4>
-                  <h2 class="font-weight-normal mb-5">$ 15,00000.00</h2>
-                  <p class="card-text">Incresed by 60%</p>
+                  <h4 class="font-weight-normal mb-3">My Current Account</h4>
+                  <h1 class="font-weight-normal mb-4">£ 4,109.30</h2>
+                  <p class="card-text">Purple Power - 070436 08233593</p>
                 </div>
               </div>
             </div>
             <div class="col-md-4 stretch-card grid-margin">
               <div class="card bg-gradient-info text-white">
                 <div class="card-body">
-                  <h4 class="font-weight-normal mb-3">Weekly Orders</h4>
-                  <h2 class="font-weight-normal mb-5">45633456</h2>
-                  <p class="card-text">Decreased by 10%</p>
+                  <h4 class="font-weight-normal mb-3">My Credit Card</h4>
+                  <h2 class="font-weight-normal mb-4">-£ 401.30</h2>
+                  <p class="card-text">Pay until <?=date("M d, Y", strtotime("today + 3 days"))?> </p>
                 </div>
               </div>
             </div>
             <div class="col-md-4 stretch-card grid-margin">
               <div class="card bg-gradient-success text-white">
                 <div class="card-body">
-                  <h4 class="font-weight-normal mb-3">Visitors Online</h4>
-                  <h2 class="font-weight-normal mb-5">955741235</h2>
-                  <p class="card-text">Increased by 5%</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-7 grid-margin stretch-card">
-              <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title">Sale Overview</h4>
-                  <canvas id="sales-chart"></canvas>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-5 grid-margin stretch-card">
-              <div class="card">
-                <div class="card-body d-flex flex-column">
-                  <h4 class="card-title">Satisfaction Graph</h4>
-                  <div class="mt-auto">
-                    <canvas id="satisfaction-chart" height="200"></canvas>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-12 grid-margin stretch-card">
-              <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title">Recent Updates</h4>
-                  <div class="d-flex">
-                    <div class="d-flex align-items-center mr-4 text-muted">
-                      <i class="mdi mdi-account icon-sm mr-2"></i>
-                      <span>jack Menqu</span>
-                    </div>
-                    <div class="d-flex align-items-center text-muted">
-                      <i class="mdi mdi-calendar-blank icon-sm mr-2"></i>
-                      <span>October 3rd, 2018</span>
-                    </div>
-                  </div>
-                  <div class="row mt-3">
-                    <div class="col-6 pr-1">
-                      <img src="<?=Yii::app()->request->baseUrl . '/template/';?>images/dashboard/img_1.jpg" class="mb-2 mw-100 w-100 rounded" alt="image">
-                      <img src="<?=Yii::app()->request->baseUrl . '/template/';?>images/dashboard/img_4.jpg" class="mw-100 w-100 rounded" alt="image">
-                    </div>
-                    <div class="col-6 pl-1">
-                      <img src="<?=Yii::app()->request->baseUrl . '/template/';?>images/dashboard/img_2.jpg" class="mb-2 mw-100 w-100 rounded" alt="image">
-                      <img src="<?=Yii::app()->request->baseUrl . '/template/';?>images/dashboard/img_3.jpg" class="mw-100 w-100 rounded" alt="image">
-                    </div>
-                  </div>
-                  <div class="d-flex mt-5 align-items-top">
-                    <img src="<?=Yii::app()->request->baseUrl . '/template/';?>images/faces/face3.jpg" class="img-sm rounded-circle mr-3" alt="image">
-                    <div class="mb-0 flex-grow">
-                      <p class="font-weight-bold mr-2 mb-0">Jack Manque</p>
-                      <p>This is amazing! We have moved to a brand new office in
-                        New Hampshire with a lot more space.
-                        We will miss our old office but we are very excited about our new space.</p>
-                    </div>
-                    <div class="ml-auto">
-                      <i class="mdi mdi-heart-outline text-muted"></i>
-                    </div>
-                  </div>
+                  <h4 class="font-weight-normal mb-3">My Savings</h4>
+                  <h2 class="font-weight-normal mb-4">£ 10,109.30</h2>
+                  <p class="card-text">Purple Saver 2018</p>
                 </div>
               </div>
             </div>
@@ -364,59 +268,216 @@
             <div class="col-12 grid-margin">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Recent Tickets</h4>
+                  <h4 class="card-title">Recent Transactions</h4>
                   <div class="table-responsive">
                     <table class="table">
                       <thead>
                         <tr>
                           <th>
-                            Ticket No.
                           </th>
                           <th>
-                            Subject
                           </th>
                           <th>
-                            Assignee
+                            Payee
+                          </th>
+                          <th style="text-align: right;">
+                            Amount
                           </th>
                           <th>
+                            
+                          </th>
+                          <th>
+                            Category
+                          </th>
+                          <th>
+                            Date
+                          </th>
+                          <th>
+                            Transaction Type
+                          </th>
+                          <th style="width: 30px;">
                             Status
-                          </th>
-                          <th>
-                            Last Update
-                          </th>
-                          <th>
-                            Tracking ID
-                          </th>
-                          <th>
-                            Priority
                           </th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
-                          <td>
-                            5669
+                          <td style="width: 10px; text-align: right;">
+                            <i class="mdi mdi-arrow-right text-danger icon-sm mr-1"></i>
                           </td>
-                          <td>
-                            Fund is not recieved
+                          <td style="width: 10px; text-align: right;">
+                            <img src="<?=Yii::app()->request->baseUrl . '/template/';?>images/logos/jamies.png" class="mr-2" alt="image">
                           </td>
                           <td class="py-1">
-                            <img src="<?=Yii::app()->request->baseUrl . '/template/';?>images/faces/face1.jpg" class="mr-2" alt="image">
-                            David Grey
+                            Jamie's Italian
+                          </td>
+                          <td style="text-align: right;">
+                            £ 44.00
+                          </td>
+                          <td style="width: 10px; margin: 0; padding: 0; text-align: right;">
+                            <i class="mdi mdi-hamburger menu-icon"></i>
                           </td>
                           <td>
-                            <label class="badge badge-gradient-success">DONE</label>
+                            Dining Out
                           </td>
                           <td>
-                            Dec 5, 2017
+                            <?=date("M d, Y", strtotime("today"))?>
                           </td>
                           <td>
-                            WD-12345
+                            Apple Pay
                           </td>
-                          <td>
-                            <i class="mdi mdi-arrow-up text-danger icon-sm mr-1"></i>High
+                          <td style="width: 30px;">
+                            <label class="badge badge-gradient-success">Settled</label>
                           </td>
                         </tr>
+                        <tr>
+                          <td style="width: 10px; text-align: right;">
+                            <i class="mdi mdi-arrow-right text-danger icon-sm mr-1"></i>
+                          </td>
+                          <td style="width: 10px; text-align: right;">
+                            <img src="<?=Yii::app()->request->baseUrl . '/template/';?>images/logos/tesco.gif" class="mr-2" alt="image">
+                          </td>
+                          <td class="py-1">
+                            Tesco
+                          </td>
+                          <td style="text-align: right;">
+                            £ 18.51
+                          </td>
+                          <td style="width: 10px; margin: 0; padding: 0; text-align: right;">
+                            <i class="mdi mdi-shopping menu-icon"></i>
+                          </td>
+                          <td>
+                            Groceries
+                          </td>
+                          <td>
+                            <?=date("M d, Y", strtotime("today"))?>
+                          </td>
+                          <td>
+                            Debit Card
+                          </td>
+                          <td style="width: 30px;">
+                            <label class="badge badge-gradient-success">Settled</label>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="width: 10px; text-align: right;">
+                            <i class="mdi mdi-arrow-right text-danger icon-sm mr-1"></i>
+                          </td>
+                          <td style="width: 10px; text-align: right;">
+                            <img src="<?=Yii::app()->request->baseUrl . '/template/';?>images/logos/mcdonalds.png" class="mr-2" alt="image">
+                          </td>
+                          <td class="py-1">
+                            McDonald's
+                          </td>
+                          <td style="text-align: right;">
+                            £ 5.00
+                          </td>
+                          <td style="width: 10px; margin: 0; padding: 0; text-align: right;">
+                            <i class="mdi mdi-hamburger menu-icon"></i>
+                          </td>
+                          <td>
+                            Dining Out
+                          </td>
+                          <td>
+                            <?=date("M d, Y", strtotime("today"))?>
+                          </td>
+                          <td>
+                            Debit Card
+                          </td>
+                          <td style="width: 30px;">
+                            <label class="badge badge-gradient-success">Settled</label>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="width: 10px; text-align: right;">
+                            <i class="mdi mdi-arrow-left text-success icon-sm mr-1"></i>
+                          </td>
+                          <td style="width: 10px; text-align: right;">
+                            <img src="<?=Yii::app()->request->baseUrl . '/template/';?>images/faces/face2.jpg" class="mr-2" alt="image">
+                          </td>
+                          <td class="py-1">
+                            Stella Johnson
+                          </td>
+                          <td style="text-align: right;">
+                            £ 100.00
+                          </td>
+                          <td style="width: 10px; margin: 0; padding: 0; text-align: right;">
+
+                          </td>
+                          <td>
+                            
+                          </td>
+                          <td>
+                            <?=date("M d, Y", strtotime("yesterday"))?>
+                          </td>
+                          <td>
+                            Transfer
+                          </td>
+                          <td style="width: 30px;">
+                            <label class="badge badge-gradient-success">Settled</label>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="width: 10px; text-align: right;">
+                            <i class="mdi mdi-arrow-right text-danger icon-sm mr-1"></i>
+                          </td>
+                          <td style="width: 10px; text-align: right;">
+                            <img src="<?=Yii::app()->request->baseUrl . '/template/';?>images/logos/vodafone.png" class="mr-2" alt="image">
+                          </td>
+                          <td class="py-1">
+                            Vodafone
+                          </td>
+                          <td style="text-align: right;">
+                            £ 84.39
+                          </td>
+                          <td style="width: 10px; margin: 0; padding: 0; text-align: right;">
+                            <i class="mdi mdi-phone menu-icon"></i>
+                          </td>
+                          <td>
+                            Communication
+                          </td>
+                          <td>
+                            <?=date("M d, Y", strtotime("yesterday"))?>
+                          </td>
+                          <td>
+                            Direct Debit
+                          </td>
+                          <td style="width: 30px;">
+                            <label class="badge badge-gradient-success">Settled</label>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="width: 10px; text-align: right;">
+                            <i class="mdi mdi-arrow-right text-danger icon-sm mr-1"></i>
+                          </td>
+                          <td style="width: 10px; text-align: right;">
+                            <img src="<?=Yii::app()->request->baseUrl . '/template/';?>images/logos/tesco.gif" class="mr-2" alt="image">
+                          </td>
+                          <td class="py-1">
+                            Tesco
+                          </td>
+                          <td style="text-align: right;">
+                            £ 10.39
+                          </td>
+                          <td style="width: 10px; margin: 0; padding: 0; text-align: right;">
+                            <i class="mdi mdi-shopping menu-icon"></i>
+                          </td>
+                          <td>
+                            Groceries
+                          </td>
+                          <td>
+                            <?=date("M d, Y", strtotime("yesterday"))?>
+                          </td>
+                          <td>
+                            Apple Pay
+                          </td>
+                          <td style="width: 30px;">
+                            <label class="badge badge-gradient-success">Settled</label>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td colspan=9 style="margin-right: 20px; text-align: right;"><a href="#">View all transactions</a></td></tr>
+                        <!--- 
                         <tr>
                           <td>
                             5670
@@ -489,189 +550,80 @@
                             <i class="mdi mdi-arrow-up text-warning icon-sm mr-1"></i>Medium
                           </td>
                         </tr>
+                      -->
                       </tbody>
                     </table>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-7 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Spendings and Savings</h4>
+                  <canvas id="sales-chart"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body d-flex flex-column">
+                  <h4 class="card-title">Spending Categories</h4>
+                  <canvas id="pieChart" height="300"></canvas>
                 </div>
               </div>
             </div>
           </div>
           <div class="row">
-            <div class="col-md-12 grid-margin stretch-card">
+            <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Shipping Status</h4>
-                  <div class="table-responsive">
-                    <table class="table">
-                      <thead>
-                        <tr>
-                          <th>
-                            #
-                          </th>
-                          <th>
-                            Name
-                          </th>
-                          <th>
-                            Overall Progress
-                          </th>
-                          <th>
-                            ID
-                          </th>
-                          <th>
-                            Start Date
-                          </th>
-                          <th>
-                            Due Date
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>
-                            1
-                          </td>
-                          <td>
-                            Herman Beck
-                          </td>
-                          <td>
-                            <div class="progress">
-                              <div class="progress-bar bg-gradient-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </td>
-                          <td>
-                            ST-3
-                          </td>
-                          <td>
-                            May 10, 2015
-                          </td>
-                          <td>
-                            May 15, 2015
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            2
-                          </td>
-                          <td>
-                            Messsy Adam
-                          </td>
-                          <td>
-                            <div class="progress">
-                              <div class="progress-bar bg-gradient-danger" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </td>
-                          <td>
-                            ST-4
-                          </td>
-                          <td>
-                            May 01, 2015
-                          </td>
-                          <td>
-                            Jul 01, 2015
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            3
-                          </td>
-                          <td>
-                            John Richards
-                          </td>
-                          <td>
-                            <div class="progress">
-                              <div class="progress-bar bg-gradient-warning" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </td>
-                          <td>
-                            ST-5
-                          </td>
-                          <td>
-                            Mar 10, 2015
-                          </td>
-                          <td>
-                            Apr 12, 2015
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            4
-                          </td>
-                          <td>
-                            Peter Meggik
-                          </td>
-                          <td>
-                            <div class="progress">
-                              <div class="progress-bar bg-gradient-primary" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </td>
-                          <td>
-                            ST-6
-                          </td>
-                          <td>
-                            May 10, 2015
-                          </td>
-                          <td>
-                            May 15, 2015
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            5
-                          </td>
-                          <td>
-                            Edward
-                          </td>
-                          <td>
-                            <div class="progress">
-                              <div class="progress-bar bg-gradient-danger" role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </td>
-                          <td>
-                            ST-7
-                          </td>
-                          <td>
-                            Jan 23, 2015
-                          </td>
-                          <td>
-                            May 03, 2015
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            5
-                          </td>
-                          <td>
-                            Ronald
-                          </td>
-                          <td>
-                            <div class="progress">
-                              <div class="progress-bar bg-gradient-info" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </td>
-                          <td>
-                            ST-8
-                          </td>
-                          <td>
-                            Jun 01, 2015
-                          </td>
-                          <td>
-                            Jun 05, 2015
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
+                  <h4 class="card-title">Recent Updates</h4>
+                  <div class="d-flex">
+                    <div class="d-flex align-items-center mr-4 text-muted">
+                      <i class="mdi mdi-account icon-sm mr-2"></i>
+                      <span>jack Menqu</span>
+                    </div>
+                    <div class="d-flex align-items-center text-muted">
+                      <i class="mdi mdi-calendar-blank icon-sm mr-2"></i>
+                      <span>October 3rd, 2018</span>
+                    </div>
+                  </div>
+                  <div class="row mt-3">
+                    <div class="col-6 pr-1">
+                      <img src="<?=Yii::app()->request->baseUrl . '/template/';?>images/dashboard/img_1.jpg" class="mb-2 mw-100 w-100 rounded" alt="image">
+                      <img src="<?=Yii::app()->request->baseUrl . '/template/';?>images/dashboard/img_4.jpg" class="mw-100 w-100 rounded" alt="image">
+                    </div>
+                    <div class="col-6 pl-1">
+                      <img src="<?=Yii::app()->request->baseUrl . '/template/';?>images/dashboard/img_2.jpg" class="mb-2 mw-100 w-100 rounded" alt="image">
+                      <img src="<?=Yii::app()->request->baseUrl . '/template/';?>images/dashboard/img_3.jpg" class="mw-100 w-100 rounded" alt="image">
+                    </div>
+                  </div>
+                  <div class="d-flex mt-5 align-items-top">
+                    <img src="<?=Yii::app()->request->baseUrl . '/template/';?>images/faces/face3.jpg" class="img-sm rounded-circle mr-3" alt="image">
+                    <div class="mb-0 flex-grow">
+                      <p class="font-weight-bold mr-2 mb-0">Jack Manque</p>
+                      <p>This is amazing! We have moved to a brand new branch office in
+                        Glasgow with a lot more space.
+                        We will miss our old office but we are very excited about our new space.</p>
+                    </div>
+                    <div class="ml-auto">
+                      <i class="mdi mdi-heart-outline text-muted"></i>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
         <!-- content-wrapper ends -->
         <!-- partial:partials/_footer.html -->
         <footer class="footer">
           <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2017 <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap Dash</a>. All rights reserved.</span>
-            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="mdi mdi-heart text-danger"></i></span>
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Template from <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap Dash</a>.</span>
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">University of Glasgow - School of Computing Science - Akos Szente <i class="mdi mdi-heart text-danger"></i></span>
           </div>
         </footer>
         <!-- partial -->
