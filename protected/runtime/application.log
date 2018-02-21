@@ -1188,3 +1188,202 @@ Stack trace:
 REQUEST_URI=/authreq-site/index.php/site/pages/ui-features/typography.html
 HTTP_REFERER=http://localhost:8080/authreq-site/index.php/site/dashboard
 ---
+2018/02/20 16:50:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "pages".' in /Users/harfox/uni/l5project/yii/framework/web/CController.php:486
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/CController.php(270): CController->missingAction('pages')
+#1 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): CController->run('pages')
+#2 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/pages/ui-f...')
+#3 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /Users/harfox/uni/l5project/authreq-site/index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/authreq-site/index.php/site/pages/ui-features/typography.html
+HTTP_REFERER=http://localhost:8080/authreq-site/index.php/site/dashboard
+---
+2018/02/20 16:51:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "pages".' in /Users/harfox/uni/l5project/yii/framework/web/CController.php:486
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/CController.php(270): CController->missingAction('pages')
+#1 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): CController->run('pages')
+#2 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/pages/ui-f...')
+#3 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /Users/harfox/uni/l5project/authreq-site/index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/authreq-site/index.php/site/pages/ui-features/typography.html
+HTTP_REFERER=http://localhost:8080/authreq-site/index.php/site/dashboard
+---
+2018/02/20 16:51:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "payment".' in /Users/harfox/uni/l5project/yii/framework/web/CController.php:486
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/CController.php(270): CController->missingAction('payment')
+#1 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): CController->run('payment')
+#2 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/payment')
+#3 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /Users/harfox/uni/l5project/authreq-site/index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/authreq-site/index.php/site/payment
+HTTP_REFERER=http://localhost:8080/authreq-site/index.php/site/dashboard
+---
+2018/02/20 16:52:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "payment".' in /Users/harfox/uni/l5project/yii/framework/web/CController.php:486
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/CController.php(270): CController->missingAction('payment')
+#1 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): CController->run('payment')
+#2 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/payment')
+#3 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /Users/harfox/uni/l5project/authreq-site/index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/authreq-site/index.php/site/payment
+HTTP_REFERER=http://localhost:8080/authreq-site/index.php/site/dashboard
+---
+2018/02/20 23:10:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "payment".' in /Users/harfox/uni/l5project/yii/framework/web/CController.php:486
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/CController.php(270): CController->missingAction('payment')
+#1 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): CController->run('payment')
+#2 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/payment')
+#3 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /Users/harfox/uni/l5project/authreq-site/index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/authreq-site/index.php/site/payment
+HTTP_REFERER=http://localhost:8080/authreq-site/index.php/site/dashboard
+---
+2018/02/20 23:10:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "payment".' in /Users/harfox/uni/l5project/yii/framework/web/CController.php:486
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/CController.php(270): CController->missingAction('payment')
+#1 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): CController->run('payment')
+#2 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/payment')
+#3 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /Users/harfox/uni/l5project/authreq-site/index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/authreq-site/index.php/site/payment
+HTTP_REFERER=http://localhost:8080/authreq-site/index.php/site/dashboard
+---
+2018/02/21 09:47:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "payment".' in /Users/harfox/uni/l5project/yii/framework/web/CController.php:486
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/CController.php(270): CController->missingAction('payment')
+#1 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): CController->run('payment')
+#2 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/payment')
+#3 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /Users/harfox/uni/l5project/authreq-site/index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/authreq-site/index.php/site/payment
+HTTP_REFERER=http://localhost:8080/authreq-site/index.php/site/dashboard
+---
+2018/02/21 09:48:14 [error] [exception.CException] exception 'CException' with message 'SiteController cannot find the requested view "payment".' in /Users/harfox/uni/l5project/yii/framework/web/CController.php:881
+Stack trace:
+#0 /Users/harfox/uni/l5project/authreq-site/protected/controllers/SiteController.php(162): CController->renderPartial('payment', Array)
+#1 /Users/harfox/uni/l5project/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionPayment()
+#2 /Users/harfox/uni/l5project/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#3 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#4 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#5 /Users/harfox/uni/l5project/yii/framework/web/CController.php(1148): CFilter->filter(Object(CFilterChain))
+#6 /Users/harfox/uni/l5project/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#7 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#8 /Users/harfox/uni/l5project/yii/framework/web/CController.php(291): CFilterChain->run()
+#9 /Users/harfox/uni/l5project/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): CController->run('payment')
+#11 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/payment')
+#12 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#13 /Users/harfox/uni/l5project/authreq-site/index.php(16): CApplication->run()
+#14 {main}
+REQUEST_URI=/authreq-site/index.php/site/payment
+HTTP_REFERER=http://localhost:8080/authreq-site/index.php/site/dashboard
+---
+2018/02/21 09:54:36 [error] [php] Undefined variable: logoutUrl (/Users/harfox/uni/l5project/authreq-site/protected/views/site/_template_begin.php:176)
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/CController.php(872): SiteController->renderFile()
+#1 /Users/harfox/uni/l5project/authreq-site/protected/views/site/dashboard.php(3): SiteController->renderPartial()
+#2 /Users/harfox/uni/l5project/yii/framework/web/CBaseController.php(126): require()
+#3 /Users/harfox/uni/l5project/yii/framework/web/CBaseController.php(95): SiteController->renderInternal()
+#4 /Users/harfox/uni/l5project/yii/framework/web/CController.php(872): SiteController->renderFile()
+#5 /Users/harfox/uni/l5project/authreq-site/protected/controllers/SiteController.php(137): SiteController->renderPartial()
+#6 /Users/harfox/uni/l5project/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionDashboard()
+#7 /Users/harfox/uni/l5project/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#8 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(134): SiteController->runAction()
+#9 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#10 /Users/harfox/uni/l5project/yii/framework/web/CController.php(1148): CAccessControlFilter->filter()
+#11 /Users/harfox/uni/l5project/yii/framework/web/filters/CInlineFilter.php(58): SiteController->filterAccessControl()
+#12 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#13 /Users/harfox/uni/l5project/yii/framework/web/CController.php(291): CFilterChain->run()
+#14 /Users/harfox/uni/l5project/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#15 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#16 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#17 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#18 /Users/harfox/uni/l5project/authreq-site/index.php(16): CWebApplication->run()
+REQUEST_URI=/authreq-site/index.php/site/dashboard
+2018/02/21 09:54:37 [error] [php] Undefined variable: logoutUrl (/Users/harfox/uni/l5project/authreq-site/protected/views/site/_template_begin.php:176)
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/CController.php(872): SiteController->renderFile()
+#1 /Users/harfox/uni/l5project/authreq-site/protected/views/site/dashboard.php(3): SiteController->renderPartial()
+#2 /Users/harfox/uni/l5project/yii/framework/web/CBaseController.php(126): require()
+#3 /Users/harfox/uni/l5project/yii/framework/web/CBaseController.php(95): SiteController->renderInternal()
+#4 /Users/harfox/uni/l5project/yii/framework/web/CController.php(872): SiteController->renderFile()
+#5 /Users/harfox/uni/l5project/authreq-site/protected/controllers/SiteController.php(137): SiteController->renderPartial()
+#6 /Users/harfox/uni/l5project/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionDashboard()
+#7 /Users/harfox/uni/l5project/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#8 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(134): SiteController->runAction()
+#9 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#10 /Users/harfox/uni/l5project/yii/framework/web/CController.php(1148): CAccessControlFilter->filter()
+#11 /Users/harfox/uni/l5project/yii/framework/web/filters/CInlineFilter.php(58): SiteController->filterAccessControl()
+#12 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#13 /Users/harfox/uni/l5project/yii/framework/web/CController.php(291): CFilterChain->run()
+#14 /Users/harfox/uni/l5project/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#15 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#16 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#17 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#18 /Users/harfox/uni/l5project/authreq-site/index.php(16): CWebApplication->run()
+REQUEST_URI=/authreq-site/index.php/site/dashboard
+2018/02/21 09:55:38 [error] [php] Undefined variable: cartDetails (/Users/harfox/uni/l5project/authreq-site/protected/views/site/dashboard.php:2)
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/CController.php(872): SiteController->renderFile()
+#1 /Users/harfox/uni/l5project/authreq-site/protected/controllers/SiteController.php(137): SiteController->renderPartial()
+#2 /Users/harfox/uni/l5project/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionDashboard()
+#3 /Users/harfox/uni/l5project/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#4 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(134): SiteController->runAction()
+#5 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#6 /Users/harfox/uni/l5project/yii/framework/web/CController.php(1148): CAccessControlFilter->filter()
+#7 /Users/harfox/uni/l5project/yii/framework/web/filters/CInlineFilter.php(58): SiteController->filterAccessControl()
+#8 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#9 /Users/harfox/uni/l5project/yii/framework/web/CController.php(291): CFilterChain->run()
+#10 /Users/harfox/uni/l5project/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#11 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#12 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#13 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#14 /Users/harfox/uni/l5project/authreq-site/index.php(16): CWebApplication->run()
+REQUEST_URI=/authreq-site/index.php/site/dashboard
+2018/02/21 09:55:39 [error] [php] Undefined variable: cartDetails (/Users/harfox/uni/l5project/authreq-site/protected/views/site/dashboard.php:2)
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/CController.php(872): SiteController->renderFile()
+#1 /Users/harfox/uni/l5project/authreq-site/protected/controllers/SiteController.php(137): SiteController->renderPartial()
+#2 /Users/harfox/uni/l5project/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionDashboard()
+#3 /Users/harfox/uni/l5project/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#4 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(134): SiteController->runAction()
+#5 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#6 /Users/harfox/uni/l5project/yii/framework/web/CController.php(1148): CAccessControlFilter->filter()
+#7 /Users/harfox/uni/l5project/yii/framework/web/filters/CInlineFilter.php(58): SiteController->filterAccessControl()
+#8 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#9 /Users/harfox/uni/l5project/yii/framework/web/CController.php(291): CFilterChain->run()
+#10 /Users/harfox/uni/l5project/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#11 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#12 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#13 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#14 /Users/harfox/uni/l5project/authreq-site/index.php(16): CWebApplication->run()
+REQUEST_URI=/authreq-site/index.php/site/dashboard
+2018/02/21 15:50:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "index".' in /Users/harfox/uni/l5project/yii/framework/web/CController.php:486
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/CController.php(270): CController->missingAction('')
+#1 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): CController->run('')
+#2 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site')
+#3 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /Users/harfox/uni/l5project/authreq-site/index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/authreq-site/index.php/site/
+HTTP_REFERER=http://localhost:8080/authreq-site/index.php/site/payment?
+---
+2018/02/21 16:26:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "confirmpayment".' in /Users/harfox/uni/l5project/yii/framework/web/CController.php:486
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/CController.php(270): CController->missingAction('confirmpayment')
+#1 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): CController->run('confirmpayment')
+#2 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/confirmpay...')
+#3 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /Users/harfox/uni/l5project/authreq-site/index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/authreq-site/index.php/site/confirmpayment
+HTTP_REFERER=http://localhost:8080/authreq-site/index.php/site/payment?
+---

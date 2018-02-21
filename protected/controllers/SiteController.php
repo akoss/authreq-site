@@ -68,26 +68,6 @@ class SiteController extends Controller
 	}
 
 	/**
-	 * Displays the contact page
-	 */
-	public function actionContact()
-	{
-		$model=new ContactForm;
-		if(isset($_POST['ContactForm']))
-		{
-			$model->attributes=$_POST['ContactForm'];
-			if($model->validate())
-			{
-				$headers="From: {$model->email}\r\nReply-To: {$model->email}";
-				mail(Yii::app()->params['adminEmail'],$model->subject,$model->body,$headers);
-				Yii::app()->user->setFlash('contact','Thank you for contacting us. We will respond to you as soon as possible.');
-				$this->refresh();
-			}
-		}
-		$this->render('contact',array('model'=>$model));
-	}
-
-	/**
 	 * Displays the login page
 	 */
 	public function actionLogin()
@@ -154,7 +134,17 @@ class SiteController extends Controller
 
 	public function actionDashboard() 
 	{
-		$this->renderPartial('dashboard', array("logoutUrl" => Yii::app()->createUrl('site/logout')));
+		$this->renderPartial('dashboard', array());
+	}
+
+	public function actionPayment() 
+	{
+		$this->renderPartial('payment', array());
+	}
+
+	public function actionConfirmpayment() 
+	{
+		$this->renderPartial('confirmpayment', array());
 	}
 
 	public function actionResetauthreq()

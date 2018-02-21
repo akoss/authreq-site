@@ -18,7 +18,7 @@ return array(
 	'copyrightInfo'=>'Copyright &copy; 2009 by My Company.',
 
 	'database' => array('url' => 'localhost', 'user' => 'root', 'password' => 'almakorte', 'srv-db' => 'authreq-srv', 'site-db' => 'authreq-site'),
-	'callbackUrl' => 'http://192.168.100.139:8080/authreq-srv/callback.php',
+	'callbackUrl' => 'http://172.20.10.3:8080/authreq-srv/callback.php',
 	'pushPem' => '/Users/harfox/uni/l5project/authreq-site/vendors/authreq-sdk/both.pem',
 	'rootca' => '/Users/harfox/uni/l5project/authreq-site/vendors/authreq-sdk/entrust_root_certification_authority.pem',
 );
