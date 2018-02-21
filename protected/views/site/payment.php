@@ -3,8 +3,38 @@
 ), true) ?>
 
 <script>
-  $( "#select-source" ).change(function() {
-    alert( "Handler for .change() called." );
+  var update = function(){
+      $("#card-source-current").hide();
+      $("#card-source-savings").hide();
+      var source = $("#select-source").val(); 
+      if(source == 1) {
+        $("#card-source-current").show();
+      } else if(source == 2) {
+        $("#card-source-savings").show();
+      }
+
+      $("#card-recipient-choose").hide();
+      $("#card-recipient-stella").hide();
+      $("#card-recipient-david").hide();
+      var recipient = $("#select-recipient").val(); 
+      if(recipient == 0) {
+        $("#card-recipient-choose").show();
+      } else if(recipient == 1) {
+        $("#card-recipient-stella").show();
+      } else if(recipient == 2) {
+        $("#card-recipient-david").show();
+      }
+  }
+  $(document).ready(function(){
+    $( "#select-source" ).change(function() {
+      update();
+    });
+
+    $( "#select-recipient" ).change(function() {
+      update();
+    });
+
+    update();
   });
 </script>
 
@@ -19,12 +49,12 @@
 
             <div class="form-group">
               <select class="form-control form-control-lg" name="source" id="select-source">
-                <option value="0">My Current Account (08233593) £ 4,109.30</option>
-                <option value="1">My Savings (08233594) £ 10,109.30</option>
+                <option value="1" <?=($source == 1) ? "selected" : ""?>>My Current Account (08233593) £ 4,109.30</option>
+                <option value="2" <?=($source == 2) ? "selected" : ""?>>My Savings (08233594) £ 10,109.30</option>
               </select>
             </div>
 
-            <div class="card bg-gradient-warning text-white">
+            <div class="card bg-gradient-warning text-white" id="card-source-current" style="display: none;">
               <div class="card-body">
                 <h5 class="font-weight-normal mb-3">070436 08233593</h5>
                 <h3 class="font-weight-normal mb-4">My Current Account</h3>
@@ -32,7 +62,7 @@
               </div>
             </div>
 
-            <div class="card bg-gradient-warning text-white">
+            <div class="card bg-gradient-warning text-white" id="card-source-savings" style="display: none;">
               <div class="card-body">
                 <h5 class="font-weight-normal mb-3">070436 08233594</h5>
                 <h3 class="font-weight-normal mb-4">My Savings</h3>
@@ -47,16 +77,16 @@
     <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 stretch-card grid-margin">
       <div class="card">
         <div class="card-body">
-          <h4 class="card-title">Recipient <button style="float: right; margin-top: -5px; padding-left: 10px; padding-right: 10px;" type="submit" class="btn btn-success mdi mdi-plus"></button></h4>
+          <h4 class="card-title">Recipient <button style="margin-top: -5px; padding-left: 10px; padding-right: 10px;" type="submit" class="btn btn-success mdi mdi-plus float-right"></button></h4>
             <div class="form-group">
-              <select class="form-control form-control-lg" name="recipient">
-                <option value="-1">...</option>
-                <option value="0">Stella Johnson</option>
-                <option value="1">David Grey</option>
+              <select class="form-control form-control-lg" name="recipient" id="select-recipient">
+                <option value="0" <?=($recipient == 0) ? "selected" : ""?>>...</option>
+                <option value="1" <?=($recipient == 1) ? "selected" : ""?>>Stella Johnson</option>
+                <option value="2" <?=($recipient == 2) ? "selected" : ""?>>David Grey</option>
               </select>
             </div>
 
-            <div style="background: linear-gradient(to right, rgba(200, 230, 210, 0.9), rgba(245, 209, 100, 0.9));" class="card" id="recipient_choose">
+            <div style="background: linear-gradient(to right, rgba(200, 230, 210, 0.9), rgba(245, 209, 100, 0.9)); display: none;" class="card" id="card-recipient-choose">
               <div class="card-body" style="padding-right: 1.3rem;">
                 <table>
                   <tr>
@@ -73,7 +103,7 @@
               </div>
             </div>
 
-            <div class="card bg-gradient-success text-white" id="recipient_stella">
+            <div class="card bg-gradient-success text-white" id="card-recipient-stella" style="display: none;">
               <div class="card-body" style="padding-right: 1.3rem;">
                 <table>
                   <tr>
@@ -90,7 +120,7 @@
               </div>
             </div>
 
-            <div class="card bg-gradient-success text-white" id="recipient_david">
+            <div class="card bg-gradient-success text-white" id="card-recipient-david" style="display: none;">
               <div class="card-body" style="padding-right: 1.3rem;">
                 <table>
                   <tr>
@@ -114,23 +144,31 @@
     <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 stretch-card grid-margin">
       <div class="card">
         <div class="card-body">
-          <h4 class="card-title">Details</h4>
             <div class="card bg-gradient-info text-white">
-              <div class="card-body">
-                <div class="form-group" style="padding-top: 0.5rem;">
+              <div class="card-body" style="padding-top: 1.60rem; padding-bottom: 0.75rem;">
+                <div class="form-group" style="padding-top: 0;">
                   <label>Amount to transfer</label>
                   <div class="input-group">
                   <span style="width: 35px;" class="input-group-addon bg-primary text-white">£</span>
-                  <input type="text" class="form-control" aria-label="Amount" placeholder="10.00" name="amount">
+                  <input type="text" class="form-control" aria-label="Amount" placeholder="10.00" name="amount" <?=!empty($amount) ? 'value="' . htmlspecialchars($amount) . '"' : "" ?>>
                   </div>
                 </div>
-                <div class="form-group" style="padding-top: 0.6rem; padding-bottom: 0.45rem;">
+                <div class="form-group" style="padding-top: 0.25rem; padding-bottom: 0.35rem;">
                   <label>Date</label>
                   <div class="input-group">
                     <span style="width: 35px; padding-left: 0.60rem;" class="input-group-addon bg-info bg-info" id="colored-addon1">
                       <i class="mdi mdi-calendar text-white"></i>
                     </span>
-                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="colored-addon1" value="Immediately" name="date" disabled>
+                    <input type="text" class="form-control" placeholder="01/02/2018" aria-label="Date" aria-describedby="colored-addon1" value="Immediately" name="date" readonly>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Remarks</label>
+                  <div class="input-group">
+                    <span style="width: 35px; padding-left: 0.60rem;" class="input-group-addon bg-info bg-info" id="colored-addon1">
+                      <i class="mdi mdi-comment text-white"></i>
+                    </span>
+                    <input type="text" class="form-control" aria-label="Remarks" placeholder="Remark" name="remarks" value="<?=htmlspecialchars($remarks)?>">
                   </div>
                 </div>
               </div>
@@ -142,7 +180,7 @@
     <div class="col-12 stretch-card grid-margin">
       <div class="card">
         <div class="card-body">
-          <button style="float: right;" type="submit" class="btn btn-lg btn-success">Next</button>
+          <button type="submit" class="btn btn-lg btn-success float-right">Next</button>
         </div>
       </div>
     </div>

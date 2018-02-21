@@ -139,12 +139,44 @@ class SiteController extends Controller
 
 	public function actionPayment() 
 	{
-		$this->renderPartial('payment', array());
+		$this->renderPartial('payment', array(
+			'recipient' => ((Yii::app()->request->isPostRequest && isset($_POST['recipient'])) ? $_POST['recipient'] : null),
+			'source' => ((Yii::app()->request->isPostRequest && isset($_POST['source'])) ? $_POST['source'] : null), 
+			'amount' => ((Yii::app()->request->isPostRequest && isset($_POST['amount'])) ? round($_POST['amount'],2) : null), 
+			'date' => ((Yii::app()->request->isPostRequest && isset($_POST['date'])) ? $_POST['date'] : null), 
+			'remarks' => ((Yii::app()->request->isPostRequest && isset($_POST['remarks'])) ? $_POST['remarks'] : null)
+		));
 	}
 
 	public function actionConfirmpayment() 
 	{
-		$this->renderPartial('confirmpayment', array());
+		if(!Yii::app()->request->isPostRequest || !isset($_POST['recipient']) || $_POST['recipient'] == 0 || !isset($_POST['source']) || !isset($_POST['amount'])) {
+			$this->redirect(Yii::app()->createUrl('site/payment'));
+		}
+
+		$sign = ((Yii::app()->request->isPostRequest && isset($_POST['sign'])) ? $_POST['sign'] : null); 
+
+		if($sign) {
+			$paymenttransaction = new PaymentTransaction();
+
+			$paymenttransaction->source = $_POST['source'];
+			$paymenttransaction->recipient = $_POST['recipient'];
+			$paymenttransaction->amount = $_POST['amount'];
+			$paymenttransaction->date = $_POST['date'];
+			$paymenttransaction->remarks = $_POST['remarks'];
+			$paymenttransaction->user_id = Yii::app()->user->id; 
+
+			$paymenttransaction->save();
+		}
+
+		$this->renderPartial('confirmpayment', array(
+			'recipient' => ((Yii::app()->request->isPostRequest && isset($_POST['recipient'])) ? $_POST['recipient'] : null),
+			'source' => ((Yii::app()->request->isPostRequest && isset($_POST['source'])) ? $_POST['source'] : null), 
+			'amount' => ((Yii::app()->request->isPostRequest && isset($_POST['amount'])) ? round($_POST['amount'],2) : null), 
+			'date' => ((Yii::app()->request->isPostRequest && isset($_POST['date'])) ? $_POST['date'] : null), 
+			'remarks' => ((Yii::app()->request->isPostRequest && isset($_POST['remarks'])) ? $_POST['remarks'] : null),
+			'sign' => $sign, 
+		));
 	}
 
 	public function actionResetauthreq()

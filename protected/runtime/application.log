@@ -1387,3 +1387,254 @@ Stack trace:
 REQUEST_URI=/authreq-site/index.php/site/confirmpayment
 HTTP_REFERER=http://localhost:8080/authreq-site/index.php/site/payment?
 ---
+2018/02/21 17:44:11 [error] [php] Undefined variable: recepient (/Users/harfox/uni/l5project/authreq-site/protected/views/site/payment.php:76)
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/CController.php(872): SiteController->renderFile()
+#1 /Users/harfox/uni/l5project/authreq-site/protected/controllers/SiteController.php(142): SiteController->renderPartial()
+#2 /Users/harfox/uni/l5project/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionPayment()
+#3 /Users/harfox/uni/l5project/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#4 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(134): SiteController->runAction()
+#5 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#6 /Users/harfox/uni/l5project/yii/framework/web/CController.php(1148): CAccessControlFilter->filter()
+#7 /Users/harfox/uni/l5project/yii/framework/web/filters/CInlineFilter.php(58): SiteController->filterAccessControl()
+#8 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#9 /Users/harfox/uni/l5project/yii/framework/web/CController.php(291): CFilterChain->run()
+#10 /Users/harfox/uni/l5project/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#11 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#12 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#13 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#14 /Users/harfox/uni/l5project/authreq-site/index.php(16): CWebApplication->run()
+REQUEST_URI=/authreq-site/index.php/site/payment
+2018/02/21 17:44:12 [error] [php] Undefined variable: recepient (/Users/harfox/uni/l5project/authreq-site/protected/views/site/payment.php:76)
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/CController.php(872): SiteController->renderFile()
+#1 /Users/harfox/uni/l5project/authreq-site/protected/controllers/SiteController.php(142): SiteController->renderPartial()
+#2 /Users/harfox/uni/l5project/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionPayment()
+#3 /Users/harfox/uni/l5project/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#4 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(134): SiteController->runAction()
+#5 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#6 /Users/harfox/uni/l5project/yii/framework/web/CController.php(1148): CAccessControlFilter->filter()
+#7 /Users/harfox/uni/l5project/yii/framework/web/filters/CInlineFilter.php(58): SiteController->filterAccessControl()
+#8 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#9 /Users/harfox/uni/l5project/yii/framework/web/CController.php(291): CFilterChain->run()
+#10 /Users/harfox/uni/l5project/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#11 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#12 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#13 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#14 /Users/harfox/uni/l5project/authreq-site/index.php(16): CWebApplication->run()
+REQUEST_URI=/authreq-site/index.php/site/payment
+2018/02/21 18:54:00 [error] [php] Undefined variable: sign (/Users/harfox/uni/l5project/authreq-site/protected/views/site/confirmpayment.php:184)
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/CController.php(872): SiteController->renderFile()
+#1 /Users/harfox/uni/l5project/authreq-site/protected/controllers/SiteController.php(159): SiteController->renderPartial()
+#2 /Users/harfox/uni/l5project/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionConfirmpayment()
+#3 /Users/harfox/uni/l5project/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#4 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(134): SiteController->runAction()
+#5 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#6 /Users/harfox/uni/l5project/yii/framework/web/CController.php(1148): CAccessControlFilter->filter()
+#7 /Users/harfox/uni/l5project/yii/framework/web/filters/CInlineFilter.php(58): SiteController->filterAccessControl()
+#8 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#9 /Users/harfox/uni/l5project/yii/framework/web/CController.php(291): CFilterChain->run()
+#10 /Users/harfox/uni/l5project/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#11 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#12 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#13 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#14 /Users/harfox/uni/l5project/authreq-site/index.php(16): CWebApplication->run()
+REQUEST_URI=/authreq-site/index.php/site/confirmpayment
+2018/02/21 19:34:44 [error] [exception.CException] exception 'CException' with message 'Property "PaymentTransaction.user_id" is not defined.' in /Users/harfox/uni/l5project/yii/framework/base/CComponent.php:173
+Stack trace:
+#0 /Users/harfox/uni/l5project/authreq-site/protected/controllers/SiteController.php(161): CComponent->__set('user_id', '3')
+#1 /Users/harfox/uni/l5project/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionConfirmpayment()
+#2 /Users/harfox/uni/l5project/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#3 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#4 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#5 /Users/harfox/uni/l5project/yii/framework/web/CController.php(1148): CFilter->filter(Object(CFilterChain))
+#6 /Users/harfox/uni/l5project/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#7 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#8 /Users/harfox/uni/l5project/yii/framework/web/CController.php(291): CFilterChain->run()
+#9 /Users/harfox/uni/l5project/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): CController->run('confirmpayment')
+#11 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/confirmpay...')
+#12 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#13 /Users/harfox/uni/l5project/authreq-site/index.php(16): CApplication->run()
+#14 {main}
+REQUEST_URI=/authreq-site/index.php/site/confirmpayment
+HTTP_REFERER=http://localhost:8080/authreq-site/index.php/site/confirmpayment
+---
+2018/02/21 19:35:05 [error] [exception.CException] exception 'CException' with message 'Property "PaymentTransaction.source" is not defined.' in /Users/harfox/uni/l5project/yii/framework/base/CComponent.php:173
+Stack trace:
+#0 /Users/harfox/uni/l5project/authreq-site/protected/controllers/SiteController.php(161): CComponent->__set('source', '1')
+#1 /Users/harfox/uni/l5project/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionConfirmpayment()
+#2 /Users/harfox/uni/l5project/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#3 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#4 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#5 /Users/harfox/uni/l5project/yii/framework/web/CController.php(1148): CFilter->filter(Object(CFilterChain))
+#6 /Users/harfox/uni/l5project/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#7 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#8 /Users/harfox/uni/l5project/yii/framework/web/CController.php(291): CFilterChain->run()
+#9 /Users/harfox/uni/l5project/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): CController->run('confirmpayment')
+#11 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/confirmpay...')
+#12 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#13 /Users/harfox/uni/l5project/authreq-site/index.php(16): CApplication->run()
+#14 {main}
+REQUEST_URI=/authreq-site/index.php/site/confirmpayment
+HTTP_REFERER=http://localhost:8080/authreq-site/index.php/site/confirmpayment
+---
+2018/02/21 19:35:41 [error] [exception.CException] exception 'CException' with message 'Property "PaymentTransaction.source" is not defined.' in /Users/harfox/uni/l5project/yii/framework/base/CComponent.php:173
+Stack trace:
+#0 /Users/harfox/uni/l5project/authreq-site/protected/controllers/SiteController.php(161): CComponent->__set('source', '1')
+#1 /Users/harfox/uni/l5project/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionConfirmpayment()
+#2 /Users/harfox/uni/l5project/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#3 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#4 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#5 /Users/harfox/uni/l5project/yii/framework/web/CController.php(1148): CFilter->filter(Object(CFilterChain))
+#6 /Users/harfox/uni/l5project/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#7 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#8 /Users/harfox/uni/l5project/yii/framework/web/CController.php(291): CFilterChain->run()
+#9 /Users/harfox/uni/l5project/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): CController->run('confirmpayment')
+#11 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/confirmpay...')
+#12 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#13 /Users/harfox/uni/l5project/authreq-site/index.php(16): CApplication->run()
+#14 {main}
+REQUEST_URI=/authreq-site/index.php/site/confirmpayment
+HTTP_REFERER=http://localhost:8080/authreq-site/index.php/site/confirmpayment
+---
+2018/02/21 19:36:06 [error] [exception.CException] exception 'CException' with message 'Property "PaymentTransaction.source" is not defined.' in /Users/harfox/uni/l5project/yii/framework/base/CComponent.php:173
+Stack trace:
+#0 /Users/harfox/uni/l5project/authreq-site/protected/controllers/SiteController.php(161): CComponent->__set('source', '1')
+#1 /Users/harfox/uni/l5project/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionConfirmpayment()
+#2 /Users/harfox/uni/l5project/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#3 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#4 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#5 /Users/harfox/uni/l5project/yii/framework/web/CController.php(1148): CFilter->filter(Object(CFilterChain))
+#6 /Users/harfox/uni/l5project/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#7 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#8 /Users/harfox/uni/l5project/yii/framework/web/CController.php(291): CFilterChain->run()
+#9 /Users/harfox/uni/l5project/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): CController->run('confirmpayment')
+#11 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/confirmpay...')
+#12 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#13 /Users/harfox/uni/l5project/authreq-site/index.php(16): CApplication->run()
+#14 {main}
+REQUEST_URI=/authreq-site/index.php/site/confirmpayment
+HTTP_REFERER=http://localhost:8080/authreq-site/index.php/site/confirmpayment
+---
+2018/02/21 19:38:43 [error] [php] include(PaymentTransaction.php): failed to open stream: No such file or directory (/Users/harfox/uni/l5project/yii/framework/YiiBase.php:432)
+Stack trace:
+#0 /Users/harfox/uni/l5project/authreq-site/protected/controllers/SiteController.php(160): spl_autoload_call()
+#1 /Users/harfox/uni/l5project/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionConfirmpayment()
+#2 /Users/harfox/uni/l5project/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#3 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(134): SiteController->runAction()
+#4 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#5 /Users/harfox/uni/l5project/yii/framework/web/CController.php(1148): CAccessControlFilter->filter()
+#6 /Users/harfox/uni/l5project/yii/framework/web/filters/CInlineFilter.php(58): SiteController->filterAccessControl()
+#7 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#8 /Users/harfox/uni/l5project/yii/framework/web/CController.php(291): CFilterChain->run()
+#9 /Users/harfox/uni/l5project/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#10 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#11 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#12 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#13 /Users/harfox/uni/l5project/authreq-site/index.php(16): CWebApplication->run()
+REQUEST_URI=/authreq-site/index.php/site/confirmpayment
+2018/02/21 19:39:05 [error] [exception.CException] exception 'CException' with message 'Property "PaymentTransaction.source" is not defined.' in /Users/harfox/uni/l5project/yii/framework/base/CComponent.php:173
+Stack trace:
+#0 /Users/harfox/uni/l5project/authreq-site/protected/controllers/SiteController.php(162): CComponent->__set('source', '1')
+#1 /Users/harfox/uni/l5project/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionConfirmpayment()
+#2 /Users/harfox/uni/l5project/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#3 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#4 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#5 /Users/harfox/uni/l5project/yii/framework/web/CController.php(1148): CFilter->filter(Object(CFilterChain))
+#6 /Users/harfox/uni/l5project/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#7 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#8 /Users/harfox/uni/l5project/yii/framework/web/CController.php(291): CFilterChain->run()
+#9 /Users/harfox/uni/l5project/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): CController->run('confirmpayment')
+#11 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/confirmpay...')
+#12 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#13 /Users/harfox/uni/l5project/authreq-site/index.php(16): CApplication->run()
+#14 {main}
+REQUEST_URI=/authreq-site/index.php/site/confirmpayment
+HTTP_REFERER=http://localhost:8080/authreq-site/index.php/site/confirmpayment
+---
+2018/02/21 19:39:18 [error] [exception.CException] exception 'CException' with message 'Property "PaymentTransaction.source" is not defined.' in /Users/harfox/uni/l5project/yii/framework/base/CComponent.php:173
+Stack trace:
+#0 /Users/harfox/uni/l5project/authreq-site/protected/controllers/SiteController.php(162): CComponent->__set('source', '1')
+#1 /Users/harfox/uni/l5project/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionConfirmpayment()
+#2 /Users/harfox/uni/l5project/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#3 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#4 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#5 /Users/harfox/uni/l5project/yii/framework/web/CController.php(1148): CFilter->filter(Object(CFilterChain))
+#6 /Users/harfox/uni/l5project/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#7 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#8 /Users/harfox/uni/l5project/yii/framework/web/CController.php(291): CFilterChain->run()
+#9 /Users/harfox/uni/l5project/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): CController->run('confirmpayment')
+#11 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/confirmpay...')
+#12 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#13 /Users/harfox/uni/l5project/authreq-site/index.php(16): CApplication->run()
+#14 {main}
+REQUEST_URI=/authreq-site/index.php/site/confirmpayment
+HTTP_REFERER=http://localhost:8080/authreq-site/index.php/site/confirmpayment
+---
+2018/02/21 19:39:48 [error] [exception.CException] exception 'CException' with message 'Property "PaymentTransaction.source" is not defined.' in /Users/harfox/uni/l5project/yii/framework/base/CComponent.php:173
+Stack trace:
+#0 /Users/harfox/uni/l5project/authreq-site/protected/controllers/SiteController.php(162): CComponent->__set('source', '1')
+#1 /Users/harfox/uni/l5project/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionConfirmpayment()
+#2 /Users/harfox/uni/l5project/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#3 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#4 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#5 /Users/harfox/uni/l5project/yii/framework/web/CController.php(1148): CFilter->filter(Object(CFilterChain))
+#6 /Users/harfox/uni/l5project/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#7 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#8 /Users/harfox/uni/l5project/yii/framework/web/CController.php(291): CFilterChain->run()
+#9 /Users/harfox/uni/l5project/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): CController->run('confirmpayment')
+#11 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/confirmpay...')
+#12 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#13 /Users/harfox/uni/l5project/authreq-site/index.php(16): CApplication->run()
+#14 {main}
+REQUEST_URI=/authreq-site/index.php/site/confirmpayment
+HTTP_REFERER=http://localhost:8080/authreq-site/index.php/site/confirmpayment
+---
+2018/02/21 19:39:50 [error] [exception.CException] exception 'CException' with message 'Property "PaymentTransaction.source" is not defined.' in /Users/harfox/uni/l5project/yii/framework/base/CComponent.php:173
+Stack trace:
+#0 /Users/harfox/uni/l5project/authreq-site/protected/controllers/SiteController.php(162): CComponent->__set('source', '1')
+#1 /Users/harfox/uni/l5project/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionConfirmpayment()
+#2 /Users/harfox/uni/l5project/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#3 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#4 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#5 /Users/harfox/uni/l5project/yii/framework/web/CController.php(1148): CFilter->filter(Object(CFilterChain))
+#6 /Users/harfox/uni/l5project/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#7 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#8 /Users/harfox/uni/l5project/yii/framework/web/CController.php(291): CFilterChain->run()
+#9 /Users/harfox/uni/l5project/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): CController->run('confirmpayment')
+#11 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/confirmpay...')
+#12 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#13 /Users/harfox/uni/l5project/authreq-site/index.php(16): CApplication->run()
+#14 {main}
+REQUEST_URI=/authreq-site/index.php/site/confirmpayment
+HTTP_REFERER=http://localhost:8080/authreq-site/index.php/site/confirmpayment
+---
+2018/02/21 19:40:02 [error] [exception.CException] exception 'CException' with message 'Property "PaymentTransaction.source" is not defined.' in /Users/harfox/uni/l5project/yii/framework/base/CComponent.php:173
+Stack trace:
+#0 /Users/harfox/uni/l5project/authreq-site/protected/controllers/SiteController.php(162): CComponent->__set('source', '1')
+#1 /Users/harfox/uni/l5project/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionConfirmpayment()
+#2 /Users/harfox/uni/l5project/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#3 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#4 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#5 /Users/harfox/uni/l5project/yii/framework/web/CController.php(1148): CFilter->filter(Object(CFilterChain))
+#6 /Users/harfox/uni/l5project/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#7 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#8 /Users/harfox/uni/l5project/yii/framework/web/CController.php(291): CFilterChain->run()
+#9 /Users/harfox/uni/l5project/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): CController->run('confirmpayment')
+#11 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/confirmpay...')
+#12 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#13 /Users/harfox/uni/l5project/authreq-site/index.php(16): CApplication->run()
+#14 {main}
+REQUEST_URI=/authreq-site/index.php/site/confirmpayment
+HTTP_REFERER=http://localhost:8080/authreq-site/index.php/site/confirmpayment
+---
