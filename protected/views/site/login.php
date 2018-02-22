@@ -117,9 +117,9 @@ $this->breadcrumbs=array(
                 <?php echo $form->textField($model,'cardno', array('class' => 'form-control p_input', 'placeholder' => '0000')); ?>
                 </div>
                 <strong>2. Insert your Purple Debit Card into the card reader.<br>
-                3. Press the Identify button when asked to 'Select Function'.<br>
-                4. Enter your Purple Debit Card PIN number and press the 'OK' button.<br>
-                5. Enter the passcode that is now displayed on your card reader into the box below and select 'Log In'.<br>
+                3. Press the <mark class="bg-info text-white">Identify</mark> button when asked to 'Select Function'.<br>
+                4. Enter your Purple Debit Card PIN number and press the <mark class="bg-success text-white">OK</mark> button.<br>
+                5. Enter the passcode that is now displayed on your card reader.<br>
                 </strong>
                 <div class="form-group">
                 <?php echo $form->textField($model,'totp', array('class' => 'form-control p_input', 'placeholder' => '1234 5678')); ?>

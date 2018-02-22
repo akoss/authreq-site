@@ -283,22 +283,32 @@
                   </tr>
                   <tr>
                     <td colspan="2" align="right">
-                      <h5 class="mb-3">2. Insert your Nationwide Debit Card into the card reader.</h5>
+                      <h5 class="mb-3">2. Insert your Purple Debit Card into the card reader.</h5>
                     </td>
                   </tr>
                   <tr>
                     <td colspan="2" align="right">
-                      <h5 class="mb-3">3. Press the Identify button when asked to 'Select Function'.</h5>
+                      <h5 class="mb-3">3. Press the <mark class="bg-info text-white">Sign</mark> button when asked to 'Select Function'.</h5>
                     </td>
                   </tr>
                   <tr>
                     <td colspan="2" align="right">
-                      <h5 class="mb-3">4. Enter your Nationwide Debit Card PIN number and press the 'OK' button.</h5>
+                      <h5 class="mb-3">4. Enter your Purple Debit Card PIN number and press <mark class="bg-success text-white">OK</mark>.</h5>
                     </td>
                   </tr>
                   <tr>
                     <td colspan="2" align="right">
-                      <h5 class="mb-2">5. Enter the passcode that is now displayed on your card reader and select 'Sign'.</h5>
+                      <h5 class="mb-3">4. Enter <span style="font-family:'Lucida Console', monospace">82291720</span> for reference number and press <mark class="bg-success text-white">OK</mark>.</h5>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" align="right">
+                      <h5 class="mb-3">4. Enter <span style="font-family:'Lucida Console', monospace"><?=!empty($amount) ? htmlspecialchars(number_format($amount,2)): "" ?></span> for amount and press <mark class="bg-success text-white">OK</mark>.</h5>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" align="right">
+                      <h5 class="mb-2">5. Enter the passcode that is now displayed on your card reader.</h5>
                     </td>
                   </tr>
                   <tr>
