@@ -156,8 +156,6 @@ class SiteController extends Controller
 			$this->redirect(Yii::app()->createUrl('site/payment'));
 		}
 
-		$validationerror = false;
-
 		if(isset($_POST['paymenttransaction_id']) && isset($_POST['signwithsms']) && $_POST['signwithsms'] == 1) {
 			$sign = true;
 			$paymenttransaction = PaymentTransaction::model()->findByPk($_POST['paymenttransaction_id']); 
@@ -172,7 +170,6 @@ class SiteController extends Controller
 
 				$this->redirect(Yii::app()->createUrl('site/successfulpayment?id=' . $paymenttransaction->id));
 			} else {
-				$validationerror = true;
 				$signatureStatus = PaymentTransaction::SIGNATURE_STATUS_SMS_SENT;
 			}
 		} else if(isset($_POST['paymenttransaction_id']) && isset($_POST['signwithcard']) && $_POST['signwithcard'] == 1) {
@@ -191,7 +188,6 @@ class SiteController extends Controller
 
 				$this->redirect(Yii::app()->createUrl('site/successfulpayment?id=' . $paymenttransaction->id));
 			} else {
-				$validationerror = true;
 				$signatureStatus = PaymentTransaction::SIGNATURE_STATUS_CARDREADER_SENT;
 			}
 
@@ -214,6 +210,7 @@ class SiteController extends Controller
 				}
 
 				$signatureStatus = $paymenttransaction->sign();
+				$paymenttransaction->refresh();
 			} else {
 				$paymenttransaction = null;
 				$signatureStatus = null;
@@ -231,7 +228,7 @@ class SiteController extends Controller
 			'pollUrl' => (isset($paymenttransaction) ? (Yii::app()->createUrl('site/authreqpaymenttransactionpoll?id=' . $paymenttransaction->id)) : null),
 			'successUrl' => (isset($paymenttransaction) ? (Yii::app()->createUrl('site/successfulpayment?id=' . $paymenttransaction->id)) : null), 
 			'paymenttransaction_id' => (isset($paymenttransaction) ? $paymenttransaction->id : null),
-			'validation_error' => $validationerror,
+			'cardreader_nonce' => (isset($paymenttransaction) ? $paymenttransaction->cardreader_nonce : null),
 		));
 	}
 

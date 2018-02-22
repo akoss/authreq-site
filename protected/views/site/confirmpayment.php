@@ -298,7 +298,7 @@
                   </tr>
                   <tr>
                     <td colspan="2" align="right">
-                      <h5 class="mb-3">4. Enter <span style="font-family:'Lucida Console', monospace">82291720</span> for reference number and press <mark class="bg-success text-white">OK</mark>.</h5>
+                      <h5 class="mb-3">4. Enter <span style="font-family:'Lucida Console', monospace"><?=isset($cardreader_nonce) ? $cardreader_nonce : "" ?></span> for reference number and press <mark class="bg-success text-white">OK</mark>.</h5>
                     </td>
                   </tr>
                   <tr>

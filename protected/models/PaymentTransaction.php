@@ -69,6 +69,10 @@ const SIGNATURE_STATUS_CARDREADER_SENT = 3;
 			return self::SIGNATURE_STATUS_SMS_SENT;
 		}
 		else if($authmethod == User::AUTH_METHOD_CARDREADER) {
+			$this->cardreader_nonce = $authcode = mt_rand(10000000,99999999);
+			if(!$this->save()) {
+				throw new Exception("Not Saved");
+			}
 			return self::SIGNATURE_STATUS_CARDREADER_SENT;
 		}
 		else
