@@ -21,7 +21,7 @@ class SiteController extends Controller
 	{
 		return array(
 			array('allow',
-				'actions' => array('login', 'authreqpoll'),
+				'actions' => array('login', 'authreqpoll', 'resetauthreq'),
 				'users'=>array('*'),
 			),
 			array('allow',
