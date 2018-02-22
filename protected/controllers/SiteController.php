@@ -197,19 +197,23 @@ class SiteController extends Controller
 			}
 		}
 
-		$this->renderPartial('confirmpayment', array(
-			'recipient' => ((Yii::app()->request->isPostRequest && isset($_POST['recipient'])) ? $_POST['recipient'] : null),
-			'source' => ((Yii::app()->request->isPostRequest && isset($_POST['source'])) ? $_POST['source'] : null), 
-			'amount' => ((Yii::app()->request->isPostRequest && isset($_POST['amount'])) ? round($_POST['amount'],2) : null), 
-			'date' => ((Yii::app()->request->isPostRequest && isset($_POST['date'])) ? $_POST['date'] : null), 
-			'remarks' => ((Yii::app()->request->isPostRequest && isset($_POST['remarks'])) ? $_POST['remarks'] : null),
-			'sign' => $sign, 
-			'signatureStatus' => $signatureStatus,
-			'pollUrl' => (isset($paymenttransaction) ? (Yii::app()->createUrl('site/authreqpaymenttransactionpoll?id=' . $paymenttransaction->id)) : null),
-			'successUrl' => (isset($paymenttransaction) ? (Yii::app()->createUrl('site/successfulpayment?id=' . $paymenttransaction->id)) : null), 
-			'paymenttransaction_id' => (isset($paymenttransaction) ? $paymenttransaction->id : null),
-			'cardreader_nonce' => (isset($paymenttransaction) ? $paymenttransaction->cardreader_nonce : null),
-		));
+		if(isset($paymenttransaction) && $signatureStatus == PaymentTransaction::SIGNATURE_STATUS_NOT_NEEDED) {
+			$this->redirect(Yii::app()->createUrl('site/successfulpayment?id=' . $paymenttransaction->id));
+		} else {
+			$this->renderPartial('confirmpayment', array(
+				'recipient' => ((Yii::app()->request->isPostRequest && isset($_POST['recipient'])) ? $_POST['recipient'] : null),
+				'source' => ((Yii::app()->request->isPostRequest && isset($_POST['source'])) ? $_POST['source'] : null), 
+				'amount' => ((Yii::app()->request->isPostRequest && isset($_POST['amount'])) ? round($_POST['amount'],2) : null), 
+				'date' => ((Yii::app()->request->isPostRequest && isset($_POST['date'])) ? $_POST['date'] : null), 
+				'remarks' => ((Yii::app()->request->isPostRequest && isset($_POST['remarks'])) ? $_POST['remarks'] : null),
+				'sign' => $sign, 
+				'signatureStatus' => $signatureStatus,
+				'pollUrl' => (isset($paymenttransaction) ? (Yii::app()->createUrl('site/authreqpaymenttransactionpoll?id=' . $paymenttransaction->id)) : null),
+				'successUrl' => (isset($paymenttransaction) ? (Yii::app()->createUrl('site/successfulpayment?id=' . $paymenttransaction->id)) : null), 
+				'paymenttransaction_id' => (isset($paymenttransaction) ? $paymenttransaction->id : null),
+				'cardreader_nonce' => (isset($paymenttransaction) ? $paymenttransaction->cardreader_nonce : null),
+			));
+		}
 	}
 
 	public function actionSuccessfulpayment($id=null) {
