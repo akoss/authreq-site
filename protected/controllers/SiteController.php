@@ -134,7 +134,9 @@ class SiteController extends Controller
 
 	public function actionDashboard() 
 	{
-		$this->renderPartial('dashboard', array());
+		$this->renderPartial('dashboard', array(
+			'transactions' => PaymentTransaction::getRecentTransactions(Yii::app()->user->id), 
+		));
 	}
 
 	public function actionPayment() 

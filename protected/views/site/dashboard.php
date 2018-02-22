@@ -55,7 +55,7 @@
                             
                           </th>
                           <th>
-                            Category
+                            Note
                           </th>
                           <th>
                             Date
@@ -69,6 +69,37 @@
                         </tr>
                       </thead>
                       <tbody>
+                        <?php foreach($transactions as $transaction):?>
+                          <tr>
+                            <td style="width: 10px; text-align: right;">
+                              <i class="mdi mdi-arrow-<?=$transaction['outgoing'] ? "right" : "left" ?> text-<?=$transaction['outgoing'] ? "danger" : "success"?> icon-sm mr-1"></i>
+                            </td>
+                            <td style="width: 10px; text-align: right;">
+                              <img src="<?=Yii::app()->request->baseUrl . '/template/';?><?=$transaction['icon']?>" class="mr-2" alt="image">
+                            </td>
+                            <td class="py-1">
+                              <?=htmlspecialchars($transaction['name'])?>
+                            </td>
+                            <td style="text-align: right;">
+                              £ <?=htmlspecialchars($transaction['amount'])?>
+                            </td>
+                            <td style="width: 10px; margin: 0; padding: 0; text-align: right;">
+                              <i class="mdi <?=$transaction['caticon']?> menu-icon"></i>
+                            </td>
+                            <td>
+                              <?=htmlspecialchars($transaction['category'])?>
+                            </td>
+                            <td>
+                              <?=date("M d, Y", htmlspecialchars($transaction['date']))?>
+                            </td>
+                            <td>
+                              <?=htmlspecialchars($transaction['type'])?>
+                            </td>
+                            <td style="width: 30px;">
+                              <label class="badge badge-gradient-<?=$transaction['settled'] ? 'success' : 'danger'?>"><?=$transaction['settled'] ? 'Settled' : 'Settling'?></label>
+                            </td>
+                          </tr>
+                        <?php endforeach;?>
                         <tr>
                           <td style="width: 10px; text-align: right;">
                             <i class="mdi mdi-arrow-right text-danger icon-sm mr-1"></i>
@@ -89,7 +120,7 @@
                             Dining Out
                           </td>
                           <td>
-                            <?=date("M d, Y", strtotime("today"))?>
+                            <?=date("M d, Y", strtotime("today - 1 days"))?>
                           </td>
                           <td>
                             Apple Pay
@@ -118,7 +149,7 @@
                             Groceries
                           </td>
                           <td>
-                            <?=date("M d, Y", strtotime("today"))?>
+                            <?=date("M d, Y", strtotime("today - 1 days"))?>
                           </td>
                           <td>
                             Debit Card
@@ -147,7 +178,7 @@
                             Dining Out
                           </td>
                           <td>
-                            <?=date("M d, Y", strtotime("today"))?>
+                            <?=date("M d, Y", strtotime("today - 1 days"))?>
                           </td>
                           <td>
                             Debit Card
@@ -176,7 +207,7 @@
                             
                           </td>
                           <td>
-                            <?=date("M d, Y", strtotime("yesterday"))?>
+                            <?=date("M d, Y", strtotime("today - 2 days"))?>
                           </td>
                           <td>
                             Transfer
@@ -205,7 +236,7 @@
                             Communication
                           </td>
                           <td>
-                            <?=date("M d, Y", strtotime("yesterday"))?>
+                            <?=date("M d, Y", strtotime("today - 2 days"))?>
                           </td>
                           <td>
                             Direct Debit
@@ -234,7 +265,7 @@
                             Groceries
                           </td>
                           <td>
-                            <?=date("M d, Y", strtotime("yesterday"))?>
+                            <?=date("M d, Y", strtotime("today - 2 days"))?>
                           </td>
                           <td>
                             Apple Pay
@@ -349,32 +380,30 @@
             <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Recent Updates</h4>
+                  <h4 class="card-title">Purple Updates</h4>
                   <div class="d-flex">
                     <div class="d-flex align-items-center mr-4 text-muted">
                       <i class="mdi mdi-account icon-sm mr-2"></i>
-                      <span>jack Menqu</span>
+                      <span>Fraser Miriam (Glasgow Branch Manager)</span>
                     </div>
                     <div class="d-flex align-items-center text-muted">
                       <i class="mdi mdi-calendar-blank icon-sm mr-2"></i>
-                      <span>October 3rd, 2018</span>
+                      <span><?=date("M d, Y", strtotime("today - 10 days"))?></span>
                     </div>
                   </div>
                   <div class="row mt-3">
                     <div class="col-6 pr-1">
-                      <img src="<?=Yii::app()->request->baseUrl . '/template/';?>images/dashboard/img_1.jpg" class="mb-2 mw-100 w-100 rounded" alt="image">
                       <img src="<?=Yii::app()->request->baseUrl . '/template/';?>images/dashboard/img_4.jpg" class="mw-100 w-100 rounded" alt="image">
                     </div>
                     <div class="col-6 pl-1">
-                      <img src="<?=Yii::app()->request->baseUrl . '/template/';?>images/dashboard/img_2.jpg" class="mb-2 mw-100 w-100 rounded" alt="image">
                       <img src="<?=Yii::app()->request->baseUrl . '/template/';?>images/dashboard/img_3.jpg" class="mw-100 w-100 rounded" alt="image">
                     </div>
                   </div>
                   <div class="d-flex mt-5 align-items-top">
-                    <img src="<?=Yii::app()->request->baseUrl . '/template/';?>images/faces/face3.jpg" class="img-sm rounded-circle mr-3" alt="image">
+                    <img src="<?=Yii::app()->request->baseUrl . '/template/';?>images/faces/face16.jpg" class="img-sm rounded-circle mr-3" alt="image">
                     <div class="mb-0 flex-grow">
-                      <p class="font-weight-bold mr-2 mb-0">Jack Manque</p>
-                      <p>This is amazing! We have moved to a brand new branch office in
+                      <p class="font-weight-bold mr-2 mb-0">Fraser Miriam</p>
+                      <p>We have moved to a brand new branch office in
                         Glasgow with a lot more space.
                         We will miss our old office but we are very excited about our new space.</p>
                     </div>

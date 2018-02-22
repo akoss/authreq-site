@@ -54,16 +54,9 @@
                 <button type="button" class="btn bg-transparent dropdown-toggle px-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="mdi mdi-earth"></i>
                 </button>
-                <div class="dropdown-menu dropdown-menu-right">
-                  <a class="dropdown-item" href="#">Today</a>
-                  <a class="dropdown-item" href="#">This week</a>
-                  <a class="dropdown-item" href="#">This month</a>
-                  <div role="separator" class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Month and older</a>
-                </div>
               </div>
               <div class="input-group-addon bg-transparent border-0 search-button">
-                <button type="submit" class="btn btn-sm bg-transparent px-0">
+                <button type="submit" class="btn btn-sm bg-transparent px-0" disabled>
                   <i class="mdi mdi-magnify"></i>
                 </button>
               </div>
@@ -86,41 +79,17 @@
               <div class="dropdown-divider"></div>
               <a class="dropdown-item preview-item">
                 <div class="preview-thumbnail">
-                    <img src="<?=Yii::app()->request->baseUrl . '/template/';?>images/faces/face4.jpg" alt="image" class="profile-pic">
+                    <img src="<?=Yii::app()->request->baseUrl . '/template/';?>images/logo-mini.svg" alt="image" class="profile-pic">
                 </div>
                 <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                  <h6 class="preview-subject ellipsis mb-1 font-weight-normal">Mark send you a message</h6>
+                  <h6 class="preview-subject ellipsis mb-1 font-weight-normal">0% APR on EE phones</h6>
                   <p class="text-gray mb-0">
-                    1 Minutes ago
+                    2 days ago
                   </p>
                 </div>
               </a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                    <img src="<?=Yii::app()->request->baseUrl . '/template/';?>images/faces/face2.jpg" alt="image" class="profile-pic">
-                </div>
-                <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                  <h6 class="preview-subject ellipsis mb-1 font-weight-normal">Cregh send you a message</h6>
-                  <p class="text-gray mb-0">
-                    15 Minutes ago
-                  </p>
-                </div>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                    <img src="<?=Yii::app()->request->baseUrl . '/template/';?>images/faces/face3.jpg" alt="image" class="profile-pic">
-                </div>
-                <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                  <h6 class="preview-subject ellipsis mb-1 font-weight-normal">Profile picture updated</h6>
-                  <p class="text-gray mb-0">
-                    18 Minutes ago
-                  </p>
-                </div>
-              </a>
-              <div class="dropdown-divider"></div>
-              <h6 class="p-3 mb-0 text-center">4 new messages</h6>
+              <h6 class="p-3 mb-0 text-center">See older messages</h6>
             </div>
           </li>
           <li class="nav-item dropdown">
@@ -133,28 +102,14 @@
               <div class="dropdown-divider"></div>
               <a class="dropdown-item preview-item">
                 <div class="preview-thumbnail">
-                  <div class="preview-icon bg-success">
-                    <i class="mdi mdi-calendar"></i>
-                  </div>
-                </div>
-                <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                  <h6 class="preview-subject font-weight-normal mb-1">Event today</h6>
-                  <p class="text-gray ellipsis mb-0">
-                    Just a reminder that you have an event today
-                  </p>
-                </div>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
                   <div class="preview-icon bg-warning">
-                    <i class="mdi mdi-settings"></i>
+                    <i class="mdi mdi-assistant"></i>
                   </div>
                 </div>
                 <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                  <h6 class="preview-subject font-weight-normal mb-1">Settings</h6>
+                  <h6 class="preview-subject font-weight-normal mb-1">Monthly report is ready</h6>
                   <p class="text-gray ellipsis mb-0">
-                    Update dashboard
+                    Settings
                   </p>
                 </div>
               </a>
@@ -166,9 +121,9 @@
                   </div>
                 </div>
                 <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                  <h6 class="preview-subject font-weight-normal mb-1">Launch Admin</h6>
+                  <h6 class="preview-subject font-weight-normal mb-1">New Direct Debit added</h6>
                   <p class="text-gray ellipsis mb-0">
-                    New admin wow!
+                    Recurring Payments
                   </p>
                 </div>
               </a>
@@ -178,8 +133,8 @@
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle nav-profile" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-              <img src="<?=Yii::app()->request->baseUrl . '/template/';?>images/faces/face1.jpg" alt="image">
-              <span class="d-none d-lg-inline">Daniel Russiel</span>
+              <img src="<?=Yii::app()->request->baseUrl . '/template/';?>images/faces/face9.jpg" alt="image">
+              <span class="d-none d-lg-inline">Daniel Richmond</span>
             </a>
             <div class="dropdown-menu navbar-dropdown w-100" aria-labelledby="profileDropdown">
               <a class="dropdown-item" href="#">
@@ -213,7 +168,7 @@
             <li class="nav-item">
               <a class="nav-link" href="<?=Yii::app()->createUrl('site/dashboard')?>">
                 <span class="menu-title">Dashboard</span>
-                <span class="menu-sub-title">( 2 new )</span>
+                <!-- <span class="menu-sub-title">( 2 new )</span> -->
                 <i class="mdi mdi-home menu-icon"></i>
               </a>
             </li>

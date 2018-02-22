@@ -83,12 +83,22 @@ const SIGNATURE_STATUS_CARDREADER_SENT = 3;
 	}
 
 	private function recipientAsString() {
-		if($this->source == 1) {
-			return "Stella Johnson (71809176)";
-		} else if($this->source == 2) {
-			return "David Grey (74560192)";
+		if($this->recipient == 1) {
+			return "Stella Johnson";
+		} else if($this->recipient == 2) {
+			return "David Grey";
 		}
 		return "Unknown";
+	}
+
+	private function profilePic() {
+		if($this->recipient == 1) {
+			return "faces/face2.jpg"; 
+		}
+		if($this->recipient == 2) {
+			return "faces/face3.jpg";
+		}
+		return "faces-clipart/pic-1.png";
 	}
 
 	private function sendPush($user) {
@@ -122,5 +132,22 @@ const SIGNATURE_STATUS_CARDREADER_SENT = 3;
 		$db = new Db($config['url'],$config['user'],$config['password'],$config['srv-db']);
 		$message_id = $this->authreq_signaturerequest_message_id;
 		return DatabaseSignatureRequest::isSigned($db, $message_id);
+	}
+
+	public function getRecentTransactions($user) {
+		$toReturn = array();
+
+		$criteria = new CDbCriteria(array('order'=>'id DESC'));
+		$criteria->addBetweenCondition('timestamp', date("Y-m-d H:i:s", strtotime("now - 1 hour")), date("Y-m-d H:i:s"));
+
+		$all = PaymentTransaction::model()->findAllByAttributes(array('user_id' => $user), $criteria); 
+		if(count($all) > 0) {
+			foreach($all as $tr) {
+				if($tr->isSigned()) {
+					$toReturn[]= array('icon' => 'images/' . $tr->profilePic(), 'outgoing' => true, 'name' => $tr->recipientAsString(), 'amount' => number_format($tr->amount,2), 'date' => strtotime($tr->timestamp), 'category' => $tr->remarks, 'type' => "Transfer", 'caticon' => '', 'settled' => false);
+				}
+			}
+		}
+		return $toReturn;	
 	}
 }
