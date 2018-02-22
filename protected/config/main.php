@@ -26,10 +26,6 @@ return array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
 		),
-		/*'db'=>array(
-			'connectionString' => 'sqlite:protected/data/blog.db',
-			'tablePrefix' => 'tbl_',
-		),*/
 		'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=authreq-site',
 			'emulatePrepare' => true,
