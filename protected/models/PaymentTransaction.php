@@ -8,6 +8,11 @@
 class PaymentTransaction extends CActiveRecord
 {
 
+const SIGNATURE_STATUS_NOT_NEEDED = 0;
+const SIGNATURE_STATUS_PUSH_SENT = 1;
+const SIGNATURE_STATUS_SMS_SENT = 2;
+const SIGNATURE_STATUS_CARDREADER_SENT = 3;
+
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
@@ -48,8 +53,23 @@ class PaymentTransaction extends CActiveRecord
 	public function sign() 
 	{
 		$user = User::model()->findByPk(Yii::app()->user->id);
-		if($user->authreq_device_id != null) {
+
+		$authmethod = $user->getAuthMethod(); 
+
+		if($authmethod == User::AUTH_METHOD_AUTHREQ) {
 			$this->sendPush($user);
+			return self::SIGNATURE_STATUS_PUSH_SENT;
+		}
+		else if($authmethod == User::AUTH_METHOD_SMS) {
+			$this->sendSms($user);
+			return self::SIGNATURE_STATUS_SMS_SENT;
+		}
+		else if($authmethod == User::AUTH_METHOD_CARDREADER) {
+			return self::SIGNATURE_STATUS_CARDREADER_SENT;
+		}
+		else
+		{
+			return self::SIGNATURE_STATUS_NOT_NEEDED;
 		}
 	}
 
@@ -92,34 +112,15 @@ class PaymentTransaction extends CActiveRecord
 		}
 
 		$signatureRequest->sendPush(Yii::app()->params['pushPem'], Yii::app()->params['rootca']);
-		Yii::app()->session['authreq_login_message_id'] = $signatureRequest->message_id;
+		
+		$this->authreq_signaturerequest_message_id = $signatureRequest->message_id; 
+		$this->save();
 	}
 
-	/*public function authenticate($attribute,$params)
-	{
-		$this->_identity=new UserIdentity($this->username,$this->password,str_replace(" ", "", $this->totp), $this->cardno);
-		if(!$this->_identity->authenticate()) {
-			if($this->_identity->errorCode != UserIdentity::ERROR_SMS_INVALID && $this->_identity->errorCode != UserIdentity::ERROR_SMS_SENT && $this->_identity->errorCode != UserIdentity::ERROR_PUSH_SENT && $this->_identity->errorCode != UserIdentity::ERROR_PUSH_PENDING && $this->_identity->errorCode != UserIdentity::ERROR_CARDREADER_SENT && $this->_identity->errorCode != UserIdentity::ERROR_CARDREADER_INVALID) {
-				$this->addError('password','Incorrect username or password.');
-			}
-		}
+	public function isSigned() {
+		$config = Yii::app()->params['database']; 
+		$db = new Db($config['url'],$config['user'],$config['password'],$config['srv-db']);
+		$message_id = $this->authreq_signaturerequest_message_id;
+		return DatabaseSignatureRequest::isSigned($db, $message_id);
 	}
-
-	public function login()
-	{
-		if($this->_identity===null)
-		{
-			$this->_identity=new UserIdentity($this->username,$this->password);
-			$this->_identity->authenticate();
-		}
-		if($this->_identity->errorCode===UserIdentity::ERROR_NONE)
-		{
-			$duration=$this->rememberMe ? 3600*24*30 : 0; // 30 days
-			Yii::app()->user->login($this->_identity,$duration);
-		}
-		if($this->_identity->errorCode===UserIdentity::ERROR_SMS_INVALID) {
-			$this->totp = null;
-		}
-		return $this->_identity->errorCode;
-	}*/
 }

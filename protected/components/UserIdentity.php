@@ -81,6 +81,8 @@ class UserIdentity extends CUserIdentity
 	public function authenticate()
 	{
 		$user=User::model()->find('LOWER(username)=?',array(strtolower($this->username)));
+		$authmethod = (isset($user) ? $user->getAuthMethod() : null);
+
 		if($user===null)
 			$this->errorCode=self::ERROR_USERNAME_INVALID;
 		else if(!$user->validatePassword($this->password))
@@ -88,21 +90,21 @@ class UserIdentity extends CUserIdentity
 		else if(isset(Yii::app()->session['authreq_login_message_id']) && !$this->checkSessionSignatureStatus(Yii::app()->session['authreq_login_message_id'])) {
 			// check whether login succeeded 
 			$this->errorCode = self::ERROR_PUSH_PENDING;
-		} else if(!empty($user->authreq_device_id) && !isset(Yii::app()->session['authreq_login_message_id'])) {
+		} else if($authmethod == User::AUTH_METHOD_AUTHREQ && !isset(Yii::app()->session['authreq_login_message_id'])) {
 			// authreq enabled -- need push
 			$this->sendPush($user);
 			$this->errorCode = self::ERROR_PUSH_SENT;
 		}
-		else if(!empty($user->sms_phone_no) && empty(Yii::app()->session['sms_totp'])) {
+		else if($authmethod == User::AUTH_METHOD_SMS && empty(Yii::app()->session['sms_totp'])) {
 			// sms enabled -- need push
 			$this->sendSms($user);
 			$this->errorCode = self::ERROR_SMS_SENT;
-		} else if(!empty($user->sms_phone_no) && !empty(Yii::app()->session['sms_totp']) && $this->totp != Yii::app()->session['sms_totp']) {
+		} else if($authmethod == User::AUTH_METHOD_SMS && !empty(Yii::app()->session['sms_totp']) && $this->totp != Yii::app()->session['sms_totp']) {
 			$this->errorCode = self::ERROR_SMS_INVALID;
-		} else if(!empty($user->cardreader_last4) && empty(Yii::app()->session['sms_totp'])) {
+		} else if($authmethod == User::AUTH_METHOD_CARDREADER && empty(Yii::app()->session['sms_totp'])) {
 			Yii::app()->session['sms_totp'] = "dummy";
 			$this->errorCode = self::ERROR_CARDREADER_SENT;
-		} else if(!empty($user->cardreader_last4) && !empty(Yii::app()->session['sms_totp']) && ($this->cardno != 2103 || $this->totp < 10000000 || $this->totp > 99999999)) {
+		} else if($authmethod == User::AUTH_METHOD_CARDREADER && !empty(Yii::app()->session['sms_totp']) && ($this->cardno != $user->cardreader_last4 || $this->totp < 10000000 || $this->totp > 99999999)) {
 			$this->errorCode = self::ERROR_CARDREADER_INVALID;
 		} else {
 			$this->_id=$user->id;

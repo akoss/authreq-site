@@ -171,7 +171,10 @@ class SiteController extends Controller
 				throw new Exception("asdf");
 			}
 
-			$paymenttransaction->sign();
+			$signatureStatus = $paymenttransaction->sign();
+		} else {
+			$paymenttransaction = null;
+			$signatureStatus = null;
 		}
 
 		$this->renderPartial('confirmpayment', array(
@@ -181,8 +184,40 @@ class SiteController extends Controller
 			'date' => ((Yii::app()->request->isPostRequest && isset($_POST['date'])) ? $_POST['date'] : null), 
 			'remarks' => ((Yii::app()->request->isPostRequest && isset($_POST['remarks'])) ? $_POST['remarks'] : null),
 			'sign' => $sign, 
+			'signatureStatus' => $signatureStatus,
+			'pollUrl' => (isset($paymenttransaction) ? (Yii::app()->createUrl('site/authreqpaymenttransactionpoll?id=' . $paymenttransaction->id)) : null),
+			'successUrl' => (isset($paymenttransaction) ? (Yii::app()->createUrl('site/successfulpayment?id=' . $paymenttransaction->id)) : null)
 		));
 	}
+
+	public function actionSuccessfulpayment($id=null) {
+		if($id == null) $this->redirect(Yii::app()->homeUrl);
+		$tr = PaymentTransaction::model()->findByPk($id);
+		if($tr->user_id != Yii::app()->user->id || !$tr->isSigned()) {
+			$this->redirect(Yii::app()->homeUrl);
+		}
+
+		$this->renderPartial('successfulpayment', array(
+			'recipient' => $tr->recipient,
+			'source' => $tr->source, 
+			'amount' => $tr->amount, 
+			'date' => $tr->date, 
+			'remarks' => $tr->remarks,
+		));
+	}
+
+	public function actionAuthreqpaymenttransactionpoll($id=null)
+	{
+		if($id == null || !Yii::app()->request->isAjaxRequest) Yii::app()->end(); 
+
+		$tr = PaymentTransaction::model()->findByPk($id);
+		if($tr->user_id != Yii::app()->user->id) {
+			Yii::app()->end(); 
+		}
+
+		$this->_sendResponse(200, array("success" => $tr->isSigned()));
+	}
+
 
 	public function actionResetauthreq()
 	{

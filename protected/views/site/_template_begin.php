@@ -224,14 +224,14 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic" id="nav-payments">
                 <span class="menu-title">Payments</span>
                 <i class="mdi mdi-transfer menu-icon"></i>
               </a>
               <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item"> <a class="nav-link" href="#">Payment History</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="<?=Yii::app()->createUrl('site/payment')?>">Make a Payment</a></li>
+                  <li class="nav-item"> <a id="nav-payment-item" class="nav-link" href="<?=Yii::app()->createUrl('site/payment')?>">Make a Payment</a></li>
                   <li class="nav-item"> <a class="nav-link" href="#">Recurring Payments</a></li>
                 </ul>
                 </div>

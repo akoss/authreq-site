@@ -1812,3 +1812,538 @@ Stack trace:
 #14 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
 #15 /Users/harfox/uni/l5project/authreq-site/index.php(16): CWebApplication->run()
 REQUEST_URI=/authreq-site/index.php/site/confirmpayment
+2018/02/22 15:42:56 [error] [php] Undefined variable: pollUrl (/Users/harfox/uni/l5project/authreq-site/protected/views/site/confirmpayment.php:49)
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/CController.php(872): SiteController->renderFile()
+#1 /Users/harfox/uni/l5project/authreq-site/protected/controllers/SiteController.php(187): SiteController->renderPartial()
+#2 /Users/harfox/uni/l5project/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionConfirmpayment()
+#3 /Users/harfox/uni/l5project/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#4 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(134): SiteController->runAction()
+#5 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#6 /Users/harfox/uni/l5project/yii/framework/web/CController.php(1148): CAccessControlFilter->filter()
+#7 /Users/harfox/uni/l5project/yii/framework/web/filters/CInlineFilter.php(58): SiteController->filterAccessControl()
+#8 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#9 /Users/harfox/uni/l5project/yii/framework/web/CController.php(291): CFilterChain->run()
+#10 /Users/harfox/uni/l5project/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#11 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#12 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#13 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#14 /Users/harfox/uni/l5project/authreq-site/index.php(16): CWebApplication->run()
+REQUEST_URI=/authreq-site/index.php/site/confirmpayment
+2018/02/22 16:00:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "authreqtransactionpoll".' in /Users/harfox/uni/l5project/yii/framework/web/CController.php:486
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/CController.php(270): CController->missingAction('authreqtransact...')
+#1 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): CController->run('authreqtransact...')
+#2 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/authreqtra...')
+#3 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /Users/harfox/uni/l5project/authreq-site/index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/authreq-site/index.php/site/authreqtransactionpoll
+HTTP_REFERER=http://localhost:8080/authreq-site/index.php/site/confirmpayment
+---
+2018/02/22 16:00:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "authreqtransactionpoll".' in /Users/harfox/uni/l5project/yii/framework/web/CController.php:486
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/CController.php(270): CController->missingAction('authreqtransact...')
+#1 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): CController->run('authreqtransact...')
+#2 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/authreqtra...')
+#3 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /Users/harfox/uni/l5project/authreq-site/index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/authreq-site/index.php/site/authreqtransactionpoll
+HTTP_REFERER=http://localhost:8080/authreq-site/index.php/site/confirmpayment
+---
+2018/02/22 16:00:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "authreqtransactionpoll".' in /Users/harfox/uni/l5project/yii/framework/web/CController.php:486
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/CController.php(270): CController->missingAction('authreqtransact...')
+#1 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): CController->run('authreqtransact...')
+#2 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/authreqtra...')
+#3 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /Users/harfox/uni/l5project/authreq-site/index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/authreq-site/index.php/site/authreqtransactionpoll
+HTTP_REFERER=http://localhost:8080/authreq-site/index.php/site/confirmpayment
+---
+2018/02/22 16:01:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "authreqtransactionpoll".' in /Users/harfox/uni/l5project/yii/framework/web/CController.php:486
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/CController.php(270): CController->missingAction('authreqtransact...')
+#1 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): CController->run('authreqtransact...')
+#2 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/authreqtra...')
+#3 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /Users/harfox/uni/l5project/authreq-site/index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/authreq-site/index.php/site/authreqtransactionpoll
+HTTP_REFERER=http://localhost:8080/authreq-site/index.php/site/confirmpayment
+---
+2018/02/22 16:01:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "authreqtransactionpoll".' in /Users/harfox/uni/l5project/yii/framework/web/CController.php:486
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/CController.php(270): CController->missingAction('authreqtransact...')
+#1 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): CController->run('authreqtransact...')
+#2 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/authreqtra...')
+#3 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /Users/harfox/uni/l5project/authreq-site/index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/authreq-site/index.php/site/authreqtransactionpoll
+HTTP_REFERER=http://localhost:8080/authreq-site/index.php/site/confirmpayment
+---
+2018/02/22 16:01:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "authreqtransactionpoll".' in /Users/harfox/uni/l5project/yii/framework/web/CController.php:486
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/CController.php(270): CController->missingAction('authreqtransact...')
+#1 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): CController->run('authreqtransact...')
+#2 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/authreqtra...')
+#3 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /Users/harfox/uni/l5project/authreq-site/index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/authreq-site/index.php/site/authreqtransactionpoll
+HTTP_REFERER=http://localhost:8080/authreq-site/index.php/site/confirmpayment
+---
+2018/02/22 16:01:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "authreqtransactionpoll".' in /Users/harfox/uni/l5project/yii/framework/web/CController.php:486
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/CController.php(270): CController->missingAction('authreqtransact...')
+#1 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): CController->run('authreqtransact...')
+#2 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/authreqtra...')
+#3 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /Users/harfox/uni/l5project/authreq-site/index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/authreq-site/index.php/site/authreqtransactionpoll
+HTTP_REFERER=http://localhost:8080/authreq-site/index.php/site/confirmpayment
+---
+2018/02/22 16:01:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "authreqtransactionpoll".' in /Users/harfox/uni/l5project/yii/framework/web/CController.php:486
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/CController.php(270): CController->missingAction('authreqtransact...')
+#1 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): CController->run('authreqtransact...')
+#2 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/authreqtra...')
+#3 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /Users/harfox/uni/l5project/authreq-site/index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/authreq-site/index.php/site/authreqtransactionpoll
+HTTP_REFERER=http://localhost:8080/authreq-site/index.php/site/confirmpayment
+---
+2018/02/22 16:01:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "authreqtransactionpoll".' in /Users/harfox/uni/l5project/yii/framework/web/CController.php:486
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/CController.php(270): CController->missingAction('authreqtransact...')
+#1 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): CController->run('authreqtransact...')
+#2 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/authreqtra...')
+#3 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /Users/harfox/uni/l5project/authreq-site/index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/authreq-site/index.php/site/authreqtransactionpoll
+HTTP_REFERER=http://localhost:8080/authreq-site/index.php/site/confirmpayment
+---
+2018/02/22 16:01:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "authreqtransactionpoll".' in /Users/harfox/uni/l5project/yii/framework/web/CController.php:486
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/CController.php(270): CController->missingAction('authreqtransact...')
+#1 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): CController->run('authreqtransact...')
+#2 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/authreqtra...')
+#3 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /Users/harfox/uni/l5project/authreq-site/index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/authreq-site/index.php/site/authreqtransactionpoll
+HTTP_REFERER=http://localhost:8080/authreq-site/index.php/site/confirmpayment
+---
+2018/02/22 16:01:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "authreqtransactionpoll".' in /Users/harfox/uni/l5project/yii/framework/web/CController.php:486
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/CController.php(270): CController->missingAction('authreqtransact...')
+#1 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): CController->run('authreqtransact...')
+#2 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/authreqtra...')
+#3 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /Users/harfox/uni/l5project/authreq-site/index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/authreq-site/index.php/site/authreqtransactionpoll
+HTTP_REFERER=http://localhost:8080/authreq-site/index.php/site/confirmpayment
+---
+2018/02/22 16:01:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "authreqtransactionpoll".' in /Users/harfox/uni/l5project/yii/framework/web/CController.php:486
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/CController.php(270): CController->missingAction('authreqtransact...')
+#1 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): CController->run('authreqtransact...')
+#2 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/authreqtra...')
+#3 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /Users/harfox/uni/l5project/authreq-site/index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/authreq-site/index.php/site/authreqtransactionpoll
+HTTP_REFERER=http://localhost:8080/authreq-site/index.php/site/confirmpayment
+---
+2018/02/22 16:01:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "authreqtransactionpoll".' in /Users/harfox/uni/l5project/yii/framework/web/CController.php:486
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/CController.php(270): CController->missingAction('authreqtransact...')
+#1 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): CController->run('authreqtransact...')
+#2 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/authreqtra...')
+#3 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /Users/harfox/uni/l5project/authreq-site/index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/authreq-site/index.php/site/authreqtransactionpoll
+HTTP_REFERER=http://localhost:8080/authreq-site/index.php/site/confirmpayment
+---
+2018/02/22 16:01:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "authreqtransactionpoll".' in /Users/harfox/uni/l5project/yii/framework/web/CController.php:486
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/CController.php(270): CController->missingAction('authreqtransact...')
+#1 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): CController->run('authreqtransact...')
+#2 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/authreqtra...')
+#3 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /Users/harfox/uni/l5project/authreq-site/index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/authreq-site/index.php/site/authreqtransactionpoll
+HTTP_REFERER=http://localhost:8080/authreq-site/index.php/site/confirmpayment
+---
+2018/02/22 16:01:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "authreqtransactionpoll".' in /Users/harfox/uni/l5project/yii/framework/web/CController.php:486
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/CController.php(270): CController->missingAction('authreqtransact...')
+#1 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): CController->run('authreqtransact...')
+#2 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/authreqtra...')
+#3 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /Users/harfox/uni/l5project/authreq-site/index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/authreq-site/index.php/site/authreqtransactionpoll
+HTTP_REFERER=http://localhost:8080/authreq-site/index.php/site/confirmpayment
+---
+2018/02/22 16:01:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "authreqtransactionpoll".' in /Users/harfox/uni/l5project/yii/framework/web/CController.php:486
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/CController.php(270): CController->missingAction('authreqtransact...')
+#1 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): CController->run('authreqtransact...')
+#2 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/authreqtra...')
+#3 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /Users/harfox/uni/l5project/authreq-site/index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/authreq-site/index.php/site/authreqtransactionpoll
+HTTP_REFERER=http://localhost:8080/authreq-site/index.php/site/confirmpayment
+---
+2018/02/22 16:01:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "authreqtransactionpoll".' in /Users/harfox/uni/l5project/yii/framework/web/CController.php:486
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/CController.php(270): CController->missingAction('authreqtransact...')
+#1 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): CController->run('authreqtransact...')
+#2 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('site/authreqtra...')
+#3 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#4 /Users/harfox/uni/l5project/authreq-site/index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/authreq-site/index.php/site/authreqtransactionpoll
+HTTP_REFERER=http://localhost:8080/authreq-site/index.php/site/confirmpayment
+---
+2018/02/22 17:10:00 [error] [php] Undefined variable: paymenttransaction (/Users/harfox/uni/l5project/authreq-site/protected/controllers/SiteController.php:187)
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(134): SiteController->runAction()
+#1 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#2 /Users/harfox/uni/l5project/yii/framework/web/CController.php(1148): CAccessControlFilter->filter()
+#3 /Users/harfox/uni/l5project/yii/framework/web/filters/CInlineFilter.php(58): SiteController->filterAccessControl()
+#4 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#5 /Users/harfox/uni/l5project/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /Users/harfox/uni/l5project/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#7 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#8 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#9 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#10 /Users/harfox/uni/l5project/authreq-site/index.php(16): CWebApplication->run()
+REQUEST_URI=/authreq-site/index.php/site/confirmpayment
+2018/02/22 17:10:30 [error] [php] Trying to get property of non-object (/Users/harfox/uni/l5project/authreq-site/protected/controllers/SiteController.php:188)
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(134): SiteController->runAction()
+#1 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#2 /Users/harfox/uni/l5project/yii/framework/web/CController.php(1148): CAccessControlFilter->filter()
+#3 /Users/harfox/uni/l5project/yii/framework/web/filters/CInlineFilter.php(58): SiteController->filterAccessControl()
+#4 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#5 /Users/harfox/uni/l5project/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /Users/harfox/uni/l5project/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#7 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#8 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#9 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#10 /Users/harfox/uni/l5project/authreq-site/index.php(16): CWebApplication->run()
+REQUEST_URI=/authreq-site/index.php/site/confirmpayment
+2018/02/22 17:16:12 [error] [php] Undefined variable: tr (/Users/harfox/uni/l5project/authreq-site/protected/models/PaymentTransaction.php:123)
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/actions/CAction.php(109): ReflectionMethod->invokeArgs()
+#1 /Users/harfox/uni/l5project/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#2 /Users/harfox/uni/l5project/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#3 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(134): SiteController->runAction()
+#4 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#5 /Users/harfox/uni/l5project/yii/framework/web/CController.php(1148): CAccessControlFilter->filter()
+#6 /Users/harfox/uni/l5project/yii/framework/web/filters/CInlineFilter.php(58): SiteController->filterAccessControl()
+#7 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#8 /Users/harfox/uni/l5project/yii/framework/web/CController.php(291): CFilterChain->run()
+#9 /Users/harfox/uni/l5project/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#10 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#11 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#12 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#13 /Users/harfox/uni/l5project/authreq-site/index.php(16): CWebApplication->run()
+REQUEST_URI=/authreq-site/index.php/site/authreqpaymenttransactionpoll?id=79
+2018/02/22 17:16:14 [error] [php] Undefined variable: tr (/Users/harfox/uni/l5project/authreq-site/protected/models/PaymentTransaction.php:123)
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/actions/CAction.php(109): ReflectionMethod->invokeArgs()
+#1 /Users/harfox/uni/l5project/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#2 /Users/harfox/uni/l5project/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#3 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(134): SiteController->runAction()
+#4 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#5 /Users/harfox/uni/l5project/yii/framework/web/CController.php(1148): CAccessControlFilter->filter()
+#6 /Users/harfox/uni/l5project/yii/framework/web/filters/CInlineFilter.php(58): SiteController->filterAccessControl()
+#7 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#8 /Users/harfox/uni/l5project/yii/framework/web/CController.php(291): CFilterChain->run()
+#9 /Users/harfox/uni/l5project/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#10 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#11 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#12 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#13 /Users/harfox/uni/l5project/authreq-site/index.php(16): CWebApplication->run()
+REQUEST_URI=/authreq-site/index.php/site/authreqpaymenttransactionpoll?id=79
+2018/02/22 17:16:16 [error] [php] Undefined variable: tr (/Users/harfox/uni/l5project/authreq-site/protected/models/PaymentTransaction.php:123)
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/actions/CAction.php(109): ReflectionMethod->invokeArgs()
+#1 /Users/harfox/uni/l5project/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#2 /Users/harfox/uni/l5project/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#3 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(134): SiteController->runAction()
+#4 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#5 /Users/harfox/uni/l5project/yii/framework/web/CController.php(1148): CAccessControlFilter->filter()
+#6 /Users/harfox/uni/l5project/yii/framework/web/filters/CInlineFilter.php(58): SiteController->filterAccessControl()
+#7 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#8 /Users/harfox/uni/l5project/yii/framework/web/CController.php(291): CFilterChain->run()
+#9 /Users/harfox/uni/l5project/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#10 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#11 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#12 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#13 /Users/harfox/uni/l5project/authreq-site/index.php(16): CWebApplication->run()
+REQUEST_URI=/authreq-site/index.php/site/authreqpaymenttransactionpoll?id=79
+2018/02/22 17:16:18 [error] [php] Undefined variable: tr (/Users/harfox/uni/l5project/authreq-site/protected/models/PaymentTransaction.php:123)
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/actions/CAction.php(109): ReflectionMethod->invokeArgs()
+#1 /Users/harfox/uni/l5project/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#2 /Users/harfox/uni/l5project/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#3 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(134): SiteController->runAction()
+#4 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#5 /Users/harfox/uni/l5project/yii/framework/web/CController.php(1148): CAccessControlFilter->filter()
+#6 /Users/harfox/uni/l5project/yii/framework/web/filters/CInlineFilter.php(58): SiteController->filterAccessControl()
+#7 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#8 /Users/harfox/uni/l5project/yii/framework/web/CController.php(291): CFilterChain->run()
+#9 /Users/harfox/uni/l5project/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#10 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#11 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#12 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#13 /Users/harfox/uni/l5project/authreq-site/index.php(16): CWebApplication->run()
+REQUEST_URI=/authreq-site/index.php/site/authreqpaymenttransactionpoll?id=79
+2018/02/22 17:16:20 [error] [php] Undefined variable: tr (/Users/harfox/uni/l5project/authreq-site/protected/models/PaymentTransaction.php:123)
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/actions/CAction.php(109): ReflectionMethod->invokeArgs()
+#1 /Users/harfox/uni/l5project/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#2 /Users/harfox/uni/l5project/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#3 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(134): SiteController->runAction()
+#4 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#5 /Users/harfox/uni/l5project/yii/framework/web/CController.php(1148): CAccessControlFilter->filter()
+#6 /Users/harfox/uni/l5project/yii/framework/web/filters/CInlineFilter.php(58): SiteController->filterAccessControl()
+#7 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#8 /Users/harfox/uni/l5project/yii/framework/web/CController.php(291): CFilterChain->run()
+#9 /Users/harfox/uni/l5project/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#10 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#11 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#12 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#13 /Users/harfox/uni/l5project/authreq-site/index.php(16): CWebApplication->run()
+REQUEST_URI=/authreq-site/index.php/site/authreqpaymenttransactionpoll?id=79
+2018/02/22 17:16:22 [error] [php] Undefined variable: tr (/Users/harfox/uni/l5project/authreq-site/protected/models/PaymentTransaction.php:123)
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/actions/CAction.php(109): ReflectionMethod->invokeArgs()
+#1 /Users/harfox/uni/l5project/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#2 /Users/harfox/uni/l5project/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#3 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(134): SiteController->runAction()
+#4 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#5 /Users/harfox/uni/l5project/yii/framework/web/CController.php(1148): CAccessControlFilter->filter()
+#6 /Users/harfox/uni/l5project/yii/framework/web/filters/CInlineFilter.php(58): SiteController->filterAccessControl()
+#7 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#8 /Users/harfox/uni/l5project/yii/framework/web/CController.php(291): CFilterChain->run()
+#9 /Users/harfox/uni/l5project/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#10 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#11 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#12 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#13 /Users/harfox/uni/l5project/authreq-site/index.php(16): CWebApplication->run()
+REQUEST_URI=/authreq-site/index.php/site/authreqpaymenttransactionpoll?id=79
+2018/02/22 17:16:24 [error] [php] Undefined variable: tr (/Users/harfox/uni/l5project/authreq-site/protected/models/PaymentTransaction.php:123)
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/actions/CAction.php(109): ReflectionMethod->invokeArgs()
+#1 /Users/harfox/uni/l5project/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#2 /Users/harfox/uni/l5project/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#3 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(134): SiteController->runAction()
+#4 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#5 /Users/harfox/uni/l5project/yii/framework/web/CController.php(1148): CAccessControlFilter->filter()
+#6 /Users/harfox/uni/l5project/yii/framework/web/filters/CInlineFilter.php(58): SiteController->filterAccessControl()
+#7 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#8 /Users/harfox/uni/l5project/yii/framework/web/CController.php(291): CFilterChain->run()
+#9 /Users/harfox/uni/l5project/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#10 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#11 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#12 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#13 /Users/harfox/uni/l5project/authreq-site/index.php(16): CWebApplication->run()
+REQUEST_URI=/authreq-site/index.php/site/authreqpaymenttransactionpoll?id=79
+2018/02/22 17:16:26 [error] [php] Undefined variable: tr (/Users/harfox/uni/l5project/authreq-site/protected/models/PaymentTransaction.php:123)
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/actions/CAction.php(109): ReflectionMethod->invokeArgs()
+#1 /Users/harfox/uni/l5project/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#2 /Users/harfox/uni/l5project/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#3 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(134): SiteController->runAction()
+#4 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#5 /Users/harfox/uni/l5project/yii/framework/web/CController.php(1148): CAccessControlFilter->filter()
+#6 /Users/harfox/uni/l5project/yii/framework/web/filters/CInlineFilter.php(58): SiteController->filterAccessControl()
+#7 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#8 /Users/harfox/uni/l5project/yii/framework/web/CController.php(291): CFilterChain->run()
+#9 /Users/harfox/uni/l5project/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#10 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#11 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#12 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#13 /Users/harfox/uni/l5project/authreq-site/index.php(16): CWebApplication->run()
+REQUEST_URI=/authreq-site/index.php/site/authreqpaymenttransactionpoll?id=79
+2018/02/22 17:16:28 [error] [php] Undefined variable: tr (/Users/harfox/uni/l5project/authreq-site/protected/models/PaymentTransaction.php:123)
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/actions/CAction.php(109): ReflectionMethod->invokeArgs()
+#1 /Users/harfox/uni/l5project/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#2 /Users/harfox/uni/l5project/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#3 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(134): SiteController->runAction()
+#4 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#5 /Users/harfox/uni/l5project/yii/framework/web/CController.php(1148): CAccessControlFilter->filter()
+#6 /Users/harfox/uni/l5project/yii/framework/web/filters/CInlineFilter.php(58): SiteController->filterAccessControl()
+#7 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#8 /Users/harfox/uni/l5project/yii/framework/web/CController.php(291): CFilterChain->run()
+#9 /Users/harfox/uni/l5project/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#10 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#11 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#12 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#13 /Users/harfox/uni/l5project/authreq-site/index.php(16): CWebApplication->run()
+REQUEST_URI=/authreq-site/index.php/site/authreqpaymenttransactionpoll?id=79
+2018/02/22 17:16:30 [error] [php] Undefined variable: tr (/Users/harfox/uni/l5project/authreq-site/protected/models/PaymentTransaction.php:123)
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/actions/CAction.php(109): ReflectionMethod->invokeArgs()
+#1 /Users/harfox/uni/l5project/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#2 /Users/harfox/uni/l5project/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#3 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(134): SiteController->runAction()
+#4 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#5 /Users/harfox/uni/l5project/yii/framework/web/CController.php(1148): CAccessControlFilter->filter()
+#6 /Users/harfox/uni/l5project/yii/framework/web/filters/CInlineFilter.php(58): SiteController->filterAccessControl()
+#7 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#8 /Users/harfox/uni/l5project/yii/framework/web/CController.php(291): CFilterChain->run()
+#9 /Users/harfox/uni/l5project/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#10 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#11 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#12 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#13 /Users/harfox/uni/l5project/authreq-site/index.php(16): CWebApplication->run()
+REQUEST_URI=/authreq-site/index.php/site/authreqpaymenttransactionpoll?id=79
+2018/02/22 17:16:32 [error] [php] Undefined variable: tr (/Users/harfox/uni/l5project/authreq-site/protected/models/PaymentTransaction.php:123)
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/actions/CAction.php(109): ReflectionMethod->invokeArgs()
+#1 /Users/harfox/uni/l5project/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#2 /Users/harfox/uni/l5project/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#3 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(134): SiteController->runAction()
+#4 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#5 /Users/harfox/uni/l5project/yii/framework/web/CController.php(1148): CAccessControlFilter->filter()
+#6 /Users/harfox/uni/l5project/yii/framework/web/filters/CInlineFilter.php(58): SiteController->filterAccessControl()
+#7 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#8 /Users/harfox/uni/l5project/yii/framework/web/CController.php(291): CFilterChain->run()
+#9 /Users/harfox/uni/l5project/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#10 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#11 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#12 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#13 /Users/harfox/uni/l5project/authreq-site/index.php(16): CWebApplication->run()
+REQUEST_URI=/authreq-site/index.php/site/authreqpaymenttransactionpoll?id=79
+2018/02/22 17:16:34 [error] [php] Undefined variable: tr (/Users/harfox/uni/l5project/authreq-site/protected/models/PaymentTransaction.php:123)
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/actions/CAction.php(109): ReflectionMethod->invokeArgs()
+#1 /Users/harfox/uni/l5project/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#2 /Users/harfox/uni/l5project/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#3 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(134): SiteController->runAction()
+#4 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#5 /Users/harfox/uni/l5project/yii/framework/web/CController.php(1148): CAccessControlFilter->filter()
+#6 /Users/harfox/uni/l5project/yii/framework/web/filters/CInlineFilter.php(58): SiteController->filterAccessControl()
+#7 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#8 /Users/harfox/uni/l5project/yii/framework/web/CController.php(291): CFilterChain->run()
+#9 /Users/harfox/uni/l5project/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#10 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#11 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#12 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#13 /Users/harfox/uni/l5project/authreq-site/index.php(16): CWebApplication->run()
+REQUEST_URI=/authreq-site/index.php/site/authreqpaymenttransactionpoll?id=79
+2018/02/22 17:19:31 [error] [php] Undefined variable: successUrl (/Users/harfox/uni/l5project/authreq-site/protected/views/site/confirmpayment.php:52)
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/CController.php(872): SiteController->renderFile()
+#1 /Users/harfox/uni/l5project/authreq-site/protected/controllers/SiteController.php(189): SiteController->renderPartial()
+#2 /Users/harfox/uni/l5project/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionConfirmpayment()
+#3 /Users/harfox/uni/l5project/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#4 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(134): SiteController->runAction()
+#5 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#6 /Users/harfox/uni/l5project/yii/framework/web/CController.php(1148): CAccessControlFilter->filter()
+#7 /Users/harfox/uni/l5project/yii/framework/web/filters/CInlineFilter.php(58): SiteController->filterAccessControl()
+#8 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#9 /Users/harfox/uni/l5project/yii/framework/web/CController.php(291): CFilterChain->run()
+#10 /Users/harfox/uni/l5project/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#11 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#12 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#13 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#14 /Users/harfox/uni/l5project/authreq-site/index.php(16): CWebApplication->run()
+REQUEST_URI=/authreq-site/index.php/site/confirmpayment
+2018/02/22 17:19:51 [error] [php] Undefined variable: sign (/Users/harfox/uni/l5project/authreq-site/protected/controllers/SiteController.php:206)
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 /Users/harfox/uni/l5project/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#2 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(134): SiteController->runAction()
+#3 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#4 /Users/harfox/uni/l5project/yii/framework/web/CController.php(1148): CAccessControlFilter->filter()
+#5 /Users/harfox/uni/l5project/yii/framework/web/filters/CInlineFilter.php(58): SiteController->filterAccessControl()
+#6 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#7 /Users/harfox/uni/l5project/yii/framework/web/CController.php(291): CFilterChain->run()
+#8 /Users/harfox/uni/l5project/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#9 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#10 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#11 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#12 /Users/harfox/uni/l5project/authreq-site/index.php(16): CWebApplication->run()
+REQUEST_URI=/authreq-site/index.php/site/successfulpayment?id=82
+2018/02/22 17:30:27 [error] [php] Undefined variable: sign (/Users/harfox/uni/l5project/authreq-site/protected/controllers/SiteController.php:206)
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 /Users/harfox/uni/l5project/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#2 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(134): SiteController->runAction()
+#3 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#4 /Users/harfox/uni/l5project/yii/framework/web/CController.php(1148): CAccessControlFilter->filter()
+#5 /Users/harfox/uni/l5project/yii/framework/web/filters/CInlineFilter.php(58): SiteController->filterAccessControl()
+#6 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#7 /Users/harfox/uni/l5project/yii/framework/web/CController.php(291): CFilterChain->run()
+#8 /Users/harfox/uni/l5project/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#9 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#10 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#11 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#12 /Users/harfox/uni/l5project/authreq-site/index.php(16): CWebApplication->run()
+REQUEST_URI=/authreq-site/index.php/site/successfulpayment?id=82
+2018/02/22 17:30:28 [error] [php] Undefined variable: sign (/Users/harfox/uni/l5project/authreq-site/protected/controllers/SiteController.php:206)
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 /Users/harfox/uni/l5project/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#2 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(134): SiteController->runAction()
+#3 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#4 /Users/harfox/uni/l5project/yii/framework/web/CController.php(1148): CAccessControlFilter->filter()
+#5 /Users/harfox/uni/l5project/yii/framework/web/filters/CInlineFilter.php(58): SiteController->filterAccessControl()
+#6 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#7 /Users/harfox/uni/l5project/yii/framework/web/CController.php(291): CFilterChain->run()
+#8 /Users/harfox/uni/l5project/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#9 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#10 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#11 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#12 /Users/harfox/uni/l5project/authreq-site/index.php(16): CWebApplication->run()
+REQUEST_URI=/authreq-site/index.php/site/successfulpayment?id=82
+2018/02/22 17:31:16 [error] [php] Undefined variable: sign (/Users/harfox/uni/l5project/authreq-site/protected/controllers/SiteController.php:206)
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 /Users/harfox/uni/l5project/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#2 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(134): SiteController->runAction()
+#3 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#4 /Users/harfox/uni/l5project/yii/framework/web/CController.php(1148): CAccessControlFilter->filter()
+#5 /Users/harfox/uni/l5project/yii/framework/web/filters/CInlineFilter.php(58): SiteController->filterAccessControl()
+#6 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#7 /Users/harfox/uni/l5project/yii/framework/web/CController.php(291): CFilterChain->run()
+#8 /Users/harfox/uni/l5project/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#9 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#10 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#11 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#12 /Users/harfox/uni/l5project/authreq-site/index.php(16): CWebApplication->run()
+REQUEST_URI=/authreq-site/index.php/site/successfulpayment?id=82
+2018/02/22 17:32:14 [error] [php] Undefined variable: sign (/Users/harfox/uni/l5project/authreq-site/protected/controllers/SiteController.php:206)
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/actions/CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 /Users/harfox/uni/l5project/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#2 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(134): SiteController->runAction()
+#3 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#4 /Users/harfox/uni/l5project/yii/framework/web/CController.php(1148): CAccessControlFilter->filter()
+#5 /Users/harfox/uni/l5project/yii/framework/web/filters/CInlineFilter.php(58): SiteController->filterAccessControl()
+#6 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#7 /Users/harfox/uni/l5project/yii/framework/web/CController.php(291): CFilterChain->run()
+#8 /Users/harfox/uni/l5project/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#9 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#10 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#11 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#12 /Users/harfox/uni/l5project/authreq-site/index.php(16): CWebApplication->run()
+REQUEST_URI=/authreq-site/index.php/site/successfulpayment?id=82

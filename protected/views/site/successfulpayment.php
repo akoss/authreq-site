@@ -42,33 +42,11 @@
       $($this).closest('.collapse').addClass('show');
       $($this).addClass('active');
     }
-
-    <?php if($sign && $signatureStatus == PaymentTransaction::SIGNATURE_STATUS_PUSH_SENT): ?>
-
-    function doPoll(){
-      $.getJSON('<?=$pollUrl?>', function(data) {
-        console.log(data);
-        if(data['success']) {
-            window.location.href="<?=$successUrl?>";
-        }
-      })
-      .always(function() {
-          setTimeout( function(){ 
-            doPoll();
-          }  , 2000 );
-      });
-    }
-
-    $(function() {
-      doPoll();
-    });
-    <?php endif;?>
-
   });
 </script>
 
 <div class="content-wrapper">
-<div style="margin-top: 20px; margin-bottom: 20px;" class='h2'>Confirm Details</div>
+<div style="margin-top: 20px; margin-bottom: 20px;" class='h2'>Payment Successful</div>
 <form class="forms-sample" id="outgoingtransfer" method="post" action="<?=Yii::app()->createUrl('site/confirmpayment')?>">
 <div class="row">
     <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 stretch-card grid-margin">
@@ -207,39 +185,17 @@
       </div>
     </div>
 
+    <div class="col-12 grid-margin" style="padding-right: 43px;">
+        <h3 class="mb-0 float-right" style="color: #27ad60;"><i class="mdi mdi-check-circle" style="color: #27ad60;"></i> Your payment is on its way.</h3> 
+    </div>
+
+    
+
     <div class="col-12 stretch-card grid-margin">
       <div class="card">
         <div class="card-body">
-          <button style="float: left;" type="submit" class="btn btn-lg btn-secondary" formaction="<?=Yii::app()->createUrl('site/payment')?>">Back</button>
-          <div class="float-right">
-            <?php if($sign): ?>
-              <?php if($signatureStatus == PaymentTransaction::SIGNATURE_STATUS_PUSH_SENT): ?>
-                <table>
-                  <tr>
-                    <td align="right">
-                      <h5 class="mb-0">We've sent a notification to your iPhone.</h5>
-                    </td>
-                    <td>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      Review details then select Allow to start the transaction.
-                    </td>
-                    <td>
-                      <img style="width: 40px;" src="<?=Yii::app()->request->baseUrl . '/css/';?>spinner.gif">
-                    </td>
-                  </tr>
-                </table>
-              <?php elseif($signatureStatus == PaymentTransaction::SIGNATURE_STATUS_SMS_SENT): ?>
-
-              <?php elseif($signatureStatus == PaymentTransaction::SIGNATURE_STATUS_CARDREADER_SENT): ?>
-
-              <?php endif;?>
-            <?php else: ?>
-              <h5 style="margin-top: 13px; margin-right: 15px; display: inline;">Please sure that everything is correct before proceeding.</h5>
-              <button type="submit" class="btn btn-lg btn-success" name="sign" value="1"><i class="mdi mdi-lock text-white"></i>Sign</button>
-            <?php endif; ?>
+          <span class="float-right">
+              <a href="<?=Yii::app()->createUrl('site/dashboard')?>" class="btn btn-lg btn-success" name="sign" value="1"><i class="mdi mdi-home text-white"></i>Back to Dashboard</a>
           </div>
         </div>
       </div>
