@@ -8,7 +8,7 @@ $config=dirname(__FILE__).'/protected/config/main.php';
 // defined('YII_DEBUG') or define('YII_DEBUG',true);
 
 include("vendors/authreq-sdk/Autoload.php");
-include("vendors/Twilio/Autoload.php");
+include("vendors/Twilio/autoload.php");
 
 use Twilio\Rest\Client;
 
