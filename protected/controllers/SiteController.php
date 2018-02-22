@@ -150,16 +150,13 @@ class SiteController extends Controller
 		));
 	}
 
-	public function actionConfirmSmsCode()
-	{
-
-	}
-
 	public function actionConfirmpayment() 
 	{
 		if(!Yii::app()->request->isPostRequest || !isset($_POST['recipient']) || $_POST['recipient'] == 0 || !isset($_POST['source']) || !isset($_POST['amount'])) {
 			$this->redirect(Yii::app()->createUrl('site/payment'));
 		}
+
+		$validationerror = false;
 
 		if(isset($_POST['paymenttransaction_id']) && isset($_POST['signwithsms']) && $_POST['signwithsms'] == 1) {
 			$sign = true;
@@ -175,8 +172,29 @@ class SiteController extends Controller
 
 				$this->redirect(Yii::app()->createUrl('site/successfulpayment?id=' . $paymenttransaction->id));
 			} else {
+				$validationerror = true;
 				$signatureStatus = PaymentTransaction::SIGNATURE_STATUS_SMS_SENT;
 			}
+		} else if(isset($_POST['paymenttransaction_id']) && isset($_POST['signwithcard']) && $_POST['signwithcard'] == 1) {
+			$sign = true;
+			$paymenttransaction = PaymentTransaction::model()->findByPk($_POST['paymenttransaction_id']); 
+
+			if(empty($paymenttransaction) || Yii::app()->user->id != $paymenttransaction->user_id) {
+				$this->redirect(Yii::app()->homeUrl);
+			}
+
+			$user = User::model()->findByPk($paymenttransaction->user_id);
+
+			if(!empty($_POST['authkey']) && is_numeric($_POST['authkey']) && $_POST['authkey'] > 10000000 && $_POST['authkey'] < 100000000 && isset($_POST['cardnumber']) && $_POST['cardnumber'] == $user->cardreader_last4) {
+				$paymenttransaction->cardreader_authcode = $_POST['authkey']; 
+				$paymenttransaction->save(); 
+
+				$this->redirect(Yii::app()->createUrl('site/successfulpayment?id=' . $paymenttransaction->id));
+			} else {
+				$validationerror = true;
+				$signatureStatus = PaymentTransaction::SIGNATURE_STATUS_CARDREADER_SENT;
+			}
+
 		} else {
 			$sign = ((Yii::app()->request->isPostRequest && isset($_POST['sign'])) ? $_POST['sign'] : null); 
 
@@ -213,6 +231,7 @@ class SiteController extends Controller
 			'pollUrl' => (isset($paymenttransaction) ? (Yii::app()->createUrl('site/authreqpaymenttransactionpoll?id=' . $paymenttransaction->id)) : null),
 			'successUrl' => (isset($paymenttransaction) ? (Yii::app()->createUrl('site/successfulpayment?id=' . $paymenttransaction->id)) : null), 
 			'paymenttransaction_id' => (isset($paymenttransaction) ? $paymenttransaction->id : null),
+			'validation_error' => $validationerror,
 		));
 	}
 

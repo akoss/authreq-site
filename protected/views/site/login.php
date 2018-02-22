@@ -112,13 +112,13 @@ $this->breadcrumbs=array(
                 // Fields for card reader based TOTP
                 ?>
                 <?php if($isCardreaderPending):?>
-                <strong>1. Enter the last 4 digits of your long Nationwide Debit Card number<br></strong>
+                <strong>1. Enter the last 4 digits of your long Purple Debit Card number<br></strong>
                 <div class="form-group">
                 <?php echo $form->textField($model,'cardno', array('class' => 'form-control p_input', 'placeholder' => '0000')); ?>
                 </div>
-                <strong>2. Insert your Nationwide Debit Card into the card reader.<br>
+                <strong>2. Insert your Purple Debit Card into the card reader.<br>
                 3. Press the Identify button when asked to 'Select Function'.<br>
-                4. Enter your Nationwide Debit Card PIN number and press the 'OK' button.<br>
+                4. Enter your Purple Debit Card PIN number and press the 'OK' button.<br>
                 5. Enter the passcode that is now displayed on your card reader into the box below and select 'Log In'.<br>
                 </strong>
                 <div class="form-group">

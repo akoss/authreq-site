@@ -64,6 +64,13 @@
     });
     <?php endif;?>
 
+    <?php if($signatureStatus == PaymentTransaction::SIGNATURE_STATUS_SMS_SENT || $signatureStatus == PaymentTransaction::SIGNATURE_STATUS_CARDREADER_SENT):?>
+      $(document).bind('keypress', function(e){
+        if(e.keyCode == 13) { e.preventDefault(); $('#specialsubmit').trigger('click'); }
+      });
+    <?php endif;?>
+
+
   });
 </script>
 
@@ -248,18 +255,70 @@
                     </td>
                     <td>
                       <input type="hidden" name="paymenttransaction_id" value="<?=$paymenttransaction_id?>"/>
-                      <button type="submit" class="btn btn-success" name="signwithsms" value="1" id="smssubmit"><i class="mdi mdi-lock text-white"></i>Sign</button>
-                      <script>
-                        $(document).bind('keypress', function(e){
-                           if(e.keyCode == 13) { e.preventDefault(); $('#smssubmit').trigger('click'); }
-                        });
-                      </script>
+                      <button type="submit" class="btn btn-success" name="signwithsms" value="1" id="specialsubmit"><i class="mdi mdi-lock text-white"></i>Sign</button>
                     </td>
                   </tr>
                 </table>
 
               <?php elseif($signatureStatus == PaymentTransaction::SIGNATURE_STATUS_CARDREADER_SENT): ?>
+                <input type="hidden" name="paymenttransaction_id" value="<?=$paymenttransaction_id?>"/>
 
+                <table class="float-right">
+                  <tr>
+                    <td colspan="2" align="right">
+                      <h5 class="mb-2">1. Enter the last 4 digits of your long Purple Debit Card number</h5>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                    </td>
+                    <td width="150" align="right">
+                      <div class="input-group mb-3 mt-0" style="margin-top: -1rem; width: 100px;">
+                        <span style="width: 35px; padding-left: 0.60rem;" class="input-group-addon bg-info bg-info" id="colored-addon1">
+                          <i class="mdi mdi-credit-card text-white"></i>
+                        </span>
+                        <input type="text" class="form-control" aria-label="Cardnumber" placeholder="0000" name="cardnumber">
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" align="right">
+                      <h5 class="mb-3">2. Insert your Nationwide Debit Card into the card reader.</h5>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" align="right">
+                      <h5 class="mb-3">3. Press the Identify button when asked to 'Select Function'.</h5>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" align="right">
+                      <h5 class="mb-3">4. Enter your Nationwide Debit Card PIN number and press the 'OK' button.</h5>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" align="right">
+                      <h5 class="mb-2">5. Enter the passcode that is now displayed on your card reader and select 'Sign'.</h5>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                    </td>
+                    <td width="150" align="right">
+                      <div class="input-group mb-4 mt-0" style="margin-top: -1rem; width: 150px;">
+                        <span style="width: 35px; padding-left: 0.60rem;" class="input-group-addon bg-info bg-info" id="colored-addon1">
+                          <i class="mdi mdi-credit-card text-white"></i>
+                        </span>
+                        <input type="text" class="form-control" aria-label="Authkey" placeholder="1234 5678" name="authkey">
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" align="right">
+                      <button type="submit" class="btn btn-success" name="signwithcard" value="1" id="specialsubmit"><i class="mdi mdi-lock text-white"></i>Sign</button>
+                    </td>
+                  </tr>
+                </table>
               <?php endif;?>
             <?php else: ?>
               <h5 style="margin-top: 13px; margin-right: 15px; display: inline;">Please sure that everything is correct before proceeding.</h5>

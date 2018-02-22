@@ -2607,3 +2607,21 @@ Stack trace:
 REQUEST_URI=/authreq-site/index.php/site/confirmpayment
 HTTP_REFERER=http://localhost:8080/authreq-site/index.php/site/confirmpayment
 ---
+2018/02/22 20:24:59 [error] [php] Use of undefined constant SIGNATURE_STATUS_SMS_SENT - assumed 'SIGNATURE_STATUS_SMS_SENT' (/Users/harfox/uni/l5project/authreq-site/protected/views/site/confirmpayment.php:67)
+Stack trace:
+#0 /Users/harfox/uni/l5project/yii/framework/web/CController.php(872): SiteController->renderFile()
+#1 /Users/harfox/uni/l5project/authreq-site/protected/controllers/SiteController.php(211): SiteController->renderPartial()
+#2 /Users/harfox/uni/l5project/yii/framework/web/actions/CInlineAction.php(49): SiteController->actionConfirmpayment()
+#3 /Users/harfox/uni/l5project/yii/framework/web/CController.php(308): CInlineAction->runWithParams()
+#4 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(134): SiteController->runAction()
+#5 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#6 /Users/harfox/uni/l5project/yii/framework/web/CController.php(1148): CAccessControlFilter->filter()
+#7 /Users/harfox/uni/l5project/yii/framework/web/filters/CInlineFilter.php(58): SiteController->filterAccessControl()
+#8 /Users/harfox/uni/l5project/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#9 /Users/harfox/uni/l5project/yii/framework/web/CController.php(291): CFilterChain->run()
+#10 /Users/harfox/uni/l5project/yii/framework/web/CController.php(265): SiteController->runActionWithFilters()
+#11 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(282): SiteController->run()
+#12 /Users/harfox/uni/l5project/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#13 /Users/harfox/uni/l5project/yii/framework/base/CApplication.php(185): CWebApplication->processRequest()
+#14 /Users/harfox/uni/l5project/authreq-site/index.php(16): CWebApplication->run()
+REQUEST_URI=/authreq-site/index.php/site/confirmpayment

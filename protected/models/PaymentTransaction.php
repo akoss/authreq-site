@@ -145,7 +145,7 @@ const SIGNATURE_STATUS_CARDREADER_SENT = 3;
 			return ($this->sms_expected_authcode == $this->sms_authcode);
 		}
 		else if($authmethod == User::AUTH_METHOD_CARDREADER) {
-			return true;
+			return 	!empty($this->cardreader_authcode);
 		}
 		else
 		{
