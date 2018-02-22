@@ -105,6 +105,28 @@ class User extends CActiveRecord
 			return self::AUTH_METHOD_CARDREADER;
 		}
 		return self::AUTH_METHOD_NONE;
+	}
 
+	public function sendSmsAuthCode()
+	{
+		if(empty($this->sms_phone_no)) {
+			return null;
+		}
+		$authcode = mt_rand(100000,999999);
+		$config = Yii::app()->params; 
+
+		$sid = $config['twilio_sid'];
+		$token = $config['twilio_token'];
+		$client = new Twilio\Rest\Client($sid, $token);
+
+		$client->messages->create(
+		    $this->sms_phone_no,
+		    array(
+		        'from' => $config['twilio_phonenumber'],
+		        'body' => "Your Purple Bank authentication code is " . $authcode
+		    )
+		);
+
+		return $authcode;
 	}
 }

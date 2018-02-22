@@ -25,25 +25,6 @@ class UserIdentity extends CUserIdentity
 		$this->cardno = $cardno;
 	}
 
-	private function sendSms($user) {
-
-		$authcode = mt_rand(100000,999999);
-		Yii::app()->session['sms_totp'] = $authcode;
-
-		$sid = "AC7856eb312100f145cba79df0268e4db6";
-		$token = "ffe8f783bf033ffc746dcca8ed0244cf";
-		$client = new Twilio\Rest\Client($sid, $token);
-
-		$client->messages->create(
-		    $user->sms_phone_no,
-		    array(
-		        'from' => '+441412802071',
-		        'body' => "Your Purple Bank authentication code is " . $authcode
-		    )
-		);
-
-	}
-
 	private function sendPush($user) {
 		$config = Yii::app()->params['database']; 
 		$db = new Db($config['url'],$config['user'],$config['password'],$config['srv-db']);
@@ -54,9 +35,9 @@ class UserIdentity extends CUserIdentity
 			$message_id = null,
 			$response_url = Yii::app()->params['callbackUrl'], 
 			$long_description = 'Someone is trying to log in to your Purple Online Banking account \'' . htmlspecialchars($user->username) . "' from Glasgow, United Kingdom at " . date("d/m/Y H:m:s") . ". Is this you?", 
-			$short_description = 'Login with \'' . htmlspecialchars($user->username) . "'", 
+			$short_description = 'Login Attempt', 
 			$nonce = null, 
-			$expiry_in_seconds = 5000, 
+			$expiry_in_seconds = 120, 
 			$device_id = $user->authreq_device_id
 		);
 
@@ -97,7 +78,7 @@ class UserIdentity extends CUserIdentity
 		}
 		else if($authmethod == User::AUTH_METHOD_SMS && empty(Yii::app()->session['sms_totp'])) {
 			// sms enabled -- need push
-			$this->sendSms($user);
+			Yii::app()->session['sms_totp'] = $user->sendSmsAuthCode();
 			$this->errorCode = self::ERROR_SMS_SENT;
 		} else if($authmethod == User::AUTH_METHOD_SMS && !empty(Yii::app()->session['sms_totp']) && $this->totp != Yii::app()->session['sms_totp']) {
 			$this->errorCode = self::ERROR_SMS_INVALID;

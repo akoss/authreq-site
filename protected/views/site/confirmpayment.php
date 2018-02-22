@@ -180,7 +180,7 @@
                   <label>Amount to transfer</label>
                   <div class="input-group">
                   <span style="width: 35px;" class="input-group-addon bg-primary text-white">£</span>
-                  <input type="text" class="form-control" aria-label="Amount" placeholder="10.00" name="amount" <?=!empty($amount) ? 'value="' . htmlspecialchars($amount) . '"' : "" ?> readonly>
+                  <input type="text" class="form-control" aria-label="Amount" placeholder="10.00" name="amount" <?=!empty($amount) ? 'value="' . htmlspecialchars(number_format($amount,2)) . '"' : "" ?> readonly>
                   </div>
                 </div>
                 <div class="form-group" style="padding-top: 0.25rem; padding-bottom: 0.35rem;">
@@ -210,7 +210,7 @@
     <div class="col-12 stretch-card grid-margin">
       <div class="card">
         <div class="card-body">
-          <button style="float: left;" type="submit" class="btn btn-lg btn-secondary" formaction="<?=Yii::app()->createUrl('site/payment')?>">Back</button>
+          <button id="backbutton" style="float: left;" type="submit" class="btn btn-lg btn-secondary" formaction="<?=Yii::app()->createUrl('site/payment')?>">Back</button>
           <div class="float-right">
             <?php if($sign): ?>
               <?php if($signatureStatus == PaymentTransaction::SIGNATURE_STATUS_PUSH_SENT): ?>
@@ -224,7 +224,7 @@
                   </tr>
                   <tr>
                     <td>
-                      Review details then select Allow to start the transaction.
+                      Review details then select Allow to start the transfer.
                     </td>
                     <td>
                       <img style="width: 40px;" src="<?=Yii::app()->request->baseUrl . '/css/';?>spinner.gif">
@@ -232,6 +232,31 @@
                   </tr>
                 </table>
               <?php elseif($signatureStatus == PaymentTransaction::SIGNATURE_STATUS_SMS_SENT): ?>
+
+                <table class="float-right">
+                  <tr>
+                    <td>
+                      <h5 class="mb-0" style="margin-right: 20px;">Type the SMS one-time key we've sent to start the transfer.</h5>
+                    </td>
+                    <td>
+                      <div class="input-group">
+                        <span style="width: 35px; padding-left: 0.60rem;" class="input-group-addon bg-info bg-info" id="colored-addon1">
+                          <i class="mdi mdi-key text-white"></i>
+                        </span>
+                        <input type="text" class="form-control" aria-label="SMS-key" placeholder="123456" name="smskey">
+                      </div>
+                    </td>
+                    <td>
+                      <input type="hidden" name="paymenttransaction_id" value="<?=$paymenttransaction_id?>"/>
+                      <button type="submit" class="btn btn-success" name="signwithsms" value="1" id="smssubmit"><i class="mdi mdi-lock text-white"></i>Sign</button>
+                      <script>
+                        $(document).bind('keypress', function(e){
+                           if(e.keyCode == 13) { e.preventDefault(); $('#smssubmit').trigger('click'); }
+                        });
+                      </script>
+                    </td>
+                  </tr>
+                </table>
 
               <?php elseif($signatureStatus == PaymentTransaction::SIGNATURE_STATUS_CARDREADER_SENT): ?>
 

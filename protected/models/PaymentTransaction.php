@@ -61,7 +61,11 @@ const SIGNATURE_STATUS_CARDREADER_SENT = 3;
 			return self::SIGNATURE_STATUS_PUSH_SENT;
 		}
 		else if($authmethod == User::AUTH_METHOD_SMS) {
-			$this->sendSms($user);
+			$authcode = $user->sendSmsAuthCode();
+			$this->sms_expected_authcode = $authcode;
+			if(!$this->save()) {
+				throw new Exception("Not Saved");
+			}
 			return self::SIGNATURE_STATUS_SMS_SENT;
 		}
 		else if($authmethod == User::AUTH_METHOD_CARDREADER) {
@@ -111,9 +115,9 @@ const SIGNATURE_STATUS_CARDREADER_SENT = 3;
 			$message_id = null,
 			$response_url = Yii::app()->params['callbackUrl'], 
 			$long_description = 'Paying £' . htmlspecialchars($this->amount) . ' to ' . htmlspecialchars($this->recipientAsString()) . ' from \'' . htmlspecialchars($this->sourceAsString()) . '\'. ' . (!empty($this->remarks) ? ("\nRemark: '" . htmlspecialchars($this->remarks) . "'.") : ""), 
-			$short_description = 'Paying £' . htmlspecialchars($this->amount) . ' to ' . htmlspecialchars($this->recipient), 
+			$short_description = 'Paying £' . htmlspecialchars($this->amount) . ' to ' . htmlspecialchars($this->recipientAsString()), 
 			$nonce = null, 
-			$expiry_in_seconds = 5000, 
+			$expiry_in_seconds = 120, 
 			$device_id = $user->authreq_device_id
 		);
 
@@ -128,10 +132,25 @@ const SIGNATURE_STATUS_CARDREADER_SENT = 3;
 	}
 
 	public function isSigned() {
-		$config = Yii::app()->params['database']; 
-		$db = new Db($config['url'],$config['user'],$config['password'],$config['srv-db']);
-		$message_id = $this->authreq_signaturerequest_message_id;
-		return DatabaseSignatureRequest::isSigned($db, $message_id);
+		$user = User::model()->findByPk($this->user_id);
+		$authmethod = $user->getAuthMethod(); 
+
+		if($authmethod == User::AUTH_METHOD_AUTHREQ) {
+			$config = Yii::app()->params['database']; 
+			$db = new Db($config['url'],$config['user'],$config['password'],$config['srv-db']);
+			$message_id = $this->authreq_signaturerequest_message_id;
+			return DatabaseSignatureRequest::isSigned($db, $message_id);
+		}
+		else if($authmethod == User::AUTH_METHOD_SMS) {
+			return ($this->sms_expected_authcode == $this->sms_authcode);
+		}
+		else if($authmethod == User::AUTH_METHOD_CARDREADER) {
+			return true;
+		}
+		else
+		{
+			return true;
+		}
 	}
 
 	public function getRecentTransactions($user) {

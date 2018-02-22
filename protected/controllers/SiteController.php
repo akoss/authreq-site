@@ -150,33 +150,56 @@ class SiteController extends Controller
 		));
 	}
 
+	public function actionConfirmSmsCode()
+	{
+
+	}
+
 	public function actionConfirmpayment() 
 	{
 		if(!Yii::app()->request->isPostRequest || !isset($_POST['recipient']) || $_POST['recipient'] == 0 || !isset($_POST['source']) || !isset($_POST['amount'])) {
 			$this->redirect(Yii::app()->createUrl('site/payment'));
 		}
 
-		$sign = ((Yii::app()->request->isPostRequest && isset($_POST['sign'])) ? $_POST['sign'] : null); 
+		if(isset($_POST['paymenttransaction_id']) && isset($_POST['signwithsms']) && $_POST['signwithsms'] == 1) {
+			$sign = true;
+			$paymenttransaction = PaymentTransaction::model()->findByPk($_POST['paymenttransaction_id']); 
 
-		if($sign) {
-			$paymenttransaction = new PaymentTransaction();
-
-			$paymenttransaction->source = $_POST['source'];
-			$paymenttransaction->recipient = $_POST['recipient'];
-			$paymenttransaction->amount = $_POST['amount'];
-			$paymenttransaction->date = (!empty($_POST['date']) && $_POST['date'] != 'Immediately') ? $_POST['date'] : NULL;
-			$paymenttransaction->remarks = $_POST['remarks'];
-			$paymenttransaction->user_id = Yii::app()->user->id; 
-			$paymenttransaction->timestamp = date("Y-m-d H:i:s");
-
-			if(!$paymenttransaction->save()) {
-				throw new Exception("asdf");
+			if(empty($paymenttransaction) || Yii::app()->user->id != $paymenttransaction->user_id) {
+				$this->redirect(Yii::app()->homeUrl);
 			}
 
-			$signatureStatus = $paymenttransaction->sign();
+			if(isset($_POST['smskey']) && $_POST['smskey'] == $paymenttransaction->sms_expected_authcode) {
+				$paymenttransaction->sms_authcode = $_POST['smskey']; 
+				$paymenttransaction->save(); 
+
+				$this->redirect(Yii::app()->createUrl('site/successfulpayment?id=' . $paymenttransaction->id));
+			} else {
+				$signatureStatus = PaymentTransaction::SIGNATURE_STATUS_SMS_SENT;
+			}
 		} else {
-			$paymenttransaction = null;
-			$signatureStatus = null;
+			$sign = ((Yii::app()->request->isPostRequest && isset($_POST['sign'])) ? $_POST['sign'] : null); 
+
+			if($sign) {
+				$paymenttransaction = new PaymentTransaction();
+
+				$paymenttransaction->source = $_POST['source'];
+				$paymenttransaction->recipient = $_POST['recipient'];
+				$paymenttransaction->amount = $_POST['amount'];
+				$paymenttransaction->date = (!empty($_POST['date']) && $_POST['date'] != 'Immediately') ? $_POST['date'] : NULL;
+				$paymenttransaction->remarks = $_POST['remarks'];
+				$paymenttransaction->user_id = Yii::app()->user->id; 
+				$paymenttransaction->timestamp = date("Y-m-d H:i:s");
+
+				if(!$paymenttransaction->save()) {
+					throw new Exception("Not Saved");
+				}
+
+				$signatureStatus = $paymenttransaction->sign();
+			} else {
+				$paymenttransaction = null;
+				$signatureStatus = null;
+			}
 		}
 
 		$this->renderPartial('confirmpayment', array(
@@ -188,7 +211,8 @@ class SiteController extends Controller
 			'sign' => $sign, 
 			'signatureStatus' => $signatureStatus,
 			'pollUrl' => (isset($paymenttransaction) ? (Yii::app()->createUrl('site/authreqpaymenttransactionpoll?id=' . $paymenttransaction->id)) : null),
-			'successUrl' => (isset($paymenttransaction) ? (Yii::app()->createUrl('site/successfulpayment?id=' . $paymenttransaction->id)) : null)
+			'successUrl' => (isset($paymenttransaction) ? (Yii::app()->createUrl('site/successfulpayment?id=' . $paymenttransaction->id)) : null), 
+			'paymenttransaction_id' => (isset($paymenttransaction) ? $paymenttransaction->id : null),
 		));
 	}
 

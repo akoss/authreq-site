@@ -77,7 +77,7 @@
     <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 stretch-card grid-margin">
       <div class="card">
         <div class="card-body">
-          <h4 class="card-title">Recipient <button style="margin-top: -5px; padding-left: 10px; padding-right: 10px;" type="submit" class="btn btn-success mdi mdi-plus float-right"></button></h4>
+          <h4 class="card-title">Recipient <a href="#" style="margin-top: -5px; padding-left: 10px; padding-right: 10px;" class="btn btn-success mdi mdi-plus float-right"></a></h4>
             <div class="form-group">
               <select class="form-control form-control-lg" name="recipient" id="select-recipient">
                 <option value="0" <?=($recipient == 0) ? "selected" : ""?>>...</option>
@@ -150,7 +150,7 @@
                   <label>Amount to transfer</label>
                   <div class="input-group">
                   <span style="width: 35px;" class="input-group-addon bg-primary text-white">£</span>
-                  <input type="text" class="form-control" aria-label="Amount" placeholder="10.00" name="amount" <?=!empty($amount) ? 'value="' . htmlspecialchars($amount) . '"' : "" ?>>
+                  <input type="text" class="form-control" aria-label="Amount" placeholder="10.00" name="amount" <?=!empty($amount) ? 'value="' . htmlspecialchars(number_format($amount,2)) . '"' : "" ?>>
                   </div>
                 </div>
                 <div class="form-group" style="padding-top: 0.25rem; padding-bottom: 0.35rem;">
