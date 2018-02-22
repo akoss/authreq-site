@@ -10,6 +10,10 @@
  */
 class User extends CActiveRecord
 {
+	const AUTH_METHOD_NONE = 0;
+	const AUTH_METHOD_AUTHREQ = 1;
+	const AUTH_METHOD_SMS = 2;
+	const AUTH_METHOD_CARDREADER = 3;
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return static the static model class
@@ -85,5 +89,22 @@ class User extends CActiveRecord
 	public function hashPassword($password)
 	{
 		return CPasswordHelper::hashPassword($password);
+	}
+
+	public function getAuthMethod()
+	{
+		if($this->authreq_device_id != null) {
+			return self::AUTH_METHOD_AUTHREQ;
+		}
+		if($this->sms_phone_no != null)
+		{
+			return self::AUTH_METHOD_SMS;
+		}
+		if($this->cardreader_last4 != null)
+		{
+			return self::AUTH_METHOD_CARDREADER;
+		}
+		return self::AUTH_METHOD_NONE;
+
 	}
 }

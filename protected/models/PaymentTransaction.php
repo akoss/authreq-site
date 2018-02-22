@@ -5,7 +5,7 @@
  * LoginForm is the data structure for keeping
  * user login form data. It is used by the 'login' action of 'SiteController'.
  */
-class PaymentTransaction extends CFormModel
+class PaymentTransaction extends CActiveRecord
 {
 
 	public static function model($className=__CLASS__)
@@ -24,8 +24,8 @@ class PaymentTransaction extends CFormModel
 	public function rules()
 	{
 		return array(
-			array('id, user_id, source, recipient, amount, date, remarks', 'required'),
-			array('id, user_id, source, recipient, amount, date, remarks', 'safe'),
+			array('user_id, source, recipient, amount', 'required'),
+			array('user_id, source, recipient, amount, date, remarks', 'safe'),
 		);
 	}
 
@@ -43,6 +43,56 @@ class PaymentTransaction extends CFormModel
 	{
 		return array(
 		);
+	}
+
+	public function sign() 
+	{
+		$user = User::model()->findByPk(Yii::app()->user->id);
+		if($user->authreq_device_id != null) {
+			$this->sendPush($user);
+		}
+	}
+
+	private function sourceAsString() {
+		if($this->source == 1) {
+			return "My Current Account (08233593)";
+		} else if($this->source == 2) {
+			return "My Savings(08233594)";
+		}
+		return "Unknown";
+	}
+
+	private function recipientAsString() {
+		if($this->source == 1) {
+			return "Stella Johnson (71809176)";
+		} else if($this->source == 2) {
+			return "David Grey (74560192)";
+		}
+		return "Unknown";
+	}
+
+	private function sendPush($user) {
+		$config = Yii::app()->params['database']; 
+		$db = new Db($config['url'],$config['user'],$config['password'],$config['srv-db']);
+		$signatureRequest = new DatabaseSignatureRequest($db);
+
+		$signatureRequest->setupWith(
+			$service_provider_name = 'Purple Online Banking', 
+			$message_id = null,
+			$response_url = Yii::app()->params['callbackUrl'], 
+			$long_description = 'Paying £' . htmlspecialchars($this->amount) . ' to ' . htmlspecialchars($this->recipientAsString()) . ' from \'' . htmlspecialchars($this->sourceAsString()) . '\'. ' . (!empty($this->remarks) ? ("\nRemark: '" . htmlspecialchars($this->remarks) . "'.") : ""), 
+			$short_description = 'Paying £' . htmlspecialchars($this->amount) . ' to ' . htmlspecialchars($this->recipient), 
+			$nonce = null, 
+			$expiry_in_seconds = 5000, 
+			$device_id = $user->authreq_device_id
+		);
+
+		if(!$signatureRequest->saved) {
+			throw new Exception("Not saved");
+		}
+
+		$signatureRequest->sendPush(Yii::app()->params['pushPem'], Yii::app()->params['rootca']);
+		Yii::app()->session['authreq_login_message_id'] = $signatureRequest->message_id;
 	}
 
 	/*public function authenticate($attribute,$params)

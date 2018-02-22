@@ -162,11 +162,16 @@ class SiteController extends Controller
 			$paymenttransaction->source = $_POST['source'];
 			$paymenttransaction->recipient = $_POST['recipient'];
 			$paymenttransaction->amount = $_POST['amount'];
-			$paymenttransaction->date = $_POST['date'];
+			$paymenttransaction->date = (!empty($_POST['date']) && $_POST['date'] != 'Immediately') ? $_POST['date'] : NULL;
 			$paymenttransaction->remarks = $_POST['remarks'];
 			$paymenttransaction->user_id = Yii::app()->user->id; 
+			$paymenttransaction->timestamp = date("Y-m-d H:i:s");
 
-			$paymenttransaction->save();
+			if(!$paymenttransaction->save()) {
+				throw new Exception("asdf");
+			}
+
+			$paymenttransaction->sign();
 		}
 
 		$this->renderPartial('confirmpayment', array(
