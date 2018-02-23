@@ -133,12 +133,49 @@
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle nav-profile" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-              <img src="<?=Yii::app()->request->baseUrl . '/template/';?>images/faces/face9.jpg" alt="image">
-              <span class="d-none d-lg-inline">Daniel Richmond</span>
+
+              <?php
+                $user_id = isset(Yii::app()->user) ? Yii::app()->user->id : null; 
+                if(isset($user_id)) {
+                  $user = User::model()->findByPk($user_id);
+                }
+
+                if(isset($user) && !empty($user->name)) {
+                  $name = $user->name;
+                } else {
+                  $name = "Unknown User";
+                }
+
+                if(isset($user) && !empty($user->profilepic)) {
+                  $profilepic = $user->profilepic;
+                } else {
+                  $profilepic = "faces-clipart/pic-1.png";
+                }
+
+                $authString = "Unknown";
+                if(isset($user)) {
+                  $authmethod = $user->getAuthMethod(); 
+                  if($authmethod == User::AUTH_METHOD_AUTHREQ) {
+                    $authString = "AuthReq Enabled <br>(" . htmlspecialchars($user->sms_phone_no) . ")";
+                  }
+                  else if($authmethod == User::AUTH_METHOD_SMS) {
+                    $authString = "SMS-based 2FA <br>(" . htmlspecialchars($user->sms_phone_no) . ")";
+                  }
+                  else if($authmethod == User::AUTH_METHOD_CARDREADER) {
+                    $authString = "Card Reader <br>(" . htmlspecialchars($user->cardreader_last4) . ")";
+                  }
+                  else if($authmethod == User::AUTH_METHOD_NONE) {
+                    $authString = "2FA Disabled";
+                  }
+                }
+              ?>
+
+              <img src="<?=Yii::app()->request->baseUrl . '/template/';?>images/<?=htmlspecialchars($profilepic)?>" alt="image">
+              <span class="d-none d-lg-inline"><?=htmlspecialchars($name)?></span>
             </a>
             <div class="dropdown-menu navbar-dropdown w-100" aria-labelledby="profileDropdown">
-              <a class="dropdown-item" style="pointer-events: none;" href="#">
-                <img style="height: 25px; margin-top: 10px;" src="<?=Yii::app()->request->baseUrl . '/template/';?>images/logo.svg" alt="logo"/>
+              <a class="dropdown-item text-muted" style="pointer-events: none;" href="#">
+                <?=$authString?>
               </a>
               <a class="dropdown-item" href="<?=Yii::app()->createUrl('site/enrol')?>">
                 <i class="mdi mdi-cached mr-2 text-success"></i>
