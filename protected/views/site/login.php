@@ -104,7 +104,7 @@ $this->breadcrumbs=array(
 
                 <?php if($isSmsInvalid):?>
                 <div class="form-group">
-                Incorrect one-time key (exp. <?=Yii::app()->session['sms_totp']?>)
+                Incorrect one-time key
                 </div>
                 <?php endif;?>
 
