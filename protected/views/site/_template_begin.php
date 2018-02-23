@@ -142,7 +142,7 @@
               </a>
               <a class="dropdown-item" href="<?=Yii::app()->createUrl('site/enrol')?>">
                 <i class="mdi mdi-cached mr-2 text-success"></i>
-                Enroll Device
+                Enrol Device
               </a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="<?=Yii::app()->createUrl('site/logout')?>">
