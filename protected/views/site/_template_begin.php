@@ -156,7 +156,7 @@
                 if(isset($user)) {
                   $authmethod = $user->getAuthMethod(); 
                   if($authmethod == User::AUTH_METHOD_AUTHREQ) {
-                    $authString = "AuthReq Enabled <br>(" . htmlspecialchars($user->sms_phone_no) . ")";
+                    $authString = "AuthReq Enabled <br>(" . htmlspecialchars($user->authreq_device_id) . ")";
                   }
                   else if($authmethod == User::AUTH_METHOD_SMS) {
                     $authString = "SMS-based 2FA <br>(" . htmlspecialchars($user->sms_phone_no) . ")";
