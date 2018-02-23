@@ -5,7 +5,6 @@
  * @property integer $id
  * @property string $username
  * @property string $password
- * @property string $email
  * @property string $profile
  */
 class User extends CActiveRecord
@@ -39,8 +38,8 @@ class User extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('username, password, email', 'required'),
-			array('username, password, email', 'length', 'max'=>128),
+			array('username, password', 'required'),
+			array('username, password', 'length', 'max'=>128),
 			array('profile', 'safe'),
 		);
 	}
@@ -66,8 +65,6 @@ class User extends CActiveRecord
 			'id' => 'Id',
 			'username' => 'Username',
 			'password' => 'Password',
-			'email' => 'Email',
-			'profile' => 'Profile',
 		);
 	}
 

@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Purple Bank - Home</title>
+  <title>Purple Bank</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="<?=Yii::app()->request->baseUrl . '/template/';?>node_modules/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="<?=Yii::app()->request->baseUrl . '/template/';?>node_modules/perfect-scrollbar/dist/css/perfect-scrollbar.min.css">
@@ -137,9 +137,12 @@
               <span class="d-none d-lg-inline">Daniel Richmond</span>
             </a>
             <div class="dropdown-menu navbar-dropdown w-100" aria-labelledby="profileDropdown">
-              <a class="dropdown-item" href="#">
+              <a class="dropdown-item" style="pointer-events: none;" href="#">
+                <img style="height: 25px; margin-top: 10px;" src="<?=Yii::app()->request->baseUrl . '/template/';?>images/logo.svg" alt="logo"/>
+              </a>
+              <a class="dropdown-item" href="<?=Yii::app()->createUrl('site/enrol')?>">
                 <i class="mdi mdi-cached mr-2 text-success"></i>
-                Activity Log
+                Enroll Device
               </a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="<?=Yii::app()->createUrl('site/logout')?>">

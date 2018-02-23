@@ -7,7 +7,7 @@
 #
 # Host: localhost (MySQL 5.7.20)
 # Database: authreq-site
-# Generation Time: 2018-02-22 20:40:02 +0000
+# Generation Time: 2018-02-23 02:28:35 +0000
 # ************************************************************
 
 
@@ -53,22 +53,21 @@ CREATE TABLE `tbl_user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
-  `email` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
-  `profile` text COLLATE utf8_unicode_ci,
   `authreq_device_id` int(11) DEFAULT NULL,
   `sms_phone_no` varchar(64) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `cardreader_last4` int(11) DEFAULT '0',
+  `cardreader_last4` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 LOCK TABLES `tbl_user` WRITE;
 /*!40000 ALTER TABLE `tbl_user` DISABLE KEYS */;
 
-INSERT INTO `tbl_user` (`id`, `username`, `password`, `email`, `profile`, `authreq_device_id`, `sms_phone_no`, `cardreader_last4`)
+INSERT INTO `tbl_user` (`id`, `username`, `password`, `authreq_device_id`, `sms_phone_no`, `cardreader_last4`)
 VALUES
-	(1,'push','$2a$10$JTJf6/XqC94rrOtzuF397OHa4mbmZrVTBOQCmYD9U.obZRUut4BoC','akos@szente.info',NULL,2,NULL,NULL),
-	(2,'sms','$2a$10$JTJf6/XqC94rrOtzuF397OHa4mbmZrVTBOQCmYD9U.obZRUut4BoC','akos@szente.info',NULL,NULL,'+447514708251',NULL),
-	(3,'cardreader','$2a$10$JTJf6/XqC94rrOtzuF397OHa4mbmZrVTBOQCmYD9U.obZRUut4BoC','akos@szente.info',NULL,NULL,NULL,2103);
+	(1,'push','$2a$10$JTJf6/XqC94rrOtzuF397OHa4mbmZrVTBOQCmYD9U.obZRUut4BoC',0,NULL,NULL),
+	(2,'sms','$2a$10$JTJf6/XqC94rrOtzuF397OHa4mbmZrVTBOQCmYD9U.obZRUut4BoC',NULL,'+447514708251',NULL),
+	(3,'cardreader','$2a$10$JTJf6/XqC94rrOtzuF397OHa4mbmZrVTBOQCmYD9U.obZRUut4BoC',NULL,NULL,2103),
+	(4,'demo','$2a$10$JTJf6/XqC94rrOtzuF397OHa4mbmZrVTBOQCmYD9U.obZRUut4BoC',NULL,NULL,NULL);
 
 /*!40000 ALTER TABLE `tbl_user` ENABLE KEYS */;
 UNLOCK TABLES;

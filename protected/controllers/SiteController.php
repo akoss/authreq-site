@@ -216,6 +216,51 @@ class SiteController extends Controller
 		}
 	}
 
+	public function actionEnrol() {
+		$user = User::model()->findByPk(Yii::app()->user->id);
+
+		$config = Yii::app()->params['database']; 
+		$db = new Db($config['url'],$config['user'],$config['password'],$config['srv-db']);
+		$signatureRequest = new DatabaseSignatureRequest($db);
+
+		$signatureRequest->setupWith(
+			$service_provider_name = 'Enrolment - Purple Online Banking', 
+			$message_id = null,
+			$response_url = Yii::app()->params['callbackUrl'], 
+			$long_description = 'Tap on Allow to add this device to your Purple Online Banking account (' . htmlspecialchars($user->username) . ')', 
+			$short_description = 'Enrol to Purple Bank', 
+			$nonce = null, 
+			$expiry_in_seconds = 300, 
+			$device_id = -1, 
+			$is_enrol = true
+		);
+
+		Yii::app()->session['authreq_enrolment_message_id'] = $signatureRequest->message_id;
+
+		$data = "authreq://" . base64_encode($signatureRequest->getPushMessage()->getPayload());
+
+		$this->renderPartial('enrol', array(
+			'qrurl' => "https://chart.googleapis.com/chart?cht=qr&chl=" . urlencode($data) . "&chs=500x500&chld=M",
+			'pollUrl' => Yii::app()->createUrl('site/authreqenrolmentpoll'),
+			'successUrl' => Yii::app()->createUrl('site/successfulenrolment'), 
+		));
+	}
+
+	public function actionSuccessfulenrolment() {
+		$result = $this->getEnrolmentResult();
+
+		if($result['is_signed']) {
+			$user = User::model()->findByPk(Yii::app()->user->id);
+			$user->authreq_device_id = $result['device_id'];
+			$user->save();
+		}
+
+		Yii::app()->session['authreq_enrolment_message_id'] = null;
+
+		$this->renderPartial('successfulenrolment', array(
+		));
+	}
+
 	public function actionSuccessfulpayment($id=null) {
 		if($id == null) $this->redirect(Yii::app()->homeUrl);
 		$tr = PaymentTransaction::model()->findByPk($id);
@@ -244,6 +289,25 @@ class SiteController extends Controller
 		$this->_sendResponse(200, array("success" => $tr->isSigned()));
 	}
 
+	private function getEnrolmentResult() {
+		$config = Yii::app()->params['database']; 
+		$db = new Db($config['url'],$config['user'],$config['password'],$config['srv-db']);
+		$message_id = Yii::app()->session['authreq_login_message_id'];
+		$result = DatabaseSignatureRequest::isSignedWithDevice($db, Yii::app()->session['authreq_enrolment_message_id']);
+
+		return $result;
+	}
+
+	public function actionAuthreqenrolmentpoll()
+	{
+		if(!isset(Yii::app()->session['authreq_enrolment_message_id'])) {
+			Yii::app()->end(); 
+		}
+
+		$result = $this->getEnrolmentResult();
+
+		$this->_sendResponse(200, array("success" => $result['is_signed']));
+	}
 
 	public function actionResetauthreq()
 	{
