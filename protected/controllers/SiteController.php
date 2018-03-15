@@ -241,6 +241,7 @@ class SiteController extends Controller
 
 		$this->renderPartial('enrol', array(
 			'qrurl' => "https://chart.googleapis.com/chart?cht=qr&chl=" . urlencode($data) . "&chs=500x500&chld=M",
+			'enrolmentUrl' => $data,
 			'pollUrl' => Yii::app()->createUrl('site/authreqenrolmentpoll'),
 			'successUrl' => Yii::app()->createUrl('site/successfulenrolment'), 
 		));

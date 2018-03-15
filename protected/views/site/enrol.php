@@ -29,7 +29,11 @@
     <div class="col-12 stretch-card grid-margin">
       <div class="card">
         <div class="card-body">
-          <h4 class="mb-4">Scan this image with your iPhone's camera to enrol.</h4>
+          <h4 class="mb-4">Open the following link on your iPhone: </h4>
+          <a href="<?=$enrolmentUrl?>"><img style="margin-left: 10px;" width="150" src="<?=Yii::app()->request->baseUrl . '/css/';?>enrol.png" alt="Enrol on iPhone"/></a>
+          <br><br><br>
+
+          <h4 class="mb-4">Otherwise, scan this image with your iPhone's camera app.</h4>
           <img src="<?=$qrurl?>"/>
           <h4 class="mt-4"></h4>
         </div>
