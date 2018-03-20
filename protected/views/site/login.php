@@ -12,7 +12,8 @@ $this->breadcrumbs=array(
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
   <title>Purple Bank</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="<?=Yii::app()->request->baseUrl . '/template/';?>node_modules/mdi/css/materialdesignicons.min.css">
@@ -33,10 +34,10 @@ $this->breadcrumbs=array(
       <div class="row">
         <div class="content-wrapper full-page-wrapper d-flex align-items-center auth-pages">
           <div class="card col-lg-7 mx-auto">
-            <div class="card-body px-5 py-5">
+            <div class="card-body px-1 py-4">
               <div class="row">
                 <div class="col-12">
-                <img height="28" style="margin-top: 4px; margin-left: 5px; float: right;" src="<?=Yii::app()->request->baseUrl . '/template/';?>images/logo.svg"/> 
+                <img height="28" style="margin-top: 4px; margin-left: 5px; float: right; margin-bottom: 20px;" src="<?=Yii::app()->request->baseUrl . '/template/';?>images/logo.svg"/> 
                 <h3 class="card-title text-left mb-3">Online Banking</h3>
                 <img src=""/>
               </div>
@@ -47,12 +48,12 @@ $this->breadcrumbs=array(
 				)); ?>
 
               <form>
-                <div class="form-group">
+                <div class="form-group <?=($isCardreaderPending || $isCardreaderInvalid || $isSmsPending || $isPushPending) ? 'opthiddenonmobile' : ''?>">
         				<?php echo $form->labelEx($model,'username'); ?>
         				<?php echo $form->textField($model,'username', array('readonly'=>($isCardreaderPending || $isCardreaderInvalid || $isSmsPending || $isPushPending), 'class' => 'form-control p_input' . ($isCardreaderPending || $isCardreaderInvalid || $isSmsPending || $isPushPending ? " pushpendingdisabled" : ""))); ?>
         				<?php echo $form->error($model,'username'); ?>
                 </div>
-                <div class="form-group">
+                <div class="form-group <?=($isCardreaderPending || $isCardreaderInvalid || $isSmsPending || $isPushPending) ? 'opthiddenonmobile' : ''?>">
         				<?php echo $form->labelEx($model,'password'); ?>
         				<?php echo $form->passwordField($model,'password', array('readonly'=>($isCardreaderPending || $isCardreaderInvalid || $isSmsPending || $isPushPending), 'class' => 'form-control p_input' . ($isCardreaderPending || $isCardreaderInvalid || $isSmsPending || $isPushPending ? " pushpendingdisabled" : ""))); ?>
         				<?php echo $form->error($model,'password'); ?>
@@ -64,17 +65,22 @@ $this->breadcrumbs=array(
 
                 <?php if($isPushPending): ?>
                 <div class="form-group">
-                  <table width="100%"><tr><td>
-                    <h4>We've sent a notification to your iPhone.</h4>
-                    Please select Allow or open AuthReq to continue.<br><br>
-                    <img style="width: 40px; margin: -9px;" src="<?=Yii::app()->request->baseUrl . '/css/';?>spinner.gif"><br><br>
-                    <?php echo CHtml::button('Resend', array('id' => 'resendauthreq', 'class' => 'btn')); ?>
-                    <?php echo CHtml::button('Cancel', array('id' => 'cancelauthreq', 'class' => 'btn')); ?>
-                  </td><td align="right" style="padding: 20px 0 20px 20px;">
-                    <video autoplay="autoplay" loop="loop">
-                      <source src="<?=Yii::app()->request->baseUrl . '/css/';?>loop.mp4" type="video/mp4" />
-                    </video>
-                  </td></tr></table>
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-8 col-md-9 logininstructions" style="padding-left: 0;"> 
+                        <h4>We've sent a notification to your iPhone.</h4>
+                        Please select Allow or open AuthReq to continue.<br><br>
+                        <img style="width: 40px; margin: -9px;" src="<?=Yii::app()->request->baseUrl . '/css/';?>spinner.gif"><br><br>
+                        <?php echo CHtml::button('Resend', array('id' => 'resendauthreq', 'class' => 'btn')); ?> &nbsp;&nbsp;&nbsp;
+                        <?php echo CHtml::button('Cancel', array('id' => 'cancelauthreq', 'class' => 'btn')); ?>
+                      </div>
+                      <div class="col-4 col-md-3 pull-right" style="padding: 0 0 0 0;">
+                        <video style="width: 100%; float: right;" autoplay="autoplay" loop="loop" muted="muted" playsinline="playsinline">
+                          <source src="<?=Yii::app()->request->baseUrl . '/css/';?>loop.mp4" type="video/mp4" />
+                        </video>
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 <?php else:?>
                 <?php if($isSmsPending): ?>
@@ -86,7 +92,7 @@ $this->breadcrumbs=array(
                   <div class="form-check">
                       <label class="form-check-label">
                         <input type="checkbox" class="form-check-input">
-                        Remember my username
+                        Remember me
                       </label>
                   </div>
                   <a href="#" class="forgot-pass">Forgot password</a>

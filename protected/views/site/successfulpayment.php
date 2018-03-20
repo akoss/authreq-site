@@ -46,7 +46,7 @@
 </script>
 
 <div class="content-wrapper">
-<div style="margin-top: 20px; margin-bottom: 20px;" class='h2'>Payment Successful</div>
+<div style="margin-top: 20px; margin-bottom: 20px; color: #27ad60;" class='h2'>Payment Successful</div>
 <form class="forms-sample" id="outgoingtransfer" method="post" action="<?=Yii::app()->createUrl('site/confirmpayment')?>">
 <div class="row">
     <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 stretch-card grid-margin">

@@ -7660,7 +7660,7 @@ button,
 html [type="button"],
 [type="reset"],
 [type="submit"] {
-  -webkit-appearance: button; }
+ }
 
 button::-moz-focus-inner,
 [type="button"]::-moz-focus-inner,
@@ -14097,7 +14097,7 @@ address p {
 
 /* Miscellanoeous */
 body {
-  background: #fa0053; }
+  background: #ffffff; }
 
 body,
 html {
@@ -14304,9 +14304,12 @@ pre {
 /* Auth */
 .auth-pages {
   background: url("../images/samples/Login_bg.jpg") no-repeat center center;
-  background-size: cover; }
+  background-size: cover; 
+}
+
   .auth-pages .forgot-pass {
     font-size: 0.875rem;
+    margin-top: 5px;
     text-align: right; }
   .auth-pages button {
     font-size: 0.875rem; }
@@ -15309,6 +15312,25 @@ dl {
   color: gray;
   background-color: #e6e6e6;
   pointer-events: none;
+}
+
+@media (max-width: 576px) {
+  .auth-pages {
+    min-height: 88vh;
+  }
+
+  .opthiddenonmobile {
+    display: none;
+  }
+
+  .logininstructions {
+  }
+}
+
+@media (min-width: 577px) {
+  .logininstructions {
+    padding-top: 60px;
+  }
 }
 
 /*-------------------------------------------------------------------*/
