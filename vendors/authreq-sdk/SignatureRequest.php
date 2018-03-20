@@ -118,9 +118,9 @@ class SignatureRequest {
 		$this->srv_signature = $this->getSignature(); 
 	}
 
-	function sendPush($token, $pem, $rootca) {
+	function sendPush($token, $pem, $rootca, $is_sandbox = true) {
 		$push = new ApnsPHP_Push(
-			ApnsPHP_Abstract::ENVIRONMENT_SANDBOX,
+			($is_sandbox ? ApnsPHP_Abstract::ENVIRONMENT_SANDBOX : ApnsPHP_Abstract::ENVIRONMENT_PRODUCTION),
 			$pem
 		);
 		$push->setLogger(new ApnsPHP_Log_Silent());
@@ -230,7 +230,7 @@ class DatabaseSignatureRequest extends SignatureRequest {
 		return (count($records) >= 1);
 	}
 
-	public function sendPush($pem, $rootca) {
+	public function sendPush($pem, $rootca, $is_sandbox = true) {
 		$records = $this->db->select("SELECT * FROM `device` WHERE device_id = " . $this->device_id . ";");
 		if(count($records) == 1) {
 			$record = $records[0];
@@ -239,7 +239,7 @@ class DatabaseSignatureRequest extends SignatureRequest {
 			return false;
 		}
 
-		return parent::sendPush($token, $pem, $rootca);
+		return parent::sendPush($token, $pem, $rootca, $is_sandbox);
 	}
 }
 

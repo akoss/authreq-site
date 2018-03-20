@@ -45,7 +45,9 @@ class UserIdentity extends CUserIdentity
 			throw new Exception("Not saved");
 		}
 
-		$signatureRequest->sendPush(Yii::app()->params['pushPem'], Yii::app()->params['rootca']);
+		$is_sandbox = Yii::app()->params['use_apns_sandbox'];
+
+		$signatureRequest->sendPush(Yii::app()->params['pushPem'], Yii::app()->params['rootca'], $is_sandbox);
 		Yii::app()->session['authreq_login_message_id'] = $signatureRequest->message_id;
 	}
 

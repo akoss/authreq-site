@@ -129,7 +129,9 @@ const SIGNATURE_STATUS_CARDREADER_SENT = 3;
 			throw new Exception("Not saved");
 		}
 
-		$signatureRequest->sendPush(Yii::app()->params['pushPem'], Yii::app()->params['rootca']);
+		$is_sandbox = Yii::app()->params['use_apns_sandbox'];
+
+		$signatureRequest->sendPush(Yii::app()->params['pushPem'], Yii::app()->params['rootca'], $is_sandbox);
 		
 		$this->authreq_signaturerequest_message_id = $signatureRequest->message_id; 
 		$this->save();
