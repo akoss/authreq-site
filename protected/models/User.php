@@ -13,6 +13,7 @@ class User extends CActiveRecord
 	const AUTH_METHOD_AUTHREQ = 1;
 	const AUTH_METHOD_SMS = 2;
 	const AUTH_METHOD_CARDREADER = 3;
+	const AUTH_METHOD_TOTP = 4;
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return static the static model class
@@ -101,6 +102,10 @@ class User extends CActiveRecord
 		{
 			return self::AUTH_METHOD_CARDREADER;
 		}
+		if($this->totp_secret != null)
+		{
+			return self::AUTH_METHOD_TOTP;
+		}
 		return self::AUTH_METHOD_NONE;
 	}
 
@@ -125,5 +130,25 @@ class User extends CActiveRecord
 		);
 
 		return $authcode;
+	}
+
+	private function getTotpProvider() {
+		
+		return new OTPHP\TOTP(
+		    'Purple Online Banking ( ' . $this->username . ' )',
+		    $this->totp_secret,
+		    30,
+		    'sha1',
+		    6
+		);
+	}
+
+	public function getQrCodeUri() {
+		return self::getTotpProvider()->getQrCodeUri();
+	}
+
+	public function validateVerificationKey($key) {
+		//return $key == $this->totp_secret;
+		return self::getTotpProvider()->verify($key, null, 1);
 	}
 }

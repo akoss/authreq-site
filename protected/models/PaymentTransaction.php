@@ -12,6 +12,7 @@ const SIGNATURE_STATUS_NOT_NEEDED = 0;
 const SIGNATURE_STATUS_PUSH_SENT = 1;
 const SIGNATURE_STATUS_SMS_SENT = 2;
 const SIGNATURE_STATUS_CARDREADER_SENT = 3;
+const SIGNATURE_STATUS_TOTP_SENT = 4;
 
 	public static function model($className=__CLASS__)
 	{
@@ -74,6 +75,9 @@ const SIGNATURE_STATUS_CARDREADER_SENT = 3;
 				throw new Exception("Not Saved");
 			}
 			return self::SIGNATURE_STATUS_CARDREADER_SENT;
+		}
+		else if($authmethod == User::AUTH_METHOD_TOTP) {
+			return self::SIGNATURE_STATUS_TOTP_SENT;
 		}
 		else
 		{

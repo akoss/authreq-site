@@ -64,7 +64,7 @@
     });
     <?php endif;?>
 
-    <?php if($signatureStatus == PaymentTransaction::SIGNATURE_STATUS_SMS_SENT || $signatureStatus == PaymentTransaction::SIGNATURE_STATUS_CARDREADER_SENT):?>
+    <?php if($signatureStatus == PaymentTransaction::SIGNATURE_STATUS_SMS_SENT || $signatureStatus == PaymentTransaction::SIGNATURE_STATUS_CARDREADER_SENT || $signatureStatus == PaymentTransaction::SIGNATURE_STATUS_TOTP_SENT):?>
       $(document).bind('keypress', function(e){
         if(e.keyCode == 13) { e.preventDefault(); $('#specialsubmit').trigger('click'); }
       });
@@ -238,24 +238,32 @@
                     </td>
                   </tr>
                 </table>
-              <?php elseif($signatureStatus == PaymentTransaction::SIGNATURE_STATUS_SMS_SENT): ?>
+              <?php elseif($signatureStatus == PaymentTransaction::SIGNATURE_STATUS_SMS_SENT || $signatureStatus == PaymentTransaction::SIGNATURE_STATUS_TOTP_SENT): ?>
 
                 <table class="float-right">
                   <tr>
                     <td>
-                      <h5 class="mb-0" style="margin-right: 20px;">Type the SMS one-time key we've sent to start the transfer.</h5>
+                      <?php if($signatureStatus == PaymentTransaction::SIGNATURE_STATUS_SMS_SENT): ?>
+                        <h5 class="mb-0" style="margin-right: 20px;">Type the SMS one-time key we've sent to start the transfer.</h5>
+                      <?php else:?>
+                      <h5 class="mb-0" style="margin-right: 20px;">Type the current one-time key to start the transfer.</h5>
+                      <?php endif;?>
                     </td>
                     <td>
                       <div class="input-group">
                         <span style="width: 35px; padding-left: 0.60rem;" class="input-group-addon bg-info bg-info" id="colored-addon1">
                           <i class="mdi mdi-key text-white"></i>
                         </span>
-                        <input type="text" class="form-control" aria-label="SMS-key" placeholder="123456" name="smskey">
+                        <input type="text" class="form-control" aria-label="One-time key" placeholder="123456" name="smskey">
                       </div>
                     </td>
                     <td>
                       <input type="hidden" name="paymenttransaction_id" value="<?=$paymenttransaction_id?>"/>
+                      <?php if($signatureStatus == PaymentTransaction::SIGNATURE_STATUS_SMS_SENT): ?>
                       <button type="submit" class="btn btn-success" name="signwithsms" value="1" id="specialsubmit"><i class="mdi mdi-lock text-white"></i>Sign</button>
+                      <?php else:?>
+                      <button type="submit" class="btn btn-success" name="signwithtotp" value="1" id="specialsubmit"><i class="mdi mdi-lock text-white"></i>Sign</button>
+                      <?php endif;?>
                     </td>
                   </tr>
                 </table>

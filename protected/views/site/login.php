@@ -48,14 +48,14 @@ $this->breadcrumbs=array(
 				)); ?>
 
               <form>
-                <div class="form-group <?=($isCardreaderPending || $isCardreaderInvalid || $isSmsPending || $isPushPending) ? 'opthiddenonmobile' : ''?>">
+                <div class="form-group <?=($isCardreaderPending || $isCardreaderInvalid || $isSmsPending || $isPushPending || $isTotpPending) ? 'opthiddenonmobile' : ''?>">
         				<?php echo $form->labelEx($model,'username'); ?>
-        				<?php echo $form->textField($model,'username', array('readonly'=>($isCardreaderPending || $isCardreaderInvalid || $isSmsPending || $isPushPending), 'class' => 'form-control p_input' . ($isCardreaderPending || $isCardreaderInvalid || $isSmsPending || $isPushPending ? " pushpendingdisabled" : ""))); ?>
+        				<?php echo $form->textField($model,'username', array('readonly'=>($isCardreaderPending || $isCardreaderInvalid || $isSmsPending || $isPushPending || $isTotpPending), 'class' => 'form-control p_input' . ($isCardreaderPending || $isCardreaderInvalid || $isSmsPending || $isPushPending || $isTotpPending ? " pushpendingdisabled" : ""))); ?>
         				<?php echo $form->error($model,'username'); ?>
                 </div>
-                <div class="form-group <?=($isCardreaderPending || $isCardreaderInvalid || $isSmsPending || $isPushPending) ? 'opthiddenonmobile' : ''?>">
+                <div class="form-group <?=($isCardreaderPending || $isCardreaderInvalid || $isSmsPending || $isPushPending || $isTotpPending) ? 'opthiddenonmobile' : ''?>">
         				<?php echo $form->labelEx($model,'password'); ?>
-        				<?php echo $form->passwordField($model,'password', array('readonly'=>($isCardreaderPending || $isCardreaderInvalid || $isSmsPending || $isPushPending), 'class' => 'form-control p_input' . ($isCardreaderPending || $isCardreaderInvalid || $isSmsPending || $isPushPending ? " pushpendingdisabled" : ""))); ?>
+        				<?php echo $form->passwordField($model,'password', array('readonly'=>($isCardreaderPending || $isCardreaderInvalid || $isSmsPending || $isPushPending || $isTotpPending), 'class' => 'form-control p_input' . ($isCardreaderPending || $isCardreaderInvalid || $isSmsPending || $isPushPending || $isTotpPending ? " pushpendingdisabled" : ""))); ?>
         				<?php echo $form->error($model,'password'); ?>
 				        </div>
 
@@ -83,9 +83,13 @@ $this->breadcrumbs=array(
                   </div>
                 </div>
                 <?php else:?>
-                <?php if($isSmsPending): ?>
+                <?php if($isSmsPending || $isTotpPending): ?>
                 <div class="form-group d-flex align-items-center justify-content-between">
+                  <?php if($isSmsPending): ?>
                   <strong>We have sent you a one-time key via SMS.</strong> <?php echo CHtml::button('Resend', array('id' => 'resendauthreq', 'class' => 'btn')); ?>
+                  <?php else: ?>
+                    <strong>Please enter the current one-time verification key</strong>
+                  <?php endif;?>
                 </div>
                 <?php else: ?>
                 <div class="form-group d-flex align-items-center justify-content-between">
@@ -102,13 +106,13 @@ $this->breadcrumbs=array(
                 <?php
                 // Fields for SMS-based TOTP
                 ?>
-                <?php if($isSmsPending):?>
+                <?php if($isSmsPending || $isTotpPending):?>
                 <div class="form-group">
                 <?php echo $form->textField($model,'totp', array('class' => 'form-control p_input', 'placeholder' => '123456')); ?>
                 </div>
                 <?php endif;?>
 
-                <?php if($isSmsInvalid):?>
+                <?php if($isSmsInvalid || $isTotpInvalid):?>
                 <div class="form-group">
                 Incorrect one-time key
                 </div>

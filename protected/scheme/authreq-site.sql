@@ -39,6 +39,7 @@ CREATE TABLE `tbl_paymenttransaction` (
   `sms_authcode` int(11) DEFAULT NULL,
   `cardreader_authcode` int(11) DEFAULT NULL,
   `cardreader_nonce` int(11) DEFAULT NULL,
+  `totp_authcode` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -56,6 +57,7 @@ CREATE TABLE `tbl_user` (
   `authreq_device_id` int(11) DEFAULT NULL,
   `sms_phone_no` varchar(64) COLLATE utf8_unicode_ci DEFAULT NULL,
   `cardreader_last4` int(11) DEFAULT NULL,
+  `totp_secret` varchar(128) COLLATE utf8_unicode_ci DEFAULT NULL,
   `name` varchar(128) COLLATE utf8_unicode_ci DEFAULT NULL,
   `profilepic` varchar(128) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)

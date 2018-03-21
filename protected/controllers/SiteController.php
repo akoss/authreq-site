@@ -69,6 +69,8 @@ class SiteController extends Controller
 		$isSmsInvalid = false;
 		$isCardreaderPending = false;
 		$isCardreaderInvalid = false;
+		$isTotpPending = false;
+		$isTotpInvalid = false;
 
 		// collect user input data
 		if(isset($_POST['LoginForm']))
@@ -84,6 +86,8 @@ class SiteController extends Controller
 					$isPushPending = true;
 				} else if($login == UserIdentity::ERROR_SMS_SENT || $login == UserIdentity::ERROR_SMS_INVALID) {
 					$isSmsPending = true;
+				} else if($login == UserIdentity::ERROR_TOTP_REQUIRED || $login == UserIdentity::ERROR_TOTP_INVALID) {
+					$isTotpPending = true;
 				} else if($login == UserIdentity::ERROR_CARDREADER_SENT || $login == UserIdentity::ERROR_CARDREADER_INVALID) {
 					$isCardreaderPending = true;
 				}
@@ -94,10 +98,13 @@ class SiteController extends Controller
 				if($login == UserIdentity::ERROR_CARDREADER_INVALID) {
 					$isCardreaderInvalid = true;
 				}
+				if($login == UserIdentity::ERROR_TOTP_INVALID) {
+					$isTotpInvalid = true;
+				}
 			}
 		}
 		// display the login form
-		$this->renderPartial('login',array('model'=>$model, 'isCardreaderInvalid' => $isCardreaderInvalid, 'isSmsInvalid' => $isSmsInvalid, 'isPushPending' => $isPushPending, 'isCardreaderPending' => $isCardreaderPending, 'isSmsPending' => $isSmsPending, 'pollUrl' => Yii::app()->createUrl('site/authreqpoll'), 'resendUrl' => Yii::app()->createUrl('site/resetauthreq'), "logoutUrl" => Yii::app()->createUrl('site/logout')));
+		$this->renderPartial('login',array('model'=>$model, 'isCardreaderInvalid' => $isCardreaderInvalid, 'isSmsInvalid' => $isSmsInvalid, 'isTotpInvalid' => $isTotpInvalid, 'isPushPending' => $isPushPending, 'isCardreaderPending' => $isCardreaderPending, 'isSmsPending' => $isSmsPending, 'isTotpPending' => $isTotpPending, 'pollUrl' => Yii::app()->createUrl('site/authreqpoll'), 'resendUrl' => Yii::app()->createUrl('site/resetauthreq'), "logoutUrl" => Yii::app()->createUrl('site/logout')));
 	}
 
 	public function actionAuthreqpoll()
@@ -152,6 +159,25 @@ class SiteController extends Controller
 			} else {
 				$signatureStatus = PaymentTransaction::SIGNATURE_STATUS_SMS_SENT;
 			}
+		} else if(isset($_POST['paymenttransaction_id']) && isset($_POST['signwithtotp']) && $_POST['signwithtotp'] == 1) {
+			$sign = true;
+			$paymenttransaction = PaymentTransaction::model()->findByPk($_POST['paymenttransaction_id']); 
+
+			if(empty($paymenttransaction) || Yii::app()->user->id != $paymenttransaction->user_id) {
+				$this->redirect(Yii::app()->homeUrl);
+			}
+
+			$user = User::model()->findByPk($paymenttransaction->user_id);
+
+			if(isset($_POST['smskey']) && $user->validateVerificationKey($_POST['smskey'])) {
+				$paymenttransaction->totp_authcode = $_POST['smskey']; 
+				$paymenttransaction->save(); 
+
+				$this->redirect(Yii::app()->createUrl('site/successfulpayment?id=' . $paymenttransaction->id));
+			} else {
+				$signatureStatus = PaymentTransaction::SIGNATURE_STATUS_TOTP_SENT;
+			}
+
 		} else if(isset($_POST['paymenttransaction_id']) && isset($_POST['signwithcard']) && $_POST['signwithcard'] == 1) {
 			$sign = true;
 			$paymenttransaction = PaymentTransaction::model()->findByPk($_POST['paymenttransaction_id']); 
@@ -315,6 +341,12 @@ class SiteController extends Controller
 		if(!Yii::app()->request->isPostRequest || !Yii::app()->request->isAjaxRequest) Yii::app()->end();
 		Yii::app()->session['authreq_login_message_id'] = null;
 		Yii::app()->session['sms_totp'] = null;
+	}
+
+	public function actionGetQrcode()
+	{
+		echo "<img src='" . User::model()->findByPk(Yii::app()->user->id)->getQrCodeUri() . "'>";
+		Yii::app()->end();
 	}
 
 	/**

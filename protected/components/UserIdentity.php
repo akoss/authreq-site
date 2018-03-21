@@ -17,6 +17,8 @@ class UserIdentity extends CUserIdentity
 	const ERROR_SMS_INVALID = 53; 
 	const ERROR_CARDREADER_SENT = 54; 
 	const ERROR_CARDREADER_INVALID = 55; 
+	const ERROR_TOTP_REQUIRED = 56; 
+	const ERROR_TOTP_INVALID = 57; 
 
 	function __construct($username, $password, $totp, $cardno) {		
 		$this->username = $username; 
@@ -78,6 +80,12 @@ class UserIdentity extends CUserIdentity
 			$this->sendPush($user);
 			$this->errorCode = self::ERROR_PUSH_SENT;
 		}
+		else if($authmethod == User::AUTH_METHOD_TOTP && empty($this->totp)) {
+			$this->errorCode = self::ERROR_TOTP_REQUIRED;
+		} 
+		else if($authmethod == User::AUTH_METHOD_TOTP && !empty($this->totp) && !$user->validateVerificationKey($this->totp)) {
+			$this->errorCode = self::ERROR_TOTP_INVALID;
+		} 
 		else if($authmethod == User::AUTH_METHOD_SMS && empty(Yii::app()->session['sms_totp'])) {
 			// sms enabled -- need push
 			Yii::app()->session['sms_totp'] = $user->sendSmsAuthCode();
