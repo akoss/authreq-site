@@ -12,16 +12,16 @@ return array(
 
 	// s02 DEV
 
-	//'callbackUrl' => 'https://s02.szente.info/authreq-srv-sandbox/callback.php',
+	//'callbackUrl' => 'https://s02.szente.info/authreq-srv/callback.php',
 	//'pushPem' => '/var/www/cert/both-sandbox.pem',
 	//'rootca' => '/var/www/cert/entrust_root_certification_authority.pem',
 	//'use_apns_sandbox' => true,
 
 	// s02 PROD
 
-        //'callbackUrl' => 'https://s02.szente.info/authreq-srv/callback.php',
-        //'pushPem' => '/var/www/cert/both-prod.pem',
-        //'rootca' => '/var/www/cert/entrust_root_certification_authority.pem',
+	//'callbackUrl' => 'https://s02.szente.info/authreq-srv/callback.php',
+	//'pushPem' => '/var/www/cert/both-prod.pem',
+	//'rootca' => '/var/www/cert/entrust_root_certification_authority.pem',
 	//'use_apns_sandbox' => false,
 
 	'twilio_sid' => "AC7856eb312100f145cba79df0268e4db6",
