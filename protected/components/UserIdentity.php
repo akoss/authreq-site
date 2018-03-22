@@ -72,7 +72,7 @@ class UserIdentity extends CUserIdentity
 			$this->errorCode=self::ERROR_USERNAME_INVALID;
 		else if(!$user->validatePassword($this->password))
 			$this->errorCode=self::ERROR_PASSWORD_INVALID;
-		else if(isset(Yii::app()->session['authreq_login_message_id']) && !$this->checkSessionSignatureStatus(Yii::app()->session['authreq_login_message_id'])) {
+		else if($authmethod == User::AUTH_METHOD_AUTHREQ && isset(Yii::app()->session['authreq_login_message_id']) && !$this->checkSessionSignatureStatus(Yii::app()->session['authreq_login_message_id'])) {
 			// check whether login succeeded 
 			$this->errorCode = self::ERROR_PUSH_PENDING;
 		} else if($authmethod == User::AUTH_METHOD_AUTHREQ && !isset(Yii::app()->session['authreq_login_message_id'])) {
