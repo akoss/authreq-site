@@ -9,6 +9,7 @@ $config=dirname(__FILE__).'/protected/config/main.php';
 
 include("vendors/authreq-sdk/Autoload.php");
 include("vendors/Twilio/autoload.php");
+include("vendor/autoload.php");
 
 use Twilio\Rest\Client;
 

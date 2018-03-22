@@ -343,7 +343,7 @@ class SiteController extends Controller
 		Yii::app()->session['sms_totp'] = null;
 	}
 
-	public function actionGetQrcode()
+	public function actionGetqrcode()
 	{
 		echo "<img src='" . User::model()->findByPk(Yii::app()->user->id)->getQrCodeUri() . "'>";
 		Yii::app()->end();
