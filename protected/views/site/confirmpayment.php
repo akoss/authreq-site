@@ -306,17 +306,17 @@
                   </tr>
                   <tr>
                     <td colspan="2" align="right">
-                      <h5 class="mb-3">4. Enter <span style="font-family:'Lucida Console', monospace"><?=isset($cardreader_nonce) ? $cardreader_nonce : "" ?></span> for reference number and press <mark class="bg-success text-white">OK</mark>.</h5>
+                      <h5 class="mb-3">5. Enter <span style="font-family:'Lucida Console', monospace"><?=isset($cardreader_nonce) ? $cardreader_nonce : "" ?></span> for reference number and press <mark class="bg-success text-white">OK</mark>.</h5>
                     </td>
                   </tr>
                   <tr>
                     <td colspan="2" align="right">
-                      <h5 class="mb-3">4. Enter <span style="font-family:'Lucida Console', monospace"><?=!empty($amount) ? htmlspecialchars(number_format($amount,2)): "" ?></span> for amount and press <mark class="bg-success text-white">OK</mark>.</h5>
+                      <h5 class="mb-3">6. Enter <span style="font-family:'Lucida Console', monospace"><?=!empty($amount) ? htmlspecialchars(number_format($amount,2)): "" ?></span> for amount and press <mark class="bg-success text-white">OK</mark>.</h5>
                     </td>
                   </tr>
                   <tr>
                     <td colspan="2" align="right">
-                      <h5 class="mb-2">5. Enter the passcode that is now displayed on your card reader.</h5>
+                      <h5 class="mb-2">7. Enter the passcode that is now displayed on your card reader.</h5>
                     </td>
                   </tr>
                   <tr>
