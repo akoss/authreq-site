@@ -26,7 +26,7 @@ if(isset($user)) {
                       <p>You've successfully logged in. 
 
                       <?php if($authmethod != User::AUTH_METHOD_AUTHREQ):?>
-                      To start using Authreq, install Authreq and link it to your account.
+                      To start protecting your account by Authreq, install Authreq and link it to your account.
                       <?php else: ?>
                       Your account is protected by Authreq. 
                       <?php endif; ?>
