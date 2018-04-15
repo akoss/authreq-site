@@ -68,8 +68,8 @@ $this->breadcrumbs=array(
                   <div class="container">
                     <div class="row" id="authreqinstructions">
                       <div class="col-8 col-md-9 logininstructions" style="padding-left: 0;"> 
-                        <h4>We've sent a notification to your iPhone.</h4>
-                        Please select Allow or open Authreq to continue.<br><br>
+                        <h4>Approve login on your iPhone</h4>
+                        We've sent a notification to your iPhone. Tap on Allow or open Authreq to continue.<br><br>
                         <img style="width: 40px; margin: -9px;" src="<?=Yii::app()->request->baseUrl . '/css/';?>spinner.gif"><br><br>
                         <?php echo CHtml::button('Resend', array('class' => 'btn resendauthreq')); ?> &nbsp;&nbsp;&nbsp;
                         <?php echo CHtml::button('Scan Manually', array('class' => 'btn scanmanually')); ?> &nbsp;&nbsp;&nbsp;
