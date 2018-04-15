@@ -16,11 +16,11 @@
         <div class="card-body">
           <div class="container">
             <div class="row">
-              <div class="col-8 col-md-9 logininstructions" style="padding-top: 40px; padding-left: 0;"> 
+              <div class="col-md-9 logininstructions" style="padding-top: 10px; padding-left: 0;"> 
 
                 <h3 class="mb-5" style="color: #27ad60;"><i class="mdi mdi-check-circle" style="color: #27ad60;"></i> You have successfully linked your iPhone to your account.</h3> 
                 <p>Your account is now protected by Authreq.</p>
-                <p>You will receive a notification whenever someone tries to log in to your account, and you will have to approve each attempt - just like on the video on the right.</p>
+                <p>You will receive a notification whenever someone tries to log in to your account, and you will have to approve each attempt - just like on this short clip.</p>
                 <br>
                 <h4>Log out and log in again to see Authreq in action.</h4>
                   <span class="float-right mt-4">
@@ -29,7 +29,7 @@
                   </span>
 
               </div>
-              <div class="col-4 col-md-3 pull-right" style="padding: 0 0 0 0;">
+              <div class="col-md-3 pull-right" style="padding: 40px 20px 20px 20px;">
                 <video style="width: 100%; float: right;" autoplay="autoplay" loop="loop" muted="muted" playsinline="playsinline">
                   <source src="<?=Yii::app()->request->baseUrl . '/css/';?>loop.mp4" type="video/mp4" />
                 </video>
