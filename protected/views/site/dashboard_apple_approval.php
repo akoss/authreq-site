@@ -2,6 +2,18 @@
   'activeMenu' => 'dashboard',
 ), true) ?>
 
+<?php
+$user_id = isset(Yii::app()->user) ? Yii::app()->user->id : null; 
+if(isset($user_id)) {
+  $user = User::model()->findByPk($user_id);
+}
+if(isset($user)) {
+  $authmethod = $user->getAuthMethod(); 
+} else {
+  $authmethod = null;
+}
+?>
+
         <div class="content-wrapper">
           <div class="row">
             <div class="col-lg-12 grid-margin stretch-card">
@@ -10,8 +22,25 @@
                   <div class="d-flex mt-5 align-items-top">
                     <img src="<?=Yii::app()->request->baseUrl . '/template/';?>images/faces/face16.jpg" class="img-sm rounded-circle mr-3" alt="image">
                     <div class="mb-0 flex-grow">
-                      <p class="font-weight-bold mr-2 mb-0">Welcome to Authreq Sample Service Provider</p>
-                      <p>You've successfully logged in. To link a device to this account, select your user name in the upper-right corner and choose Protect Account With Authreq.</p>
+                      <p class="font-weight-bold mr-2 mb-0">Welcome to the Sample Service for Authreq</p>
+                      <p>You've successfully logged in. 
+
+                      <?php if($authmethod != User::AUTH_METHOD_AUTHREQ):?>
+                      To start using Authreq, install Authreq and link it to your account.
+                      <?php else: ?>
+                      Your account is protected by Authreq. 
+                      <?php endif; ?>
+                      </p>
+
+                      <a class="btn btn-lg btn-primary" href="<?=Yii::app()->createUrl('site/enrol')?>">
+                        <?php if($authmethod != User::AUTH_METHOD_AUTHREQ):?>
+                        Link account with Authreq
+                      <?php else: ?>
+                        Move to another device
+                      <?php endif; ?>
+                      </a>
+                      <br><br>
+
                     </div>
                     <div class="ml-auto">
                       <i class="mdi mdi-heart-outline text-muted"></i>
