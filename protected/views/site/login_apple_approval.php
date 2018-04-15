@@ -32,14 +32,14 @@ $this->breadcrumbs=array(
   <div class="container-scroller">
     <div class="container-fluid page-body-wrapper">
       <div class="row">
-        <div class="content-wrapper full-page-wrapper d-flex align-items-center auth-pages" style="background: darkgray;">
+        <div class="content-wrapper full-page-wrapper d-flex align-items-center auth-pages" style="">
           <div class="card col-lg-7 mx-auto">
             <div class="card-body px-1 py-4">
               <div class="row">
                 <div class="col-12">
 
-                <h3 class="card-title text-left mb-3">Authreq - Sample Service Provider</h3>
-                <p><i>This is a sample service provider for the Authreq iOS app. <br>Authreq allows users to use their mobile phone as a secondary authentication factor during login at various online services, and get information about transactions via notifications. </i></p>
+                <h3 class="card-title text-left mb-3">Sample Service</h3>
+                <p><i>This is a sample service for the Authreq iOS app. Imagine it as any online service that you would wish to protect with two-factor authentication - like your e-mail, social media, or a corporate intranet.</i></p>
                 <br>
               </div>
               </div>
