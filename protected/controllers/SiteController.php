@@ -104,7 +104,7 @@ class SiteController extends Controller
 			}
 		}
 		// display the login form
-		$this->renderPartial('login',array('model'=>$model, 'isCardreaderInvalid' => $isCardreaderInvalid, 'isSmsInvalid' => $isSmsInvalid, 'isTotpInvalid' => $isTotpInvalid, 'isPushPending' => $isPushPending, 'isCardreaderPending' => $isCardreaderPending, 'isSmsPending' => $isSmsPending, 'isTotpPending' => $isTotpPending, 'pollUrl' => Yii::app()->createUrl('site/authreqpoll'), 'resendUrl' => Yii::app()->createUrl('site/resetauthreq'), "logoutUrl" => Yii::app()->createUrl('site/logout')));
+		$this->renderPartial(Yii::app()->params['is_under_apple_approval'] ? 'login_apple_approval' : 'login',array('model'=>$model, 'isCardreaderInvalid' => $isCardreaderInvalid, 'isSmsInvalid' => $isSmsInvalid, 'isTotpInvalid' => $isTotpInvalid, 'isPushPending' => $isPushPending, 'isCardreaderPending' => $isCardreaderPending, 'isSmsPending' => $isSmsPending, 'isTotpPending' => $isTotpPending, 'pollUrl' => Yii::app()->createUrl('site/authreqpoll'), 'resendUrl' => Yii::app()->createUrl('site/resetauthreq'), "logoutUrl" => Yii::app()->createUrl('site/logout')));
 	}
 
 	public function actionAuthreqpoll()
@@ -121,7 +121,7 @@ class SiteController extends Controller
 
 	public function actionDashboard() 
 	{
-		$this->renderPartial('dashboard', array(
+		$this->renderPartial(Yii::app()->params['is_under_apple_approval'] ? 'dashboard_apple_approval' : 'dashboard', array(
 			'transactions' => PaymentTransaction::getRecentTransactions(Yii::app()->user->id), 
 		));
 	}
@@ -265,7 +265,7 @@ class SiteController extends Controller
 
 		$data = "authreq://" . base64_encode($signatureRequest->getPushMessage()->getPayload());
 
-		$this->renderPartial('enrol', array(
+		$this->renderPartial(Yii::app()->params['is_under_apple_approval'] ? 'enrol_apple_approval' : 'enrol', array(
 			'qrurl' => "https://chart.googleapis.com/chart?cht=qr&chl=" . urlencode($data) . "&chs=500x500&chld=M",
 			'enrolmentUrl' => $data,
 			'pollUrl' => Yii::app()->createUrl('site/authreqenrolmentpoll'),
@@ -284,7 +284,7 @@ class SiteController extends Controller
 
 		Yii::app()->session['authreq_enrolment_message_id'] = null;
 
-		$this->renderPartial('successfulenrolment', array(
+		$this->renderPartial(Yii::app()->params['is_under_apple_approval'] ? 'successfulenrolment_apple_approval' : 'successfulenrolment', array(
 		));
 	}
 
