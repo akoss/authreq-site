@@ -43,7 +43,6 @@ if(isset($user)) {
 
                     </div>
                     <div class="ml-auto">
-                      <i class="mdi mdi-heart-outline text-muted"></i>
                     </div>
                   </div>
                   <div class="row mt-3">
