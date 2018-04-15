@@ -40,7 +40,7 @@
           <br><br><br>
 
           <h4 class="mb-4">Or simply scan this image with your iPhone's camera:</h4>
-          <img src="<?=$qrurl?>"/>
+          <img src="<?=$qrurl?>" style="max-width: 100%;"/>
           <h4 class="mt-4"></h4>
 
           <p>Authreq will automatically open. Choose <i>'Enrol to Purple Bank'</i> and tap on <i>'Allow'</i> to link your account to your iPhone.</p>
