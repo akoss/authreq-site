@@ -36,7 +36,7 @@ class UserIdentity extends CUserIdentity
 			$service_provider_name = Yii::app()->params['service_name'], 
 			$message_id = null,
 			$response_url = Yii::app()->params['callbackUrl'], 
-			$long_description = 'Someone is trying to log in to your ' . Yii::app()->params['service_name'] . ' account \'' . htmlspecialchars($user->username) . "' from Glasgow, United Kingdom at " . date("d/m/Y H:m:s") . ". Is this you?", 
+			$long_description = 'Someone is trying to log in to your ' . Yii::app()->params['service_name'] . ' account \'' . htmlspecialchars($user->username) . "' at " . date("d/m/Y H:m:s") . ".", 
 			$short_description = 'Login Attempt', 
 			$nonce = null, 
 			$expiry_in_seconds = 120, 
