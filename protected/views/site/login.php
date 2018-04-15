@@ -66,15 +66,28 @@ $this->breadcrumbs=array(
                 <?php if($isPushPending): ?>
                 <div class="form-group">
                   <div class="container">
-                    <div class="row">
+                    <div class="row" id="authreqinstructions">
                       <div class="col-8 col-md-9 logininstructions" style="padding-left: 0;"> 
                         <h4>We've sent a notification to your iPhone.</h4>
-                        Please select Allow or open AuthReq to continue.<br><br>
+                        Please select Allow or open Authreq to continue.<br><br>
                         <img style="width: 40px; margin: -9px;" src="<?=Yii::app()->request->baseUrl . '/css/';?>spinner.gif"><br><br>
-                        <?php echo CHtml::button('Resend', array('id' => 'resendauthreq', 'class' => 'btn')); ?> &nbsp;&nbsp;&nbsp;
-                        <?php echo CHtml::button('Cancel', array('id' => 'cancelauthreq', 'class' => 'btn')); ?>
+                        <?php echo CHtml::button('Resend', array('class' => 'btn resendauthreq')); ?> &nbsp;&nbsp;&nbsp;
+                        <?php echo CHtml::button('Scan Manually', array('class' => 'btn scanmanually')); ?> &nbsp;&nbsp;&nbsp;
+                        <?php echo CHtml::button('Cancel', array('class' => 'btn cancelauthreq')); ?>
                       </div>
-                      <div class="col-4 col-md-3 pull-right" style="padding: 0 0 0 0;">
+                      <div class="col-12 manualcode" style="display: none;">
+
+                        <h4 class="mb-4">Visit this page using your iPhone and tap here to approve your login with Authreq: </h4>
+                        <a href="<?=$enrolmentUrl?>"><img style="margin-left: 10px;" width="120" src="<?=Yii::app()->request->baseUrl . '/css/';?>approve.png" alt="Approve with Authreq on iPhone"/></a>
+                        <br><br>
+                        <h4>Or scan the following code with your iPhone's camera:</h4>
+                        <img src="<?=$qrurl?>" style="max-width: 100%;"/>
+                        <br>
+                        <img style="width: 40px; margin: -9px;" src="<?=Yii::app()->request->baseUrl . '/css/';?>spinner.gif">&nbsp;&nbsp;&nbsp;
+                        <?php echo CHtml::button('Resend', array('class' => 'btn resendauthreq')); ?> &nbsp;&nbsp;&nbsp;
+                        <?php echo CHtml::button('Cancel', array('class' => 'btn cancelauthreq')); ?>
+                      </div>
+                      <div class="col-4 col-md-3 pull-right loginvideo" style="padding: 0 0 0 0;">
                         <video style="width: 100%; float: right;" autoplay="autoplay" loop="loop" muted="muted" playsinline="playsinline">
                           <source src="<?=Yii::app()->request->baseUrl . '/css/';?>loop.mp4" type="video/mp4" />
                         </video>
@@ -86,7 +99,7 @@ $this->breadcrumbs=array(
                 <?php if($isSmsPending || $isTotpPending): ?>
                 <div class="form-group d-flex align-items-center justify-content-between">
                   <?php if($isSmsPending): ?>
-                  <strong>We have sent you a one-time key via SMS.</strong> <?php echo CHtml::button('Resend', array('id' => 'resendauthreq', 'class' => 'btn')); ?>
+                  <strong>We have sent you a one-time key via SMS.</strong> <?php echo CHtml::button('Resend', array('class' => 'btn resendauthreq')); ?>
                   <?php else: ?>
                     <strong>Please enter the current one-time verification key</strong>
                   <?php endif;?>
@@ -184,13 +197,19 @@ $this->breadcrumbs=array(
         });
     }
 
-    $("#resendauthreq").click(function() {
+    $(".resendauthreq").click(function() {
       $.post("<?=$resendUrl?>", function( data ) {
         $("#login-form").submit();
       });
     });
 
-    $("#cancelauthreq").click(function() {
+    $(".scanmanually").click(function() {
+      $(".logininstructions").hide();//css('visibility', 'hidden');
+      $(".loginvideo").hide();
+      $(".manualcode").show();
+    });
+
+    $(".cancelauthreq").click(function() {
       window.location.href="<?=$logoutUrl?>";
     });
 

@@ -33,10 +33,10 @@ class UserIdentity extends CUserIdentity
 		$signatureRequest = new DatabaseSignatureRequest($db);
 
 		$signatureRequest->setupWith(
-			$service_provider_name = 'Purple Online Banking', 
+			$service_provider_name = Yii::app()->params['service_name'], 
 			$message_id = null,
 			$response_url = Yii::app()->params['callbackUrl'], 
-			$long_description = 'Someone is trying to log in to your Purple Online Banking account \'' . htmlspecialchars($user->username) . "' from Glasgow, United Kingdom at " . date("d/m/Y H:m:s") . ". Is this you?", 
+			$long_description = 'Someone is trying to log in to your ' . Yii::app()->params['service_name'] . ' account \'' . htmlspecialchars($user->username) . "' from Glasgow, United Kingdom at " . date("d/m/Y H:m:s") . ". Is this you?", 
 			$short_description = 'Login Attempt', 
 			$nonce = null, 
 			$expiry_in_seconds = 120, 
@@ -50,6 +50,9 @@ class UserIdentity extends CUserIdentity
 		$is_sandbox = Yii::app()->params['use_apns_sandbox'];
 
 		$signatureRequest->sendPush(Yii::app()->params['pushPem'], Yii::app()->params['rootca'], $is_sandbox);
+
+		Yii::app()->session['authreq_login_message_payload'] = $signatureRequest->getPushMessage()->getPayload();
+
 		Yii::app()->session['authreq_login_message_id'] = $signatureRequest->message_id;
 	}
 

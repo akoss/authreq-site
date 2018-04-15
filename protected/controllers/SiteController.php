@@ -103,8 +103,15 @@ class SiteController extends Controller
 				}
 			}
 		}
+
+		if(isset(Yii::app()->session['authreq_login_message_payload'])) {
+			$data = "authreq://" . base64_encode(Yii::app()->session['authreq_login_message_payload']);
+		} else {
+			$data = null;
+		}
+
 		// display the login form
-		$this->renderPartial(Yii::app()->params['is_under_apple_approval'] ? 'login_apple_approval' : 'login',array('model'=>$model, 'isCardreaderInvalid' => $isCardreaderInvalid, 'isSmsInvalid' => $isSmsInvalid, 'isTotpInvalid' => $isTotpInvalid, 'isPushPending' => $isPushPending, 'isCardreaderPending' => $isCardreaderPending, 'isSmsPending' => $isSmsPending, 'isTotpPending' => $isTotpPending, 'pollUrl' => Yii::app()->createUrl('site/authreqpoll'), 'resendUrl' => Yii::app()->createUrl('site/resetauthreq'), "logoutUrl" => Yii::app()->createUrl('site/logout')));
+		$this->renderPartial(Yii::app()->params['is_under_apple_approval'] ? 'login_apple_approval' : 'login',array('model'=>$model, 'isCardreaderInvalid' => $isCardreaderInvalid, 'isSmsInvalid' => $isSmsInvalid, 'isTotpInvalid' => $isTotpInvalid, 'isPushPending' => $isPushPending, 'isCardreaderPending' => $isCardreaderPending, 'isSmsPending' => $isSmsPending, 'isTotpPending' => $isTotpPending, 'qrurl' => "https://chart.googleapis.com/chart?cht=qr&chl=" . urlencode($data) . "&chs=500x500&chld=L", 'enrolmentUrl' => $data, 'pollUrl' => Yii::app()->createUrl('site/authreqpoll'), 'resendUrl' => Yii::app()->createUrl('site/resetauthreq'), "logoutUrl" => Yii::app()->createUrl('site/logout')));
 	}
 
 	public function actionAuthreqpoll()
@@ -250,11 +257,11 @@ class SiteController extends Controller
 		$signatureRequest = new DatabaseSignatureRequest($db);
 
 		$signatureRequest->setupWith(
-			$service_provider_name = 'Enrolment - Purple Online Banking', 
+			$service_provider_name = 'Enrolment - ' . Yii::app()->params['service_name'], 
 			$message_id = null,
 			$response_url = Yii::app()->params['callbackUrl'], 
-			$long_description = 'Tap on Allow to add this device to your Purple Online Banking account (' . htmlspecialchars($user->username) . ')', 
-			$short_description = 'Enrol to Purple Bank', 
+			$long_description = 'Tap on Allow to add this device to your ' . Yii::app()->params['service_name'] . ' account (' . htmlspecialchars($user->username) . ')', 
+			$short_description = 'Enrol to ' . Yii::app()->params['service_short_name'], 
 			$nonce = null, 
 			$expiry_in_seconds = 300, 
 			$device_id = -1, 

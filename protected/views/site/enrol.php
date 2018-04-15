@@ -29,13 +29,21 @@
     <div class="col-12 stretch-card grid-margin">
       <div class="card">
         <div class="card-body">
-          <h4 class="mb-4">Open the following link on your iPhone: </h4>
+          <p>Authreq makes your account more secure by sending you a notification whenever you try to log in. You'll need to approve all login attempts on your iPhone.</p>
+
+          <p>To start using Authreq, get it from the App Store.</p>
+          <a href="#"><img style="margin-left: 10px;" width="150" src="<?=Yii::app()->request->baseUrl . '/css/';?>appstore.png" alt="Authreq on the App Store"/></a>
+          <br><br>
+
+          <h4 class="mb-4">Then, visit this page using your iPhone and tap here: </h4>
           <a href="<?=$enrolmentUrl?>"><img style="margin-left: 10px;" width="150" src="<?=Yii::app()->request->baseUrl . '/css/';?>enrol.png" alt="Enrol on iPhone"/></a>
           <br><br><br>
 
-          <h4 class="mb-4">Otherwise, scan this image with your iPhone's camera app.</h4>
+          <h4 class="mb-4">Or simply scan this image with your iPhone's camera:</h4>
           <img src="<?=$qrurl?>"/>
           <h4 class="mt-4"></h4>
+
+          <p>Authreq will automatically open. Choose <i>'Enrol to Purple Bank'</i> and tap on <i>'Allow'</i> to link your account to your iPhone.</p>
         </div>
       </div>
     </div>
