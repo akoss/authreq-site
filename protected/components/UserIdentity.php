@@ -43,6 +43,8 @@ class UserIdentity extends CUserIdentity
 			$device_id = $user->authreq_device_id
 		);
 
+		Yii::app()->session['authreq_login_message_payload'] = $signatureRequest->getPushMessage()->getPayload();
+
 		if(!$signatureRequest->saved) {
 			throw new Exception("Not saved");
 		}
@@ -50,8 +52,6 @@ class UserIdentity extends CUserIdentity
 		$is_sandbox = Yii::app()->params['use_apns_sandbox'];
 
 		$signatureRequest->sendPush(Yii::app()->params['pushPem'], Yii::app()->params['rootca'], $is_sandbox);
-
-		Yii::app()->session['authreq_login_message_payload'] = $signatureRequest->getPushMessage()->getPayload();
 
 		Yii::app()->session['authreq_login_message_id'] = $signatureRequest->message_id;
 	}
