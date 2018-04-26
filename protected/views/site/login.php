@@ -35,12 +35,19 @@ $this->breadcrumbs=array(
         <div class="content-wrapper full-page-wrapper d-flex align-items-center auth-pages">
           <div class="card col-lg-7 mx-auto">
             <div class="card-body px-1 py-4">
+              <?php if($resetdemo): ?>
               <div class="row">
                 <div class="col-12">
-                <img height="28" style="margin-top: 4px; margin-left: 5px; float: right; margin-bottom: 20px;" src="<?=Yii::app()->request->baseUrl . '/template/';?>images/logo.svg"/> 
-                <h3 class="card-title text-left mb-3">Online Banking</h3>
-                <img src=""/>
+                  <h4 class="bg-success text-white card-title text-left mb-3">We've reset the demo account.</h4>
+                </div>
               </div>
+              <?php endif;?>
+              <div class="row">
+                <div class="col-12">
+                  <img height="28" style="margin-top: 4px; margin-left: 5px; float: right; margin-bottom: 20px;" src="<?=Yii::app()->request->baseUrl . '/template/';?>images/logo.svg"/> 
+                  <h3 class="card-title text-left mb-3">Online Banking</h3>
+                  <img src=""/>
+                </div>
               </div>
 				<?php $form=$this->beginWidget('CActiveForm', array(
 					'id'=>'login-form',
@@ -74,6 +81,12 @@ $this->breadcrumbs=array(
                         <?php echo CHtml::button('Resend', array('class' => 'btn resendauthreq')); ?> &nbsp;&nbsp;&nbsp;
                         <?php echo CHtml::button('Scan Manually', array('class' => 'btn scanmanually')); ?> &nbsp;&nbsp;&nbsp;
                         <?php echo CHtml::button('Cancel', array('class' => 'btn cancelauthreq')); ?>
+                        <?php if($showResetdemo): ?>
+                        <br><br>
+                        <?php echo CHtml::button('Reset Demo Account', array('class' => 'btn resetdemo'));?>
+                        <?php endif;?>
+                      
+
                       </div>
                       <div class="col-12 manualcode" style="display: none;">
 
@@ -200,6 +213,12 @@ $this->breadcrumbs=array(
     $(".resendauthreq").click(function() {
       $.post("<?=$resendUrl?>", function( data ) {
         $("#login-form").submit();
+      });
+    });
+
+    $(".resetdemo").click(function() {
+      $.post("<?=$resetdemoUrl?>", function( data ) {
+        window.location.reload();
       });
     });
 

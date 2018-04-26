@@ -21,7 +21,7 @@ class SiteController extends Controller
 	{
 		return array(
 			array('allow',
-				'actions' => array('login', 'authreqpoll', 'resetauthreq'),
+				'actions' => array('login', 'authreqpoll', 'resetauthreq', 'resetdemo', 'logout'),
 				'users'=>array('*'),
 			),
 			array('allow',
@@ -64,6 +64,14 @@ class SiteController extends Controller
 			Yii::app()->end();
 		}
 
+		$resetdemo = false;
+		if(isset(Yii::app()->session['resetdemo'])) {
+			if(Yii::app()->session['resetdemo']) {
+				Yii::app()->session['resetdemo'] = null;
+				$resetdemo = true;
+			}
+		}
+
 		$isPushPending = false;
 		$isSmsPending = false;
 		$isSmsInvalid = false;
@@ -71,12 +79,15 @@ class SiteController extends Controller
 		$isCardreaderInvalid = false;
 		$isTotpPending = false;
 		$isTotpInvalid = false;
+		$showResetdemo = false;
 
 		// collect user input data
 		if(isset($_POST['LoginForm']))
 		{
 			$model->attributes=$_POST['LoginForm'];
 			// validate user input and redirect to the previous page if valid
+
+			$showResetdemo = $model->username == 'charlie';
 
 			if($model->validate()) {
 				$login = $model->login();
@@ -110,8 +121,10 @@ class SiteController extends Controller
 			$data = null;
 		}
 
+		//die("resetdemo: " . ($resetdemo == "reset_successful" ? "true" : "false"));
+
 		// display the login form
-		$this->renderPartial(Yii::app()->params['is_under_apple_approval'] ? 'login_apple_approval' : 'login',array('model'=>$model, 'isCardreaderInvalid' => $isCardreaderInvalid, 'isSmsInvalid' => $isSmsInvalid, 'isTotpInvalid' => $isTotpInvalid, 'isPushPending' => $isPushPending, 'isCardreaderPending' => $isCardreaderPending, 'isSmsPending' => $isSmsPending, 'isTotpPending' => $isTotpPending, 'qrurl' => "https://chart.googleapis.com/chart?cht=qr&chl=" . urlencode($data) . "&chs=500x500&chld=L", 'enrolmentUrl' => $data, 'pollUrl' => Yii::app()->createUrl('site/authreqpoll'), 'resendUrl' => Yii::app()->createUrl('site/resetauthreq'), "logoutUrl" => Yii::app()->createUrl('site/logout')));
+		$this->renderPartial(Yii::app()->params['is_under_apple_approval'] ? 'login_apple_approval' : 'login',array('model'=>$model, 'isCardreaderInvalid' => $isCardreaderInvalid, 'isSmsInvalid' => $isSmsInvalid, 'isTotpInvalid' => $isTotpInvalid, 'isPushPending' => $isPushPending, 'isCardreaderPending' => $isCardreaderPending, 'isSmsPending' => $isSmsPending, 'isTotpPending' => $isTotpPending, 'qrurl' => "https://chart.googleapis.com/chart?cht=qr&chl=" . urlencode($data) . "&chs=500x500&chld=L", 'enrolmentUrl' => $data, 'pollUrl' => Yii::app()->createUrl('site/authreqpoll'), 'resetdemoUrl' => Yii::app()->createUrl('site/resetdemo'), 'resendUrl' => Yii::app()->createUrl('site/resetauthreq'),"resetdemo" => $resetdemo, 'showResetdemo' => $showResetdemo, "logoutUrl" => Yii::app()->createUrl('site/logout')));
 	}
 
 	public function actionAuthreqpoll()
@@ -330,6 +343,21 @@ class SiteController extends Controller
 		$result = DatabaseSignatureRequest::isSignedWithDevice($db, Yii::app()->session['authreq_enrolment_message_id']);
 
 		return $result;
+	}
+
+	public function actionResetdemo()
+	{
+		if(Yii::app()->request->isPostRequest) {
+			$user = User::model()->findByPk(8);
+
+			if(!empty($user)) {
+				$user->authreq_device_id = null;
+			}
+
+			if($user->save()) {
+				Yii::app()->session['resetdemo'] = true;
+			}
+		}
 	}
 
 	public function actionAuthreqenrolmentpoll()
