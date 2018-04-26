@@ -97,7 +97,7 @@
               <a class="dropdown-item" href="<?=Yii::app()->createUrl('site/enrol')?>">
                 <i class="mdi mdi-cached mr-2 text-success"></i>
                 <?php if($authmethod != User::AUTH_METHOD_AUTHREQ):?>
-                Protect this account <br>with Authreq
+                Protect your account <br>with Authreq
               <?php else: ?>
                 Enrol another <br>device
               <?php endif; ?>

@@ -180,7 +180,11 @@
               </a>
               <a class="dropdown-item" href="<?=Yii::app()->createUrl('site/enrol')?>">
                 <i class="mdi mdi-cached mr-2 text-success"></i>
-                Enrol Device
+                <?php if($authmethod != User::AUTH_METHOD_AUTHREQ):?>
+                Protect your account <br>with Authreq
+              <?php else: ?>
+                Enrol another <br>device
+              <?php endif; ?>
               </a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="<?=Yii::app()->createUrl('site/logout')?>">

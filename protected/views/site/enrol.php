@@ -23,7 +23,7 @@
 </script>
 
 <div class="content-wrapper">
-<div style="margin-top: 20px; margin-bottom: 20px;" class='h2'>Enrol Device</div>
+<div style="margin-top: 20px; margin-bottom: 20px;" class='h2'>Protect your account with Authreq</div>
 <form class="forms-sample" id="outgoingtransfer" method="post" action="<?=Yii::app()->createUrl('site/confirmpayment')?>">
 <div class="row">
     <div class="col-12 stretch-card grid-margin">
