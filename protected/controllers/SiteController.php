@@ -146,7 +146,7 @@ class SiteController extends Controller
 
 	public function actionConfirmpayment() 
 	{
-		if(!Yii::app()->request->isPostRequest || !isset($_POST['recipient']) || $_POST['recipient'] == 0 || !isset($_POST['source']) || !isset($_POST['amount'])) {
+		if(!Yii::app()->request->isPostRequest || !isset($_POST['recipient']) || $_POST['recipient'] == 0 || !isset($_POST['source']) || !isset($_POST['amount']) || !is_numeric($_POST['amount']) || $_POST['amount'] <= 0) {
 			$this->redirect(Yii::app()->createUrl('site/payment'));
 		}
 

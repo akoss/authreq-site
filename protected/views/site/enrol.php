@@ -32,7 +32,7 @@
           <p>Authreq makes your account more secure by sending you a notification whenever you try to log in. You'll need to approve all login attempts on your iPhone.</p>
 
           <p>To start using Authreq, get it from the App Store.</p>
-          <a href="#"><img style="margin-left: 10px;" width="150" src="<?=Yii::app()->request->baseUrl . '/css/';?>appstore.png" alt="Authreq on the App Store"/></a>
+          <a href="https://itunes.apple.com/gb/app/authreq/id1358854898?mt=8" target="_blank"><img style="margin-left: 10px;" width="150" src="<?=Yii::app()->request->baseUrl . '/css/';?>appstore.png" alt="Authreq on the App Store"/></a>
           <br><br>
 
           <h4 class="mb-4">Then, visit this page using your iPhone and tap here: </h4>
