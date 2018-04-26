@@ -217,9 +217,11 @@ $this->breadcrumbs=array(
     });
 
     $(".resetdemo").click(function() {
-      $.post("<?=$resetdemoUrl?>", function( data ) {
-        window.location.reload();
-      });
+      if(confirm("Are you sure that you want to reset the demo account?")) {
+        $.post("<?=$resetdemoUrl?>", function( data ) {
+          window.location.reload();
+        });
+      }
     });
 
     $(".scanmanually").click(function() {
