@@ -274,7 +274,7 @@ class SiteController extends Controller
 			$message_id = null,
 			$response_url = Yii::app()->params['callbackUrl'], 
 			$long_description = 'Tap on Allow to add this device to your ' . Yii::app()->params['service_name'] . ' account (' . htmlspecialchars($user->username) . ')', 
-			$short_description = 'Enrol to ' . Yii::app()->params['service_short_name'], 
+			$short_description = 'Enrolment - ' . Yii::app()->params['service_short_name'], 
 			$nonce = null, 
 			$expiry_in_seconds = 300, 
 			$device_id = -1, 
